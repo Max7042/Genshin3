@@ -4,6 +4,8 @@ using Tesseract;
 
 namespace GenshinOverlay {
     public class IMG {
+        public static ColorConverter ColorConverter = new ColorConverter();
+
         public static decimal Capture(IntPtr handle, Point pos, Size size) {
             if(handle == IntPtr.Zero) { return 0; }
 
@@ -23,7 +25,7 @@ namespace GenshinOverlay {
                             pixAvg /= 4.0f;
                             using(Pix pixi = pixAvg > 0.5f ? pixb.Invert() : pixb) {
                                 using(Pix pixn = pixi.SelectBySize(Config.OCRNoiseSize, Config.OCRNoiseSize, Config.OCRNoiseConnectivity, Config.OCRNoiseType, Config.OCRNoiseRelation)) {
-                                    //pixn.ClipToForeground(IntPtr.Zero); --todo
+                                    //pixn.ClipToForeground(IntPtr.Zero);
                                     using(Pix pix = pixn.AddBorder(Config.OCRPadding, 0)) {
                                         pix.XRes = 300;
                                         pix.YRes = 300;

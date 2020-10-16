@@ -14,6 +14,7 @@ namespace GenshinOverlay {
     public partial class MainWindow : MetroForm {
         private OverlayWindow OverlayWindow;
         private KeyboardHook KeyHook;
+
         private WindowHook WinHook;
 
         public MainWindow() {
@@ -42,7 +43,7 @@ namespace GenshinOverlay {
             KeyHook = new KeyboardHook(new List<Keys>() {  Keys.E });
             KeyHook.KeyUp += KeyHook_KeyUp;
 
-            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocation == Point.Empty) {
+            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocations["4 #1"] == Point.Empty) {
                 ConfigureOverlayMessage.Visible = true;
                 ConfigureOverlayButton.Location = new Point(ConfigureOverlayButton.Location.X, ConfigureOverlayButton.Location.Y + 20);
             } else {
@@ -66,7 +67,7 @@ namespace GenshinOverlay {
 
         private void KeyHook_KeyUp(object sender, KeyHookEventArgs e) {
             if(OverlayWindow.GenshinHandle == IntPtr.Zero) { return; }
-            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocation == Point.Empty) { return; }
+            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocations["4 #1"] == Point.Empty) { return; }
             if(e.Key == Keys.E) {
                 if(Party.SelectedCharacter == -1 || Party.Characters[Party.SelectedCharacter].Cooldown > Config.CooldownMinimumReapply || Party.Characters[Party.SelectedCharacter].Processing) { return; }
                 int c = Party.SelectedCharacter;
@@ -122,7 +123,7 @@ namespace GenshinOverlay {
 
             User32.GetClientRect(OverlayWindow.GenshinHandle, out User32.RECT rect);
             if(rect.Empty()) {
-                MetroMessageBox.Show(this, $"\nGenshin Impact client area could not be detected.\n> Please ensure Genshin Impact is not minimized.\n> Fullscreen is not supported.", "Client Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 160);
+                MetroMessageBox.Show(this, $"\nGenshin Impact client area could not be detected.\n> Please ensure Genshin Impact is not minimized.\n> Fullscreen is not supported but fullscreen borderless is.", "Client Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 160);
                 return;
             }
 
@@ -133,6 +134,8 @@ namespace GenshinOverlay {
             }
             ConfigureOverlayButton.Visible = false;
             ConfigPanel.Visible = true;
+
+            CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 255, 0, 0);
 
             CooldownTextXPosTrack.Maximum = rect.Width;
             CooldownTextYPosTrack.Maximum = rect.Height;
@@ -147,7 +150,7 @@ namespace GenshinOverlay {
             CooldownBarsXPosTrack.MouseWheelBarPartitions = CooldownBarsXPosTrack.Maximum - CooldownBarsXPosTrack.Minimum;
             CooldownBarsYPosTrack.MouseWheelBarPartitions = CooldownBarsYPosTrack.Maximum - CooldownBarsYPosTrack.Minimum;
 
-            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocation == Point.Empty) {
+            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocations["4 #1"] == Point.Empty) {
                 AssumeDefaultValues(rect);
             }
             UpdateControlValues();
@@ -158,11 +161,12 @@ namespace GenshinOverlay {
             if(template != null) {
                 Config.CooldownTextLocation = template.Properties.CooldownTextLocation;
                 Config.CooldownTextSize = template.Properties.CooldownTextSize;
-                Config.PartyNumLocation = template.Properties.PartyNumLocation;
-                Config.PartyNumYOffset = template.Properties.PartyNumYOffset;
+                Config.PartyNumLocations = template.Properties.PartyNumLocations;
+                Config.PartyNumBarOffsets = template.Properties.PartyNumBarOffsets;
                 Config.CooldownBarLocation = template.Properties.CooldownBarLocation;
                 Config.CooldownBarSize = template.Properties.CooldownBarSize;
-                Config.CooldownBarOffset = template.Properties.CooldownBarOffset;
+                Config.CooldownBarXOffset = template.Properties.CooldownBarXOffset;
+                Config.CooldownBarYOffsets = template.Properties.CooldownBarYOffsets;
             }
         }
 
@@ -171,15 +175,17 @@ namespace GenshinOverlay {
             CooldownTextYPosTrack.Value = Config.CooldownTextLocation.Y > CooldownTextYPosTrack.Maximum ? CooldownTextYPosTrack.Maximum : Config.CooldownTextLocation.Y;
             CooldownTextWidthTrack.Value = Config.CooldownTextSize.Width > CooldownTextWidthTrack.Maximum ? CooldownTextWidthTrack.Maximum : Config.CooldownTextSize.Width;
             CooldownTextHeightTrack.Value = Config.CooldownTextSize.Height > CooldownTextHeightTrack.Maximum ? CooldownTextHeightTrack.Maximum : Config.CooldownTextSize.Height;
-            PartyNumXPosTrack.Value = Config.PartyNumLocation.X > PartyNumXPosTrack.Maximum ? PartyNumXPosTrack.Maximum : Config.PartyNumLocation.X;
-            PartyNumYPosTrack.Value = Config.PartyNumLocation.Y > PartyNumYPosTrack.Maximum ? PartyNumYPosTrack.Maximum : Config.PartyNumLocation.Y;
-            PartyNumYOffsetTrack.Value = Config.PartyNumYOffset > PartyNumYOffsetTrack.Maximum ? PartyNumYOffsetTrack.Maximum : Config.PartyNumYOffset;
+
+            if(PartyNumComboBox.SelectedItem == null) {
+                PartyNumComboBox.SelectedItem = "4 #1";
+            }
+            UpdatePartyNumTrackValues();
+
             CooldownBarsXPosTrack.Value = Config.CooldownBarLocation.X > CooldownBarsXPosTrack.Maximum ? CooldownBarsXPosTrack.Maximum : Config.CooldownBarLocation.X;
             CooldownBarsYPosTrack.Value = Config.CooldownBarLocation.Y > CooldownBarsYPosTrack.Maximum ? CooldownBarsYPosTrack.Maximum : Config.CooldownBarLocation.Y;
             CooldownBarsWidthTrack.Value = Config.CooldownBarSize.Width > CooldownBarsWidthTrack.Maximum ? CooldownBarsWidthTrack.Maximum : Config.CooldownBarSize.Width;
             CooldownBarsHeightTrack.Value = Config.CooldownBarSize.Height > CooldownBarsHeightTrack.Maximum ? CooldownBarsHeightTrack.Maximum : Config.CooldownBarSize.Height;
-            CooldownBarsXOffsetTrack.Value = (int)(Config.CooldownBarOffset.X * 10) > CooldownBarsXOffsetTrack.Maximum ? CooldownBarsXOffsetTrack.Maximum : (int)(Config.CooldownBarOffset.X * 10);
-            CooldownBarsYOffsetTrack.Value = (int)(Config.CooldownBarOffset.Y * 10) > CooldownBarsYOffsetTrack.Maximum ? CooldownBarsYOffsetTrack.Maximum : (int)(Config.CooldownBarOffset.Y * 10);
+            CooldownBarsXOffsetTrack.Value = (int)(Config.CooldownBarXOffset * 10) > CooldownBarsXOffsetTrack.Maximum ? CooldownBarsXOffsetTrack.Maximum : (int)(Config.CooldownBarXOffset * 10);
             CooldownBarsModeTrack.Value = Config.CooldownBarMode > CooldownBarsModeTrack.Maximum ? CooldownBarsModeTrack.Maximum : Config.CooldownBarMode;
             CooldownBarsSelOffsetTrack.Value = Config.CooldownBarSelOffset > CooldownBarsSelOffsetTrack.Maximum ? CooldownBarsSelOffsetTrack.Maximum : Config.CooldownBarSelOffset;
 
@@ -200,6 +206,41 @@ namespace GenshinOverlay {
             CooldownOverride3Text.Text = Config.CooldownOverride[2].ToString();
             CooldownOverride4Text.Text = Config.CooldownOverride[3].ToString();
             ToggleTheme.Checked = Config.ConfigTheme == 2;
+        }
+
+        private void UpdatePartyNumTrackValues() {
+            string item = PartyNumComboBox.SelectedItem.ToString();
+            PartyNumBarOffsetsText.Visible = true;
+            PartyNumBarOffsetsTrack.Visible = true;
+            if(item.Contains("4 ")) {
+                Party.PartySize = 4;
+                PartyNumBarOffsetsText.Visible = false;
+                PartyNumBarOffsetsTrack.Visible = false;
+                CooldownBarsYOffsetTrack.Value = (int)(Config.CooldownBarYOffsets[0] * 10) > CooldownBarsYOffsetTrack.Maximum ? CooldownBarsYOffsetTrack.Maximum : (int)(Config.CooldownBarYOffsets[0] * 10);
+                PartyNumXPosText.ForeColor = Color.FromArgb(255, 255, 0, 0);
+                PartyNumYPosText.ForeColor = Color.FromArgb(255, 255, 0, 0);
+                PartyNumBarOffsetsText.ForeColor = Color.FromArgb(255, 255, 0, 0);
+                CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 255, 0, 0);
+            } else if(item.Contains("3 ")) {
+                Party.PartySize = 3;
+                PartyNumBarOffsetsTrack.Value = Config.PartyNumBarOffsets[1];
+                CooldownBarsYOffsetTrack.Value = (int)(Config.CooldownBarYOffsets[1] * 10) > CooldownBarsYOffsetTrack.Maximum ? CooldownBarsYOffsetTrack.Maximum : (int)(Config.CooldownBarYOffsets[1] * 10);
+                PartyNumXPosText.ForeColor = Color.FromArgb(255, 225, 165, 0);
+                PartyNumYPosText.ForeColor = Color.FromArgb(255, 225, 165, 0);
+                PartyNumBarOffsetsText.ForeColor = Color.FromArgb(255, 225, 165, 0);
+                CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 225, 165, 0);
+            } else {
+                Party.PartySize = 2;
+                PartyNumBarOffsetsTrack.Value = Config.PartyNumBarOffsets[2];
+                CooldownBarsYOffsetTrack.Value = (int)(Config.CooldownBarYOffsets[2] * 10) > CooldownBarsYOffsetTrack.Maximum ? CooldownBarsYOffsetTrack.Maximum : (int)(Config.CooldownBarYOffsets[2] * 10);
+                PartyNumXPosText.ForeColor = Color.FromArgb(255, 155, 225, 0);
+                PartyNumYPosText.ForeColor = Color.FromArgb(255, 155, 225, 0);
+                PartyNumBarOffsetsText.ForeColor = Color.FromArgb(255, 155, 225, 0);
+                CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 155, 225, 0);
+            }
+
+            PartyNumXPosTrack.Value = Config.PartyNumLocations[item].X > PartyNumXPosTrack.Maximum ? PartyNumXPosTrack.Maximum : Config.PartyNumLocations[item].X;
+            PartyNumYPosTrack.Value = Config.PartyNumLocations[item].Y > PartyNumYPosTrack.Maximum ? PartyNumYPosTrack.Maximum : Config.PartyNumLocations[item].Y;
         }
 
         #region "Config Click Events":
@@ -292,15 +333,20 @@ namespace GenshinOverlay {
         }
         private void PartyNumXPosTrack_ValueChanged(object sender, EventArgs e) {
             PartyNumXPosText.Text = "X Pos: " + PartyNumXPosTrack.Value.ToString();
-            Config.PartyNumLocation = new Point(PartyNumXPosTrack.Value, Config.PartyNumLocation.Y);
+            Config.PartyNumLocations[PartyNumComboBox.SelectedItem.ToString()] = new Point(PartyNumXPosTrack.Value, Config.PartyNumLocations[PartyNumComboBox.SelectedItem.ToString()].Y);
         }
         private void PartyNumYPosTrack_ValueChanged(object sender, EventArgs e) {
             PartyNumYPosText.Text = "Y Pos: " + PartyNumYPosTrack.Value.ToString();
-            Config.PartyNumLocation = new Point(Config.PartyNumLocation.X, PartyNumYPosTrack.Value);
+            Config.PartyNumLocations[PartyNumComboBox.SelectedItem.ToString()] = new Point(Config.PartyNumLocations[PartyNumComboBox.SelectedItem.ToString()].X, PartyNumYPosTrack.Value);
         }
-        private void PartyNumYOffsetTrack_ValueChanged(object sender, EventArgs e) {
-            PartyNumYOffsetText.Text = "Y Offset: " + PartyNumYOffsetTrack.Value.ToString();
-            Config.PartyNumYOffset = PartyNumYOffsetTrack.Value;
+
+        private void PartyNumBarOffsetsTrack_ValueChanged(object sender, EventArgs e) {
+            PartyNumBarOffsetsText.Text = "Bar Offset: " + PartyNumBarOffsetsTrack.Value.ToString();
+            if(PartyNumComboBox.SelectedItem.ToString().Contains("3 ")) {
+                Config.PartyNumBarOffsets[1] = PartyNumBarOffsetsTrack.Value;
+            } else if(PartyNumComboBox.SelectedItem.ToString().Contains("2 ")) {
+                Config.PartyNumBarOffsets[2] = PartyNumBarOffsetsTrack.Value;
+            }
         }
         private void CooldownBarsXPosTrack_ValueChanged(object sender, EventArgs e) {
             CooldownBarsXPosText.Text = "X Pos: " + CooldownBarsXPosTrack.Value.ToString();
@@ -320,11 +366,17 @@ namespace GenshinOverlay {
         }
         private void CooldownBarsXOffsetTrack_ValueChanged(object sender, EventArgs e) {
             CooldownBarsXOffsetText.Text = "X Offset: " + ((float)CooldownBarsXOffsetTrack.Value / 10).ToString();
-            Config.CooldownBarOffset = new PointF((float)CooldownBarsXOffsetTrack.Value / 10, Config.CooldownBarOffset.Y);
+            Config.CooldownBarXOffset = (float)CooldownBarsXOffsetTrack.Value / 10;
         }
         private void CooldownBarsYOffsetTrack_ValueChanged(object sender, EventArgs e) {
             CooldownBarsYOffsetText.Text = "Y Offset: " + ((float)CooldownBarsYOffsetTrack.Value / 10).ToString();
-            Config.CooldownBarOffset = new PointF(Config.CooldownBarOffset.X, (float)CooldownBarsYOffsetTrack.Value / 10);
+            if(PartyNumComboBox.SelectedItem.ToString().Contains("4 ")) {
+                Config.CooldownBarYOffsets[0] = (float)CooldownBarsYOffsetTrack.Value / 10;
+            } else if(PartyNumComboBox.SelectedItem.ToString().Contains("3 ")) {
+                Config.CooldownBarYOffsets[1] = (float)CooldownBarsYOffsetTrack.Value / 10;
+            } else {
+                Config.CooldownBarYOffsets[2] = (float)CooldownBarsYOffsetTrack.Value / 10;
+            }
         }
         private void CooldownBarsRadiusTrack_ValueChanged(object sender, EventArgs e) {
             CooldownBarsModeText.Text = "Style: " + CooldownBarsModeTrack.Value.ToString();
@@ -364,20 +416,28 @@ namespace GenshinOverlay {
             Config.OCRMinimumConfidence = (float)CooldownPropConfTrack.Value / 100;
         }
 
+        private void PartyNumComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            UpdatePartyNumTrackValues();
+        }
+
         private void FG1ColourText_TextChanged(object sender, EventArgs e) {
             Config.CooldownBarFG1Color = FG1ColourText.Text;
+            FG1ColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG1Color);
             OverlayWindow.UpdateBrushes();
         }
         private void FG2ColourText_TextChanged(object sender, EventArgs e) {
             Config.CooldownBarFG2Color = FG2ColourText.Text;
+            FG2ColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG2Color);
             OverlayWindow.UpdateBrushes();
         }
         private void BGColourText_TextChanged(object sender, EventArgs e) {
             Config.CooldownBarBGColor = BGColourText.Text;
+            BGColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarBGColor);
             OverlayWindow.UpdateBrushes();
         }
         private void SelColourText_TextChanged(object sender, EventArgs e) {
             Config.CooldownBarSelectedFGColor = SelColourText.Text;
+            SelColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarSelectedFGColor);
             OverlayWindow.UpdateBrushes();
         }
         private void CooldownOverride1Text_TextChanged(object sender, EventArgs e) {

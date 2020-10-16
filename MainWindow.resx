@@ -120,9 +120,6 @@
   <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>279, 18</value>
   </metadata>
-  <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>279, 18</value>
-  </metadata>
   <data name="LabelCooldownText.ToolTip" xml:space="preserve">
     <value>Define the position/size of a red rectangle region where the 
 skill cooldown timer will be captured for OCR processing.
@@ -134,19 +131,40 @@ but you don't see any change to the bars when you use a skill:
 Switch character to stop the OCR attempt and reconfigure this region.</value>
   </data>
   <data name="LabelPartyNumbers.ToolTip" xml:space="preserve">
-    <value>Define the position of party slot numbers denoted as 4 small red dots.
-You need to line these red dots up to be in position of the white background
+    <value>Define the position of party slot numbers denoted as small dots.
+You need to line these dots up to be in position of the white background
 of party slot numbers on the very right side of the game window.
 
 To make sure you have set this up correctly, set "Sel. Offset" to 
 something different and save configuration, and then try switching character.
 You should see the position of the bar for the selected character move.</value>
   </data>
+  <data name="PartyNumBarOffsetsTrack.ToolTip" xml:space="preserve">
+    <value>A Y position offset of bar #1 from party numbers.
+This is necessary if you want bars to line up correctly with 
+characters when there are fewer than 4 party members.
+This value is specific to the party size, so if you change 
+the box on the right to a different party size, the value of
+this will reflect the change.
+If you are using a horizontal layout, set this to 0 for all party sizes.
+Note: You may also need to adjust the bar Y Offset value 
+below in order to line up the other bars correctly.</value>
+  </data>
   <data name="CooldownBarsYOffsetTrack.ToolTip" xml:space="preserve">
     <value>The Y position offset for bars 2, 3 and 4 from bar 1.
 Set X Offset to 0 and this to any other value to list bars vertically.
 Set this to 0 and X Offset to any other value to list bars horizontally.
-</value>
+This value is specific to the party size, so if you change 
+the party size box, the value of this will reflect the change.</value>
+  </data>
+  <data name="PartyNumComboBox.ToolTip" xml:space="preserve">
+    <value>Select which party number dot to adjust the X/Y Pos of individually.
+This is necessary because the position of party numbers 
+is different for different party sizes.
+Eg. "4 #1" will adjust position for the dot representing slot #1 
+when there are 4 characters in the party.
+You can also adjust the Bar Offset and Y Offset values for the 
+selected party size.</value>
   </data>
   <data name="CooldownPropConfTrack.ToolTip" xml:space="preserve">
     <value>This determines how confident the OCR engine needs to be

@@ -10,26 +10,39 @@ namespace GenshinOverlay {
             new Character() { Cooldown = 0, Max = 0 },
             new Character() { Cooldown = 0, Max = 0 }
         };
+        public static int PartySize { get; set; } = 4;
         public static int SelectedCharacter { get; set; } = -1;
 
         public static int GetSelectedCharacter(IntPtr handle) {
             if(handle == IntPtr.Zero) { return -1; }
-            bool c0 = IMG.GetColorAt(handle, Config.PartyNumLocation.X, Config.PartyNumLocation.Y) != Color.FromArgb(255, 255, 255, 255);
-            bool c1 = IMG.GetColorAt(handle, Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset)) != Color.FromArgb(255, 255, 255, 255);
-            bool c2 = IMG.GetColorAt(handle, Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 2)) != Color.FromArgb(255, 255, 255, 255);
-            bool c3 = IMG.GetColorAt(handle, Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 3)) != Color.FromArgb(255, 255, 255, 255);
+            int c0, c1, c2, c3;
 
-            if((c0 && c1 && c2 && c3) || (!c0 && !c1 && !c2 && !c3)) {
+            c0 = IMG.GetColorAt(handle, Config.PartyNumLocations["4 #1"].X, Config.PartyNumLocations["4 #1"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+            c1 = IMG.GetColorAt(handle, Config.PartyNumLocations["4 #2"].X, Config.PartyNumLocations["4 #2"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+            c2 = IMG.GetColorAt(handle, Config.PartyNumLocations["4 #3"].X, Config.PartyNumLocations["4 #3"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+            c3 = IMG.GetColorAt(handle, Config.PartyNumLocations["4 #4"].X, Config.PartyNumLocations["4 #4"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+            if(c0 + c1 + c2 + c3 == 4) {
                 return -1;
-            } else if(c0) {
-                return 0;
-            } else if(c1) {
-                return 1;
-            } else if(c2) {
-                return 2;
+            } else if(c0 + c1 + c2 + c3 == 3) {
+                PartySize = 4;
+                return c0 == 0 ? 0 : c1 == 0 ? 1 : c2 == 0 ? 2 : 3;
             } else {
-                return 3;
+                c0 = IMG.GetColorAt(handle, Config.PartyNumLocations["3 #1"].X, Config.PartyNumLocations["3 #1"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+                c1 = IMG.GetColorAt(handle, Config.PartyNumLocations["3 #2"].X, Config.PartyNumLocations["3 #2"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+                c2 = IMG.GetColorAt(handle, Config.PartyNumLocations["3 #3"].X, Config.PartyNumLocations["3 #3"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+                if(c0 + c1 + c2 == 2) {
+                    PartySize = 3;
+                    return c0 == 0 ? 0 : c1 == 0 ? 1 : 2;
+                } else {
+                    c0 = IMG.GetColorAt(handle, Config.PartyNumLocations["2 #1"].X, Config.PartyNumLocations["2 #1"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+                    c1 = IMG.GetColorAt(handle, Config.PartyNumLocations["2 #2"].X, Config.PartyNumLocations["2 #2"].Y) == Color.FromArgb(255, 255, 255, 255) ? 1 : 0;
+                    if(c0 + c1 == 1) {
+                        PartySize = 2;
+                        return c0 == 0 ? 0 : 1;
+                    }
+                }
             }
+            return -1;
         }
     }
 

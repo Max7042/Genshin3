@@ -33,8 +33,10 @@ namespace GenshinOverlay {
             if(dwEvent == User32.SWEH_Events.EVENT_SYSTEM_FOREGROUND) {
                 Process targetProc = GetProcess((int)User32.GetWindowProcessThread(hWnd));
                 if(targetProc != null) {
-                    MainHandle = (targetProc.ProcessName == TargetProcessName) ? targetProc.MainWindowHandle : IntPtr.Zero;
-                    WindowHandleChanged(this, new WindowEventArgs(MainHandle));
+                    try {
+                        MainHandle = (targetProc.ProcessName == TargetProcessName) ? targetProc.MainWindowHandle : IntPtr.Zero;
+                        WindowHandleChanged(this, new WindowEventArgs(MainHandle));
+                    } catch { }
                 }
             }
         }

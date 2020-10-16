@@ -10,6 +10,7 @@ using SharpDX.Direct2D1;
 using SharpDX.DXGI;
 
 using D2D1 = SharpDX.Direct2D1;
+using DW = SharpDX.DirectWrite;
 using DxColor = SharpDX.Color;
 using DxSize = SharpDX.Size2;
 
@@ -19,12 +20,17 @@ namespace GenshinOverlay {
         public IntPtr GenshinHandle = IntPtr.Zero;
         private IntPtr OverlayHandle;
         private D2D1.Factory Factory;
+        private DW.Factory DWFactory;
+        private DW.TextFormat TextFormat;
         private WindowRenderTarget Render;
+
         private SolidColorBrush FG1ColorBrush;
         private SolidColorBrush FG2ColorBrush;
         private SolidColorBrush SELColorBrush;
         private SolidColorBrush BGColorBrush;
-        private SolidColorBrush DebugColorBrush;
+        private SolidColorBrush ConfigColorBrush1;
+        private SolidColorBrush ConfigColorBrush2;
+        private SolidColorBrush ConfigColorBrush3;
 
         public bool IsConfiguring = false;
         private bool IsCleared = true;
@@ -42,6 +48,8 @@ namespace GenshinOverlay {
             User32.SetWindowLong(Handle, User32.WindowLong.GWL_EXSTYLE, initialStyle | (int)User32.ExtendedWindowStyles.WS_EX_LAYERED | (int)User32.ExtendedWindowStyles.WS_EX_TRANSPARENT);
 
             Factory = new D2D1.Factory(FactoryType.SingleThreaded);
+            DWFactory = new DW.Factory(DW.FactoryType.Shared);
+            TextFormat = new DW.TextFormat(DWFactory, "Segoe UI", 11f);
             HwndRenderTargetProperties renderProps = new HwndRenderTargetProperties {
                 Hwnd = OverlayHandle,
                 PixelSize = new DxSize(Width, Height),
@@ -49,7 +57,9 @@ namespace GenshinOverlay {
             };
             Render = new WindowRenderTarget(Factory, new RenderTargetProperties(new PixelFormat(Format.B8G8R8A8_UNorm, D2D1.AlphaMode.Premultiplied)), renderProps);
             Render.AntialiasMode = AntialiasMode.PerPrimitive;
-            DebugColorBrush = new SolidColorBrush(Render, DxColor.Red);
+            ConfigColorBrush1 = new SolidColorBrush(Render, ARGBPackedColor(255, 255, 0, 0));
+            ConfigColorBrush2 = new SolidColorBrush(Render, ARGBPackedColor(255, 225, 165, 0));
+            ConfigColorBrush3 = new SolidColorBrush(Render, ARGBPackedColor(255, 155, 225, 0));
             InitializeBrushes();
 
             new Thread(() => {
@@ -68,10 +78,8 @@ namespace GenshinOverlay {
                             if(pauseDelay > 0) { pauseDelay -= 100; }
                             IsPaused = false;
                         }
-                    } else {
-                        if(GenshinHandle != IntPtr.Zero) {
-                            Party.SelectedCharacter = Party.GetSelectedCharacter(CurrentHandle);
-                        }
+                    } else if(GenshinHandle != IntPtr.Zero && !IsConfiguring) {
+                        Party.SelectedCharacter = Party.GetSelectedCharacter(CurrentHandle);
                     }
 
                     Thread.Sleep(100);
@@ -107,27 +115,32 @@ namespace GenshinOverlay {
                             if(Config.CooldownBarMode <= 3) {
                                 DrawLine(0.0M, 100.0M, 0, 1);
                                 DrawLine(75.0M, 100.0M, 1, 1);
-                                DrawLine(25.0M, 100.0M, 2, 1);
-                                DrawLine(60.0M, 100.0M, 3, 1);
+                                if(Party.PartySize > 2) { DrawLine(25.0M, 100.0M, 2, 1); }
+                                if(Party.PartySize > 3) { DrawLine(60.0M, 100.0M, 3, 1); }
                             } else {
                                 DrawCircle(0.0M, 100.0M, 0, 1);
                                 DrawCircle(75.0M, 100.0M, 1, 1);
-                                DrawCircle(25.0M, 100.0M, 2, 1);
-                                DrawCircle(60.0M, 100.0M, 3, 1);
+                                if(Party.PartySize > 2) { DrawCircle(25.0M, 100.0M, 2, 1); }
+                                if(Party.PartySize > 3) { DrawCircle(60.0M, 100.0M, 3, 1); }
                             }
 
-                            Render.DrawRectangle(new SharpDX.RectangleF(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y, Config.CooldownTextSize.Width, Config.CooldownTextSize.Height), DebugColorBrush, 1f);
+                            Render.DrawRectangle(new SharpDX.RectangleF(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y, Config.CooldownTextSize.Width, Config.CooldownTextSize.Height), ConfigColorBrush1, 1f);
 
-                            Render.DrawRectangle(new SharpDX.RectangleF(Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 0), 1, 1), DebugColorBrush, 1f);
-                            Render.DrawRectangle(new SharpDX.RectangleF(Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 1), 1, 1), DebugColorBrush, 1f);
-                            Render.DrawRectangle(new SharpDX.RectangleF(Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 2), 1, 1), DebugColorBrush, 1f);
-                            Render.DrawRectangle(new SharpDX.RectangleF(Config.PartyNumLocation.X, Config.PartyNumLocation.Y + (Config.PartyNumYOffset * 3), 1, 1), DebugColorBrush, 1f);
+                            DrawDot("4#1", Config.PartyNumLocations["4 #1"].X, Config.PartyNumLocations["4 #1"].Y, ConfigColorBrush1);
+                            DrawDot("4#2", Config.PartyNumLocations["4 #2"].X, Config.PartyNumLocations["4 #2"].Y, ConfigColorBrush1);
+                            DrawDot("4#3", Config.PartyNumLocations["4 #3"].X, Config.PartyNumLocations["4 #3"].Y, ConfigColorBrush1);
+                            DrawDot("4#4", Config.PartyNumLocations["4 #4"].X, Config.PartyNumLocations["4 #4"].Y, ConfigColorBrush1);
+                            DrawDot("3#1", Config.PartyNumLocations["3 #1"].X, Config.PartyNumLocations["3 #1"].Y, ConfigColorBrush2);
+                            DrawDot("3#2", Config.PartyNumLocations["3 #2"].X, Config.PartyNumLocations["3 #2"].Y, ConfigColorBrush2);
+                            DrawDot("3#3", Config.PartyNumLocations["3 #3"].X, Config.PartyNumLocations["3 #3"].Y, ConfigColorBrush2);
+                            DrawDot("2#1", Config.PartyNumLocations["2 #1"].X, Config.PartyNumLocations["2 #1"].Y, ConfigColorBrush3);
+                            DrawDot("2#2", Config.PartyNumLocations["2 #2"].X, Config.PartyNumLocations["2 #2"].Y, ConfigColorBrush3);
                         } else {
-                            foreach(Character c in Party.Characters) {
+                            for(int i = 0; i < Party.PartySize; i++) {
                                 if(Config.CooldownBarMode <= 3) {
-                                    DrawLine(c.Cooldown, c.Max, Party.Characters.IndexOf(c), Party.SelectedCharacter);
+                                    DrawLine(Party.Characters[i].Cooldown, Party.Characters[i].Max, i, Party.SelectedCharacter);
                                 } else {
-                                    DrawCircle(c.Cooldown, c.Max, Party.Characters.IndexOf(c), Party.SelectedCharacter);
+                                    DrawCircle(Party.Characters[i].Cooldown, Party.Characters[i].Max, i, Party.SelectedCharacter);
                                 }
                             }
                         }
@@ -148,10 +161,16 @@ namespace GenshinOverlay {
             }).Start();
         }
 
+        private void DrawDot(string text, int x, int y, SolidColorBrush b) {
+            Render.DrawRectangle(new SharpDX.RectangleF(x, y, 1, 1), b, 1f);
+            Render.DrawText(text, TextFormat, new SharpDX.RectangleF(x - 24, y - 8, 22, 6), b);
+        }
+
         private void DrawLine(decimal currentValue, decimal maxValue, int thisIndex, int selectedIndex) {
-            PointF location = new PointF(Config.CooldownBarLocation.X + (Config.CooldownBarOffset.X * thisIndex), Config.CooldownBarLocation.Y + (Config.CooldownBarOffset.Y * thisIndex));
+            int partyIndex = (Party.PartySize - 4) * -1;
+            PointF location = new PointF(Config.CooldownBarLocation.X + (Config.CooldownBarXOffset * thisIndex), Config.CooldownBarLocation.Y + (Config.CooldownBarYOffsets[partyIndex] * thisIndex) + Config.PartyNumBarOffsets[partyIndex]);
             if(thisIndex == selectedIndex) {
-                if(Config.CooldownBarOffset.Y > 0) {
+                if(Config.CooldownBarYOffsets[partyIndex] > 0) {
                     location.X += Config.CooldownBarSelOffset;
                 } else {
                     location.Y += Config.CooldownBarSelOffset;
@@ -180,9 +199,10 @@ namespace GenshinOverlay {
         }
 
         private void DrawCircle(decimal currentValue, decimal maxValue, int thisIndex, int selectedIndex) {
-            PointF location = new PointF(Config.CooldownBarLocation.X + (Config.CooldownBarOffset.X * thisIndex), Config.CooldownBarLocation.Y + (Config.CooldownBarOffset.Y * thisIndex));
+            int partyIndex = (Party.PartySize - 4) * -1;
+            PointF location = new PointF(Config.CooldownBarLocation.X + (Config.CooldownBarXOffset * thisIndex), Config.CooldownBarLocation.Y + (Config.CooldownBarYOffsets[partyIndex] * thisIndex) + Config.PartyNumBarOffsets[partyIndex]);
             if(thisIndex == selectedIndex) {
-                if(Config.CooldownBarOffset.Y > 0) {
+                if(Config.CooldownBarYOffsets[partyIndex] > 0) {
                     location.X += Config.CooldownBarSelOffset;
                 } else {
                     location.Y += Config.CooldownBarSelOffset;
@@ -290,27 +310,34 @@ namespace GenshinOverlay {
         }
 
         private void InitializeBrushes() {
-            System.Drawing.Color fg1 = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarFG1Color);
-            System.Drawing.Color fg2 = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarFG2Color);
-            System.Drawing.Color sel = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarSelectedFGColor);
-            System.Drawing.Color bg = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarBGColor);
+            System.Drawing.Color fg1 = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG1Color);
+            System.Drawing.Color fg2 = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG2Color);
+            System.Drawing.Color sel = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarSelectedFGColor);
+            System.Drawing.Color bg = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarBGColor);
 
-            FG1ColorBrush = new SolidColorBrush(Render, new DxColor(fg1.R, fg1.G, fg1.B, fg1.A));
-            FG2ColorBrush = new SolidColorBrush(Render, new DxColor(fg2.R, fg2.G, fg2.B, fg2.A));
-            SELColorBrush = new SolidColorBrush(Render, new DxColor(sel.R, sel.G, sel.B, sel.A));
-            BGColorBrush = new SolidColorBrush(Render, new DxColor(bg.R, bg.G, bg.B, bg.A));
+            FG1ColorBrush = new SolidColorBrush(Render, ARGBPackedColor(fg1));
+            FG2ColorBrush = new SolidColorBrush(Render, ARGBPackedColor(fg2));
+            SELColorBrush = new SolidColorBrush(Render, ARGBPackedColor(sel));
+            BGColorBrush = new SolidColorBrush(Render, ARGBPackedColor(bg));
         }
 
         public void UpdateBrushes() {
-            System.Drawing.Color fg1 = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarFG1Color);
-            System.Drawing.Color fg2 = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarFG2Color);
-            System.Drawing.Color sel = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarSelectedFGColor);
-            System.Drawing.Color bg = (System.Drawing.Color)new ColorConverter().ConvertFromString(Config.CooldownBarBGColor);
+            System.Drawing.Color fg1 = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG1Color);
+            System.Drawing.Color fg2 = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarFG2Color);
+            System.Drawing.Color sel = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarSelectedFGColor);
+            System.Drawing.Color bg = (System.Drawing.Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarBGColor);
 
-            FG1ColorBrush.Color = DxColor.FromRgba(fg1.R | fg1.G << 8 | fg1.B << 16 | fg1.A << 24);
-            FG2ColorBrush.Color = DxColor.FromRgba(fg2.R | fg2.G << 8 | fg2.B << 16 | fg2.A << 24);
-            SELColorBrush.Color = DxColor.FromRgba(sel.R | sel.G << 8 | sel.B << 16 | sel.A << 24);
-            BGColorBrush.Color = DxColor.FromRgba(bg.R | bg.G << 8 | bg.B << 16 | bg.A << 24);
+            FG1ColorBrush.Color = ARGBPackedColor(fg1);
+            FG2ColorBrush.Color = ARGBPackedColor(fg2);
+            SELColorBrush.Color = ARGBPackedColor(sel);
+            BGColorBrush.Color = ARGBPackedColor(bg);
+        }
+
+        private DxColor ARGBPackedColor(int a, int r, int g, int b) {
+            return DxColor.FromRgba(r | g << 8 | b << 16 | a << 24);
+        }
+        private DxColor ARGBPackedColor(System.Drawing.Color c) {
+            return DxColor.FromRgba(c.R | c.G << 8 | c.B << 16 | c.A << 24);
         }
 
         protected override void OnResize(EventArgs e) {
