@@ -9,6 +9,7 @@ The majority of what is explained below can also simply be found in GenshinOverl
 - Start GenshinOverlay as Administrator
 - Click the "Configure Overlay" button while Genshin Impact is running.
   - Note: Genshin Impact must be running in a window or borderless fullscreen window. Fullscreen is not supported.
+    - Follow the instructions [here](https://forums.mihoyo.com/genshin/article/17838) for running the game in a borderless fullscreen window.
   - If your resolution is supported (below 1920x1080): GenshinOverlay should automatically preset values.
   - If your resolution isn't supported: You will need to configure the position of things yourself, check the sections below.
   - Before getting started with making adjustments, do note that you can make more precise changes by scrolling or
