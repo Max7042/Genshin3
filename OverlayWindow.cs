@@ -55,8 +55,7 @@ namespace GenshinOverlay {
 
             Factory = new D2D1.Factory(FactoryType.SingleThreaded);
             DWFactory = new DW.Factory(DW.FactoryType.Shared);
-            //TextFormat = new DW.TextFormat(DWFactory, "Segoe UI", 11f);
-            
+
             HwndRenderTargetProperties renderProps = new HwndRenderTargetProperties {
                 Hwnd = OverlayHandle,
                 PixelSize = new DxSize(Width, Height),
@@ -69,7 +68,6 @@ namespace GenshinOverlay {
             ConfigColorBrush2 = new SolidColorBrush(Render, ARGBPackedColor(255, 225, 165, 0));
             ConfigColorBrush3 = new SolidColorBrush(Render, ARGBPackedColor(255, 155, 225, 0));
             InitializeBrushes();
-            //customRenderer = new CustomColorRenderer();
 
             new Thread(() => {
                 while(!IsDisposed) {
@@ -189,9 +187,9 @@ namespace GenshinOverlay {
             int capStyle = Config.CooldownBarMode;
             int val = (int)(scale.Width - (scale.Width * (currentValue / (maxValue + 0.01M))));
 
-            using(StrokeStyle strokeStyleFG = new StrokeStyle(Factory, 
+            using(StrokeStyle strokeStyleFG = new StrokeStyle(Factory,
                 new StrokeStyleProperties() { StartCap = capStyle > 3 ? CapStyle.Flat : (CapStyle)capStyle, EndCap = capStyle > 3 || val < scale.Width ? CapStyle.Flat : (CapStyle)capStyle })) {
-                
+
                 if(val < scale.Width) {
                     if((thisIndex != selectedIndex && FG1ColorBrush.Color.A > 0) || (thisIndex == selectedIndex && SELColorBrush.Color.A > 0)) {
                         if(BGColorBrush.Color.A > 0) {
@@ -203,16 +201,16 @@ namespace GenshinOverlay {
                         }
                         Render.DrawLine(new Vector2(location.X, location.Y), new Vector2(location.X + val, location.Y), thisIndex == selectedIndex ? SELColorBrush : FG1ColorBrush, scale.Height, strokeStyleFG);
                     }
-                    if(thisIndex != selectedIndex && FG1TColorBrush.Color.A > 0) {
+                    if(Config.CooldownBarTextFontSize > 0 && thisIndex != selectedIndex && FG1TColorBrush.Color.A > 0) {
                         DrawText(FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), location.X + Config.CooldownBarTextOffset.X, location.Y + Config.CooldownBarTextOffset.Y, FG1TColorBrush, BGTColorBrush);
-                    } else if(thisIndex == selectedIndex && SELTColorBrush.Color.A > 0) {
+                    } else if(Config.CooldownBarTextFontSize > 0 && thisIndex == selectedIndex && SELTColorBrush.Color.A > 0) {
                         DrawText(FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), location.X + Config.CooldownBarTextOffset.X, location.Y + Config.CooldownBarTextOffset.Y, SELTColorBrush, BGTColorBrush);
                     }
                 } else if(val == scale.Width) {
                     if(FG2ColorBrush.Color.A > 0) {
                         Render.DrawLine(new Vector2(location.X, location.Y), new Vector2(location.X + val, location.Y), FG2ColorBrush, scale.Height, strokeStyleFG);
                     }
-                    if(FG2TColorBrush.Color.A > 0) {
+                    if(Config.CooldownBarTextFontSize > 0 && FG2TColorBrush.Color.A > 0) {
                         DrawText(Config.CooldownBarTextReady != "" ? Config.CooldownBarTextReady : FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), location.X + Config.CooldownBarTextOffset.X, location.Y + Config.CooldownBarTextOffset.Y, FG2TColorBrush, BGTColorBrush);
                     }
                 }
@@ -324,11 +322,11 @@ namespace GenshinOverlay {
                 }
             }
 
-            if(Config.CooldownBarTextFontSize > 0 && val == 360 && FG2TColorBrush.Color.A > 0) {
+            if(Config.CooldownBarTextFontSize > 0 && Config.CooldownBarTextFontSize > 0 && val == 360 && FG2TColorBrush.Color.A > 0) {
                 DrawText(Config.CooldownBarTextReady != "" ? Config.CooldownBarTextReady : FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), circleCenter.X + Config.CooldownBarTextOffset.X, circleCenter.Y + Config.CooldownBarTextOffset.Y, FG2TColorBrush, BGTColorBrush);
-            } else if(Config.CooldownBarTextFontSize > 0 && val < 360 && thisIndex != selectedIndex && FG1TColorBrush.Color.A > 0) {
+            } else if(Config.CooldownBarTextFontSize > 0 && Config.CooldownBarTextFontSize > 0 && val < 360 && thisIndex != selectedIndex && FG1TColorBrush.Color.A > 0) {
                 DrawText(FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), circleCenter.X + Config.CooldownBarTextOffset.X, circleCenter.Y + Config.CooldownBarTextOffset.Y, FG1TColorBrush, BGTColorBrush);
-            } else if(Config.CooldownBarTextFontSize > 0 && val < 360 && thisIndex == selectedIndex && SELTColorBrush.Color.A > 0) {
+            } else if(Config.CooldownBarTextFontSize > 0 && Config.CooldownBarTextFontSize > 0 && val < 360 && thisIndex == selectedIndex && SELTColorBrush.Color.A > 0) {
                 DrawText(FormatDecimalToString(currentValue, Config.CooldownBarTextDecimal), circleCenter.X + Config.CooldownBarTextOffset.X, circleCenter.Y + Config.CooldownBarTextOffset.Y, SELTColorBrush, BGTColorBrush);
             }
         }
@@ -336,7 +334,7 @@ namespace GenshinOverlay {
         private void DrawText(string text, float locX, float locY, D2D1.Brush fg, D2D1.Brush bg, string font = "", float size = 0) {
             using(TextFormat = new DW.TextFormat(DWFactory, font == "" ? Config.CooldownBarTextFont : font, size == 0 ? Config.CooldownBarTextFontSize : size)) {
                 TextFormat.WordWrapping = DW.WordWrapping.NoWrap;
-                using(DW.TextLayout TextLayout = new DW.TextLayout(DWFactory, text, TextFormat, 500, 500)) { //Config.CooldownBarTextFontSize * (2 + Config.CooldownBarTextDecimal)
+                using(DW.TextLayout TextLayout = new DW.TextLayout(DWFactory, text, TextFormat, 500, 500)) {
                     using(TextBrush = new TextBrush(fg, bg)) {
                         using(TextRenderer = new TextRenderer(Render, TextBrush)) {
                             TextLayout.SetDrawingEffect(TextBrush, new DW.TextRange(10, 20));
