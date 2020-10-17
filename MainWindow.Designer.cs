@@ -124,6 +124,7 @@
             this.CooldownBarTextFontComboBox = new MetroFramework.Controls.MetroComboBox();
             this.CooldownBarTextZeroPrefix = new MetroFramework.Controls.MetroCheckBox();
             this.CooldownBarTextReadyText = new MetroFramework.Controls.MetroTextBox();
+            this.DebugButton = new MetroFramework.Controls.MetroButton();
             this.ConfigPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MStyleManager)).BeginInit();
             this.ConfigTabControl.SuspendLayout();
@@ -1293,7 +1294,7 @@
             this.ConfigTabControl.Location = new System.Drawing.Point(0, 91);
             this.ConfigTabControl.Multiline = true;
             this.ConfigTabControl.Name = "ConfigTabControl";
-            this.ConfigTabControl.SelectedIndex = 2;
+            this.ConfigTabControl.SelectedIndex = 1;
             this.ConfigTabControl.Size = new System.Drawing.Size(442, 112);
             this.ConfigTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.ConfigTabControl.TabIndex = 144;
@@ -1745,14 +1746,27 @@
             this.CooldownBarTextReadyText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.CooldownBarTextReadyText.TextChanged += new System.EventHandler(this.CooldownBarTextReadyText_TextChanged);
             // 
+            // DebugButton
+            // 
+            this.DebugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DebugButton.Location = new System.Drawing.Point(94, 358);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(255, 27);
+            this.DebugButton.TabIndex = 145;
+            this.DebugButton.Text = "Debug";
+            this.ConfigToolTip.SetToolTip(this.DebugButton, resources.GetString("DebugButton.ToolTip"));
+            this.DebugButton.UseSelectable = true;
+            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 398);
-            this.Controls.Add(this.ConfigPanel);
+            this.Controls.Add(this.DebugButton);
             this.Controls.Add(this.ConfigureOverlayButton);
             this.Controls.Add(this.ConfigureOverlayMessage);
+            this.Controls.Add(this.ConfigPanel);
             this.DisplayHeader = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1875,6 +1889,7 @@
         private MetroFramework.Controls.MetroComboBox CooldownBarTextFontComboBox;
         private MetroFramework.Controls.MetroCheckBox CooldownBarTextZeroPrefix;
         private MetroFramework.Controls.MetroTextBox CooldownBarTextReadyText;
+        private MetroFramework.Controls.MetroButton DebugButton;
     }
 }
 

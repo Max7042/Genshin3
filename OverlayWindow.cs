@@ -39,6 +39,7 @@ namespace GenshinOverlay {
         private TextRenderer TextRenderer;
 
         public bool IsConfiguring = false;
+        public bool IsDebug = false;
         private bool IsCleared = true;
         private bool IsPaused = false;
         private int pauseDelay = 0;
@@ -71,7 +72,7 @@ namespace GenshinOverlay {
 
             new Thread(() => {
                 while(!IsDisposed) {
-                    if(CurrentHandle != IntPtr.Zero && !IsConfiguring) {
+                    if(CurrentHandle != IntPtr.Zero && !IsConfiguring && !IsDebug) {
                         Party.SelectedCharacter = Party.GetSelectedCharacter(CurrentHandle);
                         if(Party.SelectedCharacter == -1) {
                             if(!IsPaused && pauseDelay == 0) {
@@ -85,7 +86,7 @@ namespace GenshinOverlay {
                             if(pauseDelay > 0) { pauseDelay -= 100; }
                             IsPaused = false;
                         }
-                    } else if(GenshinHandle != IntPtr.Zero && !IsConfiguring) {
+                    } else if(GenshinHandle != IntPtr.Zero && !IsConfiguring && !IsDebug) {
                         Party.SelectedCharacter = Party.GetSelectedCharacter(CurrentHandle);
                     }
 

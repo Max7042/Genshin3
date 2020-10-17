@@ -78,7 +78,7 @@ namespace GenshinOverlay {
                     Thread.Sleep(100);
                     Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
                     Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
-                    
+
                     decimal currentCooldown = IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize);
                     while(c == Party.SelectedCharacter && currentCooldown == 0) {
                         Thread.Sleep(100);
@@ -135,6 +135,7 @@ namespace GenshinOverlay {
             }
             ConfigureOverlayButton.Visible = false;
             ConfigPanel.Visible = true;
+            DebugButton.Visible = false;
 
             CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 255, 0, 0);
 
@@ -155,6 +156,32 @@ namespace GenshinOverlay {
                 AssumeDefaultValues(rect);
             }
             UpdateControlValues();
+        }
+
+        private void DebugButton_Click(object sender, EventArgs e) {
+            Process proc = Process.GetProcesses().Where(x => x.ProcessName == Config.ProcessName).FirstOrDefault();
+            if(proc == null) {
+                MetroMessageBox.Show(this, $"\nGenshin Impact must be running first.", "Process Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 135);
+                return;
+            }
+
+            OverlayWindow.IsDebug = true;
+
+            int sel = Party.GetSelectedCharacter(proc.MainWindowHandle);
+            Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
+            Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
+            decimal currentCooldown = IMG.Capture(proc.MainWindowHandle, captureLocation, captureSize, true);
+
+            string debugOut = $"\nParty Size (1 to 4): {Party.PartySize}\n" +
+                $"Selected Character (1 to 4): Slot#{sel + 1}\n" +
+                $"OCR Text Detected: {IMG.Text}\n" +
+                $"Assumed Cooldown: {currentCooldown}\n" +
+                $"Confidence: {IMG.Confidence * 100}%";
+            Clipboard.SetText(debugOut);
+            MetroMessageBox.Show(this, debugOut +
+                $"\nCheck the GenshinOverlay folder for OCR input/output images.", "OCR Debug", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 240);
+
+            OverlayWindow.IsDebug = false;
         }
 
         private void AssumeDefaultValues(User32.RECT rect) {
@@ -357,6 +384,7 @@ namespace GenshinOverlay {
         private void SaveButton_Click(object sender, EventArgs e) {
             ConfigPanel.Visible = false;
             ConfigureOverlayButton.Visible = true;
+            DebugButton.Visible = true;
             Config.Save();
             OverlayWindow.IsConfiguring = false;
         }
