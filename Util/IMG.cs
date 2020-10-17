@@ -49,7 +49,7 @@ namespace GenshinOverlay {
                                                 Confidence = page.GetMeanConfidence();
                                                 if(Confidence >= Config.OCRMinimumConfidence) {
                                                     Text = ocrText;
-                                                    if(decimal.TryParse(ocrText, out decimal cooldown)) {
+                                                    if(decimal.TryParse(ocrText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal cooldown)) {
                                                         if(cooldown < Config.CooldownMaxPossible) {
                                                             return cooldown;
                                                         }
