@@ -8,7 +8,7 @@ The majority of what is explained below can also simply be found in GenshinOverl
 
 - Start GenshinOverlay as Administrator
 - Click the "Configure Overlay" button while Genshin Impact is running.
-  - Note: Genshin Impact must be running in a window, fullscreen is not supported.
+  - Note: Genshin Impact must be running in a window or borderless fullscreen window. Fullscreen is not supported.
   - If your resolution is supported (below 1920x1080): GenshinOverlay should automatically preset values.
   - If your resolution isn't supported: You will need to configure the position of things yourself, check the sections below.
   - Before getting started with making adjustments, do note that you can make more precise changes by scrolling or
@@ -25,14 +25,32 @@ The majority of what is explained below can also simply be found in GenshinOverl
   
 # Configure Overlay - Party Numbers
  The Party Numbers are displayed on the very right of the game window.
-  - These party numbers are used to determine which character is currently selected.
-  - Adjust Party Numbers "**X Pos**", "**Y Pos**", "**Y Offset**" until you have 4 red dots within the white area of the Party Numbers.
-  - It's very important that these red dots are on the white area, not overlapping with the numbers, 
-    you should have something like the image below.
-  - ![2](https://i.imgur.com/Ee15GyG.png)
+  - These party numbers are used to determine which character is currently selected and the party size.
+  - You need to adjust the "**X Pos**" and "**Y Pos**" of coloured dots until they're within the white area of party numbers.
+  - On the right of the GenshinOverlay window for this section, you'll see a list box with "4 #1" selected by default,
+    this is the list of dots that you need to setup. The first number is the party size and the number after the "#" symbol is the party slot number.
+  - Eg. "4 #1" refers to party size 4, slot #1. So while setting up this dot, make sure you have 4 characters in your party, and adjust the X Pos and
+    Y Pos values until the red dot is over the white area of party slot number 1. Do this for each dot, and remove a character from your party to setup the dots
+    for party size 3 (orange dots) and party size 2 (green dots).
+  - It's very important that these dots are on the white area, not overlapping with the numbers, though it doesn't matter if the dots overlap with each other, 
+    you should have something like the image below when you're done.
+  - ![2](https://i.imgur.com/dpTz6pb.png)
+  - The orange dots being misaligned is intended, as the party number icons for party size 3 is different to party size 4, you can see in the below image that 
+    the orange dots do align with the party numbers when there are only 3 characters in the party.
+  - ![3](https://i.imgur.com/UNzXgR9.png)
+  - Note: For controller users, the process is similar - align the dots with the white area of the dpad display.
   
-# Configure Overlay - Cooldown Bars
+  - Similarly, the position of the character portraits & HP bars change depending on the party size. So if you would like to keep your bars
+    aligned with the characters for different party sizes, make sure to adjust the "Bar Offset" value for party size 3 and 2.
+  
+# Configure Overlay - Bar Appearance
   - All of these values depend on your personal preference for setting up the appearance of cooldown bars.
+  - Set the opacity of all colours to 0 if you would like to disable display of bars.
+  
+# Configure Overlay - Text Appearance
+  - All of these values depend on your personal preference for setting up the appearance of the textual display of cooldowns.
+  - The X Offset and Y Offset values are an offset from the bar position, but the bars do not need to be enabled if you only want to display text.
+  - Set the opacity of all colours to 0 or set font size to 0 to disable display of text.
   
 # Configure Overlay - Cooldown Override
  This section allows you to define a specific cooldown value for each character, this is necessary for characters like Fischl because her actual cooldown isn't presented instantly - she instead has a 2sec cooldown for repositioning Oz.
