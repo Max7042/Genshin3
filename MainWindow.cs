@@ -181,7 +181,7 @@ namespace GenshinOverlay {
                 $"Selected Character (1 to 4): Slot#{sel + 1}\n" +
                 $"OCR Text Detected: {IMG.Text}\n" +
                 $"Assumed Cooldown: {currentCooldown}\n" +
-                $"Confidence: {IMG.Confidence * 100}%";
+                $"Confidence: {IMG.Confidence * 100}% Required: {Config.OCRMinimumConfidence * 100}%";
             Clipboard.SetText(debugOut);
             MetroMessageBox.Show(this, debugOut +
                 $"\nCheck the GenshinOverlay folder for OCR input/output images.", "OCR Debug", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 240);
