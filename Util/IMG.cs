@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 using Tesseract;
 
 namespace GenshinOverlay {
@@ -13,29 +15,30 @@ namespace GenshinOverlay {
 
             Bitmap b = CaptureWindowArea(handle, pos, size);
             if(b == null) { return 0; }
-            if(debug) { b.Save("debug00_input.png"); }
+            if(debug) { Directory.CreateDirectory(Application.StartupPath + @"\debug"); }
+            if(debug) { b.Save(Application.StartupPath + @"\debug\00_input.png"); }
 
             using(Pix pixc = PixConverter.ToPix(b)) {
                 b.Dispose();
                 using(Pix pixg = pixc.ConvertRGBToGray(0, 0, 0)) {
-                    if(debug) { pixg.Save("debug01_grayscale.png"); }
+                    if(debug) { pixg.Save(Application.StartupPath + @"\debug\01_grayscale.png"); }
                     using(Pix pixs = pixg.ScaleGrayLI(Config.OCRScaleFactor, Config.OCRScaleFactor)) {
-                        if(debug) { pixs.Save("debug02_scale.png"); }
+                        if(debug) { pixs.Save(Application.StartupPath + @"\debug\02_scale.png"); }
                         //pix = pix.UnsharpMaskingGray(5, 2.5f); //issues with light text on light bg
                         using(Pix pixb = pixs.BinarizeOtsuAdaptiveThreshold(2000, 2000, 0, 0, 0.0f)) {
-                            if(debug) { pixb.Save("debug03_binarize.png"); }
+                            if(debug) { pixb.Save(Application.StartupPath + @"\debug\03_binarize.png"); }
                             float pixAvg = pixb.AverageOnLine(0, 0, pixb.Width - 1, 0, 1);
                             pixAvg += pixb.AverageOnLine(0, pixb.Height - 1, pixb.Width - 1, pixb.Height - 1, 1);
                             pixAvg += pixb.AverageOnLine(0, 0, 0, pixb.Height - 1, 1);
                             pixAvg += pixb.AverageOnLine(pixb.Width - 1, 0, pixb.Width - 1, pixb.Height - 1, 1);
                             pixAvg /= 4.0f;
                             using(Pix pixi = pixAvg > 0.5f ? pixb.Invert() : pixb) {
-                                if(debug) { pixi.Save($"debug04_invert_{pixAvg > 0.5f}.png"); }
+                                if(debug) { pixi.Save(Application.StartupPath + $@"\debug\04_invert_{pixAvg > 0.5f}.png"); }
                                 using(Pix pixn = pixi.SelectBySize(Config.OCRNoiseSize, Config.OCRNoiseSize, Config.OCRNoiseConnectivity, Config.OCRNoiseType, Config.OCRNoiseRelation)) {
-                                    if(debug) { pixn.Save("debug05_removenoise.png"); }
+                                    if(debug) { pixn.Save(Application.StartupPath + @"\debug\05_removenoise.png"); }
                                     //pixn.ClipToForeground(IntPtr.Zero);
                                     using(Pix pix = pixn.AddBorder(Config.OCRPadding, 0)) {
-                                        if(debug) { pix.Save("debug06_border.png"); }
+                                        if(debug) { pix.Save(Application.StartupPath + @"\debug\06_border.png"); }
                                         pix.XRes = 300;
                                         pix.YRes = 300;
 

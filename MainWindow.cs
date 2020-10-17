@@ -165,6 +165,11 @@ namespace GenshinOverlay {
                 return;
             }
 
+            if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocations["4 #1"] == Point.Empty) {
+                MetroMessageBox.Show(this, $"\nMust first setup cooldown text/party location before debugging.", "Overlay Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 135);
+                return;
+            }
+
             OverlayWindow.IsDebug = true;
 
             int sel = Party.GetSelectedCharacter(proc.MainWindowHandle);
