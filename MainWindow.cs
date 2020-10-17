@@ -124,7 +124,7 @@ namespace GenshinOverlay {
 
             User32.GetClientRect(OverlayWindow.GenshinHandle, out User32.RECT rect);
             if(rect.Empty()) {
-                MetroMessageBox.Show(this, $"\nGenshin Impact client area could not be detected.\n> Please ensure Genshin Impact is not minimized.\n> Fullscreen is not supported but fullscreen borderless is.", "Client Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 160);
+                MetroMessageBox.Show(this, $"\nGenshin Impact client area could not be detected.\n> Please ensure Genshin Impact is not minimized.\n> Only windowed/fullscreen borderless are supported.", "Client Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 180);
                 return;
             }
 
