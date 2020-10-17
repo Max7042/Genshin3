@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
@@ -181,6 +182,8 @@ namespace GenshinOverlay {
             }
             UpdatePartyNumTrackValues();
 
+            ConfigTabControl.SelectedIndex = 1;
+
             CooldownBarsXPosTrack.Value = Config.CooldownBarLocation.X > CooldownBarsXPosTrack.Maximum ? CooldownBarsXPosTrack.Maximum : Config.CooldownBarLocation.X;
             CooldownBarsYPosTrack.Value = Config.CooldownBarLocation.Y > CooldownBarsYPosTrack.Maximum ? CooldownBarsYPosTrack.Maximum : Config.CooldownBarLocation.Y;
             CooldownBarsWidthTrack.Value = Config.CooldownBarSize.Width > CooldownBarsWidthTrack.Maximum ? CooldownBarsWidthTrack.Maximum : Config.CooldownBarSize.Width;
@@ -188,6 +191,23 @@ namespace GenshinOverlay {
             CooldownBarsXOffsetTrack.Value = (int)(Config.CooldownBarXOffset * 10) > CooldownBarsXOffsetTrack.Maximum ? CooldownBarsXOffsetTrack.Maximum : (int)(Config.CooldownBarXOffset * 10);
             CooldownBarsModeTrack.Value = Config.CooldownBarMode > CooldownBarsModeTrack.Maximum ? CooldownBarsModeTrack.Maximum : Config.CooldownBarMode;
             CooldownBarsSelOffsetTrack.Value = Config.CooldownBarSelOffset > CooldownBarsSelOffsetTrack.Maximum ? CooldownBarsSelOffsetTrack.Maximum : Config.CooldownBarSelOffset;
+
+            CooldownBarTextXOffsetTrack.Value = (int)(Config.CooldownBarTextOffset.X * 10) > CooldownBarTextXOffsetTrack.Maximum ? CooldownBarTextXOffsetTrack.Maximum : (int)(Config.CooldownBarTextOffset.X * 10);
+            CooldownBarTextYOffsetTrack.Value = (int)(Config.CooldownBarTextOffset.Y * 10) > CooldownBarTextYOffsetTrack.Maximum ? CooldownBarTextYOffsetTrack.Maximum : (int)(Config.CooldownBarTextOffset.Y * 10);
+            CooldownBarTextSizeTrack.Value = (int)Config.CooldownBarTextFontSize > CooldownBarTextSizeTrack.Maximum ? CooldownBarTextSizeTrack.Maximum : (int)Config.CooldownBarTextFontSize;
+            CooldownBarTextReadyText.Text = Config.CooldownBarTextReady;
+            CooldownBarTextZeroPrefix.Checked = Config.CooldownBarTextZeroPrefix;
+            CooldownBarTextDecimalTrack.Value = Config.CooldownBarTextDecimal > CooldownBarTextDecimalTrack.Maximum ? CooldownBarTextDecimalTrack.Maximum : Config.CooldownBarTextDecimal;
+
+            if(CooldownBarTextFontComboBox.Items.Count == 0) {
+                using(InstalledFontCollection fontsCollection = new InstalledFontCollection()) {
+                    FontFamily[] fontFamilies = fontsCollection.Families;
+                    foreach(FontFamily font in fontFamilies) {
+                        CooldownBarTextFontComboBox.Items.Add(font.Name);
+                    }
+                }
+            }
+            CooldownBarTextFontComboBox.SelectedItem = Config.CooldownBarTextFont;
 
             CooldownPropMaxTrack.Value = Config.CooldownMaxPossible;
             CooldownPropOffsetTrack.Value = (int)(Config.CooldownOffset * 10);
@@ -201,6 +221,10 @@ namespace GenshinOverlay {
             FG2ColourText.Text = Config.CooldownBarFG2Color;
             BGColourText.Text = Config.CooldownBarBGColor;
             SelColourText.Text = Config.CooldownBarSelectedFGColor;
+            FG1TColourText.Text = Config.CooldownBarTextFG1Color;
+            FG2TColourText.Text = Config.CooldownBarTextFG2Color;
+            BGTColourText.Text = Config.CooldownBarTextBGColor;
+            SelTColourText.Text = Config.CooldownBarTextSelectedFGColor;
             CooldownOverride1Text.Text = Config.CooldownOverride[0].ToString();
             CooldownOverride2Text.Text = Config.CooldownOverride[1].ToString();
             CooldownOverride3Text.Text = Config.CooldownOverride[2].ToString();
@@ -281,6 +305,46 @@ namespace GenshinOverlay {
             MetroColorDialog.Result res = new MetroColorDialog().Show(this, MetroColorDialog.HexStringToColor(SelColourText.Text));
             if(res.Status == MetroColorDialog.Status.Selected) {
                 SelColourText.Text = MetroColorDialog.ColorToHexString(res.Color);
+            }
+            colorDialogOpen = false;
+            FocusMe();
+        }
+        private void FG1TColourText_Click(object sender, EventArgs e) {
+            if(colorDialogOpen) { return; }
+            colorDialogOpen = true;
+            MetroColorDialog.Result res = new MetroColorDialog().Show(this, MetroColorDialog.HexStringToColor(FG1TColourText.Text));
+            if(res.Status == MetroColorDialog.Status.Selected) {
+                FG1TColourText.Text = MetroColorDialog.ColorToHexString(res.Color);
+            }
+            colorDialogOpen = false;
+            FocusMe();
+        }
+        private void FG2TColourText_Click(object sender, EventArgs e) {
+            if(colorDialogOpen) { return; }
+            colorDialogOpen = true;
+            MetroColorDialog.Result res = new MetroColorDialog().Show(this, MetroColorDialog.HexStringToColor(FG2TColourText.Text));
+            if(res.Status == MetroColorDialog.Status.Selected) {
+                FG2TColourText.Text = MetroColorDialog.ColorToHexString(res.Color);
+            }
+            colorDialogOpen = false;
+            FocusMe();
+        }
+        private void BGTColourText_Click(object sender, EventArgs e) {
+            if(colorDialogOpen) { return; }
+            colorDialogOpen = true;
+            MetroColorDialog.Result res = new MetroColorDialog().Show(this, MetroColorDialog.HexStringToColor(BGTColourText.Text));
+            if(res.Status == MetroColorDialog.Status.Selected) {
+                BGTColourText.Text = MetroColorDialog.ColorToHexString(res.Color);
+            }
+            colorDialogOpen = false;
+            FocusMe();
+        }
+        private void SelTColourText_Click(object sender, EventArgs e) {
+            if(colorDialogOpen) { return; }
+            colorDialogOpen = true;
+            MetroColorDialog.Result res = new MetroColorDialog().Show(this, MetroColorDialog.HexStringToColor(SelTColourText.Text));
+            if(res.Status == MetroColorDialog.Status.Selected) {
+                SelTColourText.Text = MetroColorDialog.ColorToHexString(res.Color);
             }
             colorDialogOpen = false;
             FocusMe();
@@ -387,6 +451,32 @@ namespace GenshinOverlay {
             Config.CooldownBarSelOffset = CooldownBarsSelOffsetTrack.Value;
         }
 
+        private void CooldownBarTextXOffsetTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownBarTextXOffsetText.Text = "X Offset: " + ((float)CooldownBarTextXOffsetTrack.Value / 10).ToString();
+            Config.CooldownBarTextOffset = new PointF((float)CooldownBarTextXOffsetTrack.Value / 10, Config.CooldownBarTextOffset.Y);
+        }
+        private void CooldownBarTextYOffsetTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownBarTextYOffsetText.Text = "Y Offset: " + ((float)CooldownBarTextYOffsetTrack.Value / 10).ToString();
+            Config.CooldownBarTextOffset = new PointF(Config.CooldownBarTextOffset.X, (float)CooldownBarTextYOffsetTrack.Value / 10);
+        }
+        private void CooldownBarTextFontComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextFont = CooldownBarTextFontComboBox.SelectedItem.ToString();
+        }
+        private void CooldownBarTextSizeTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownBarTextSizeText.Text = "Font Size: " + CooldownBarTextSizeTrack.Value.ToString();
+            Config.CooldownBarTextFontSize = CooldownBarTextSizeTrack.Value;
+        }
+        private void CooldownBarTextReadyText_TextChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextReady = CooldownBarTextReadyText.Text;
+        }
+        private void CooldownBarTextZeroPrefix_CheckedChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextZeroPrefix = CooldownBarTextZeroPrefix.Checked;
+        }
+        private void CooldownBarTextDecimalTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownBarTextDecimalText.Text = "Decimal: " + CooldownBarTextDecimalTrack.Value.ToString();
+            Config.CooldownBarTextDecimal = CooldownBarTextDecimalTrack.Value;
+        }
+
         private void CooldownPropMaxTrack_ValueChanged(object sender, EventArgs e) {
             CooldownPropMaxText.Text = "Max: " + CooldownPropMaxTrack.Value.ToString();
             Config.CooldownMaxPossible = CooldownPropMaxTrack.Value;
@@ -440,6 +530,26 @@ namespace GenshinOverlay {
             SelColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarSelectedFGColor);
             OverlayWindow.UpdateBrushes();
         }
+        private void FG1TColourText_TextChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextFG1Color = FG1TColourText.Text;
+            FG1TColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarTextFG1Color);
+            OverlayWindow.UpdateBrushes();
+        }
+        private void FG2TColourText_TextChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextFG2Color = FG2TColourText.Text;
+            FG2TColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarTextFG2Color);
+            OverlayWindow.UpdateBrushes();
+        }
+        private void BGTColourText_TextChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextBGColor = BGTColourText.Text;
+            BGTColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarTextBGColor);
+            OverlayWindow.UpdateBrushes();
+        }
+        private void SelTColourText_TextChanged(object sender, EventArgs e) {
+            Config.CooldownBarTextSelectedFGColor = SelTColourText.Text;
+            SelTColourText.ForeColor = (Color)IMG.ColorConverter.ConvertFromString(Config.CooldownBarTextSelectedFGColor);
+            OverlayWindow.UpdateBrushes();
+        }
         private void CooldownOverride1Text_TextChanged(object sender, EventArgs e) {
             if(int.TryParse(CooldownOverride1Text.Text, out int cd)) {
                 Config.CooldownOverride[0] = cd;
@@ -471,5 +581,11 @@ namespace GenshinOverlay {
         #endregion //ValueChanged/TextChanged
 
         #endregion //Config
+
+        private void ConfigTabControl_Selecting(object sender, TabControlCancelEventArgs e) {
+            if(e.TabPageIndex == 0) {
+                e.Cancel = true;
+            }
+        }
     }
 }

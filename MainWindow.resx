@@ -120,6 +120,9 @@
   <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>279, 18</value>
   </metadata>
+  <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>279, 18</value>
+  </metadata>
   <data name="LabelCooldownText.ToolTip" xml:space="preserve">
     <value>Define the position/size of a red rectangle region where the 
 skill cooldown timer will be captured for OCR processing.
@@ -146,7 +149,7 @@ characters when there are fewer than 4 party members.
 This value is specific to the party size, so if you change 
 the box on the right to a different party size, the value of
 this will reflect the change.
-If you are using a horizontal layout, set this to 0 for all party sizes.
+This value is ignored if bar X Offset is not 0.
 Note: You may also need to adjust the bar Y Offset value 
 below in order to line up the other bars correctly.</value>
   </data>
@@ -156,6 +159,14 @@ Set X Offset to 0 and this to any other value to list bars vertically.
 Set this to 0 and X Offset to any other value to list bars horizontally.
 This value is specific to the party size, so if you change 
 the party size box, the value of this will reflect the change.</value>
+  </data>
+  <metadata name="ConfigTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SelTColourText.ToolTip" xml:space="preserve">
+    <value>Set the colour/opacity of the currently selected character's cooldown text when skill is on cooldown.
+An opacity value of 00 will hide the selected character's text while on cooldown.
+Set to the same colour as FG1T Colour for no change.</value>
   </data>
   <data name="PartyNumComboBox.ToolTip" xml:space="preserve">
     <value>Select which party number dot to adjust the X/Y Pos of individually.
@@ -216,11 +227,6 @@ before/after the cooldown is actually complete.
 A positive value will add to while negative will subtract.
 Default: 0</value>
   </data>
-  <data name="SelColourText.ToolTip" xml:space="preserve">
-    <value>Set the colour/opacity of the currently selected character's cooldown bar when skill is on cooldown.
-An opacity value of 00 will hide the selected character's bar while on cooldown.
-Set to the same colour as FG1 Colour for no change.</value>
-  </data>
   <data name="AutoButton.ToolTip" xml:space="preserve">
     <value>Automatically set values depending on current game resolution.
 By default, only supports up to 1920x1080.
@@ -235,6 +241,11 @@ start when the skill key is pressed and may only start after switching character
 A value of 0 will disable override.
 An override value should be no less than the minimum defined
 by the "Override" property below.</value>
+  </data>
+  <data name="SelColourText.ToolTip" xml:space="preserve">
+    <value>Set the colour/opacity of the currently selected character's cooldown bar when skill is on cooldown.
+An opacity value of 00 will hide the selected character's bar while on cooldown.
+Set to the same colour as FG1 Colour for no change.</value>
   </data>
   <metadata name="MStyleManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

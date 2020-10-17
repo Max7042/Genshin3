@@ -23,6 +23,16 @@ namespace GenshinOverlay {
         public static string CooldownBarFG2Color { get { return Options.CooldownBarFG2Color; } set { Options.CooldownBarFG2Color = value; } }
         public static string CooldownBarSelectedFGColor { get { return Options.CooldownBarSelectedFGColor; } set { Options.CooldownBarSelectedFGColor = value; } }
         public static int CooldownBarSelOffset { get { return Options.CooldownBarSelOffset; } set { Options.CooldownBarSelOffset = value; } }
+        public static PointF CooldownBarTextOffset { get { return Options.CooldownBarTextOffset; } set { Options.CooldownBarTextOffset = value; } }
+        public static string CooldownBarTextFont { get { return Options.CooldownBarTextFont; } set { Options.CooldownBarTextFont = value; } }
+        public static float CooldownBarTextFontSize { get { return Options.CooldownBarTextFontSize; } set { Options.CooldownBarTextFontSize = value; } }
+        public static string CooldownBarTextReady { get { return Options.CooldownBarTextReady; } set { Options.CooldownBarTextReady = value; } }
+        public static bool CooldownBarTextZeroPrefix { get { return Options.CooldownBarTextZeroPrefix; } set { Options.CooldownBarTextZeroPrefix = value; } }
+        public static int CooldownBarTextDecimal { get { return Options.CooldownBarTextDecimal; } set { Options.CooldownBarTextDecimal = value; } }
+        public static string CooldownBarTextBGColor { get { return Options.CooldownBarTextBGColor; } set { Options.CooldownBarTextBGColor = value; } }
+        public static string CooldownBarTextFG1Color { get { return Options.CooldownBarTextFG1Color; } set { Options.CooldownBarTextFG1Color = value; } }
+        public static string CooldownBarTextFG2Color { get { return Options.CooldownBarTextFG2Color; } set { Options.CooldownBarTextFG2Color = value; } }
+        public static string CooldownBarTextSelectedFGColor { get { return Options.CooldownBarTextSelectedFGColor; } set { Options.CooldownBarTextSelectedFGColor = value; } }
         public static int[] CooldownOverride { get { return Options.CooldownOverride; } set { Options.CooldownOverride = value; } }
 
         public static string ProcessName { get { return Options.ProcessName; } set { Options.ProcessName = value; } }
@@ -316,6 +326,16 @@ namespace GenshinOverlay {
         public string CooldownBarFG2Color { get; set; } = "#FFDA3A4D";
         public string CooldownBarSelectedFGColor { get; set; } = "#FF6D45B4";
         public int CooldownBarSelOffset { get; set; } = 0;
+        public PointF CooldownBarTextOffset { get; set; } = PointF.Empty;
+        public string CooldownBarTextFont { get; set; } = "Segoe UI";
+        public float CooldownBarTextFontSize { get; set; } = 0;
+        public string CooldownBarTextReady { get; set; } = "";
+        public bool CooldownBarTextZeroPrefix { get; set; } = true;
+        public int CooldownBarTextDecimal { get; set; } = 0;
+        public string CooldownBarTextBGColor { get; set; } = "#FF020202";
+        public string CooldownBarTextFG1Color { get; set; } = "#FF999999";
+        public string CooldownBarTextFG2Color { get; set; } = "#00999999";
+        public string CooldownBarTextSelectedFGColor { get; set; } = "#FF999999";
         public int[] CooldownOverride { get; set; } = new int[] { 0, 0, 0, 0 };
 
         public string ProcessName { get; set; } = "GenshinImpact";
