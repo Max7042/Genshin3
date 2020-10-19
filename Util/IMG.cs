@@ -1,23 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Tesseract;
 
 namespace GenshinOverlay {
-    public class IMG {
+    public static class IMG {
+        private static TesseractEngine Engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default);
         public static ColorConverter ColorConverter = new ColorConverter();
-        public static float Confidence = 0;
-        public static string Text = "";
+        public static float DesktopScale = 1;
 
-        public static decimal Capture(IntPtr handle, Point pos, Size size, bool debug = false) {
-            if(handle == IntPtr.Zero) { return 0; }
+        public struct OCRCapture {
+            public decimal Cooldown { get; set; }
+            public float Confidence { get; set; }
+            public int Iterations { get; set; }
+            public string Text { get; set; }
 
+            public OCRCapture(decimal _cooldown = 0, float _confidence = 0, int _iterations = 0, string _text = "") {
+                Cooldown = _cooldown;
+                Confidence = _confidence;
+                Iterations = _iterations;
+                Text = _text;
+            }
+        }
+
+        public static void Capture(IntPtr handle, Point pos, Size size, ref OCRCapture ocrCapture, bool debug = false) {
+            if(handle == IntPtr.Zero) { return; }
             Bitmap b = CaptureWindowArea(handle, pos, size);
-            if(b == null) { return 0; }
+            if(b == null) { return; }
             if(debug) { Directory.CreateDirectory(Application.StartupPath + @"\debug"); }
             if(debug) { b.Save(Application.StartupPath + @"\debug\00_input.png"); }
-
             using(Pix pixc = PixConverter.ToPix(b)) {
                 b.Dispose();
                 using(Pix pixg = pixc.ConvertRGBToGray(0, 0, 0)) {
@@ -42,17 +56,14 @@ namespace GenshinOverlay {
                                         pix.XRes = 300;
                                         pix.YRes = 300;
 
-                                        string ocrText = "";
-                                        using(TesseractEngine engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default)) {
-                                            using(Page page = engine.Process(pix, PageSegMode.SingleLine)) {
-                                                ocrText = page.GetText().Trim();
-                                                Confidence = page.GetMeanConfidence();
-                                                if(Confidence >= Config.OCRMinimumConfidence) {
-                                                    Text = ocrText;
-                                                    if(decimal.TryParse(ocrText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal cooldown)) {
-                                                        if(cooldown < Config.CooldownMaxPossible) {
-                                                            return cooldown;
-                                                        }
+                                        using(Page page = Engine.Process(pix, PageSegMode.SingleLine)) {
+                                            ocrCapture.Text = page.GetText().Trim();
+                                            ocrCapture.Confidence = page.GetMeanConfidence();
+                                            ocrCapture.Iterations++;
+                                            if(ocrCapture.Confidence >= Config.OCRMinimumConfidence) {
+                                                if(decimal.TryParse(ocrCapture.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal cooldown)) {
+                                                    if(cooldown < Config.CooldownMaxPossible) {
+                                                        ocrCapture.Cooldown = cooldown;
                                                     }
                                                 }
                                             }
@@ -64,8 +75,17 @@ namespace GenshinOverlay {
                     }
                 }
             }
+        }
 
-            return 0;
+        public static void GetDesktopScale() {
+            IntPtr desktop = User32.GetWindowDC(IntPtr.Zero);
+            int LogicalScreenHeight = GDI32.GetDeviceCaps(desktop, (int)GDI32.DeviceCap.VERTRES);
+            int PhysicalScreenHeight = GDI32.GetDeviceCaps(desktop, (int)GDI32.DeviceCap.DESKTOPVERTRES);
+            int logpixelsy = GDI32.GetDeviceCaps(desktop, (int)GDI32.DeviceCap.LOGPIXELSY);
+            User32.ReleaseDC(IntPtr.Zero, desktop);
+            float screenScalingFactor = (float)PhysicalScreenHeight / (float)LogicalScreenHeight;
+            float dpiScalingFactor = (float)logpixelsy / 96.0f;
+            DesktopScale = screenScalingFactor > 1 ? screenScalingFactor : dpiScalingFactor;
         }
 
         private static Bitmap CaptureWindowArea(IntPtr handle, Point cropPos, Size cropSize) {
@@ -105,6 +125,34 @@ namespace GenshinOverlay {
                 return Color.FromArgb(255, (a >> 0) & 0xff, (a >> 8) & 0xff, (a >> 16) & 0xff);
             }
             return Color.FromArgb(255, 255, 255, 255);
+        }
+
+        public static Size Scaled(this Size size, int factor) {
+            return new Size((int)(size.Width * ((float)factor / 100)), (int)(size.Height * ((float)factor / 100)));
+        }
+
+        public static Point Scaled(this Point pos, int factor) {
+            return new Point((int)(pos.X * ((float)factor / 100)), (int)(pos.Y * ((float)factor / 100)));
+        }
+
+        public static int[] Scaled(this int[] values, int factor) {
+            return values.Select(x => (int)(x * ((float)factor / 100))).ToArray();
+        }
+
+        public static float Scaled(this float val, int factor) {
+            return val * ((float)factor / 100);
+        }
+
+        public static float[] Scaled(this float[] values, int factor) {
+            return values.Select(x => x * ((float)factor / 100)).ToArray();
+        }
+
+        public static Dictionary<string, Point> Scaled(this Dictionary<string, Point> dict, int factor) {
+            Dictionary<string, Point> d = dict.ToDictionary(x => x.Key, x => x.Value);
+            foreach(string key in d.Keys.ToList()) {
+                d[key] = new Point((int)(d[key].X * ((float)factor / 100)), (int)(d[key].Y * ((float)factor / 100)));
+            }
+            return d;
         }
     }
 }

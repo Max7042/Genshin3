@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace GenshinOverlay {
     public static class Config {
         private static Options Options { get; set; } = new Options();
-        public static List<Template> Templates { get; set; } = new List<Template>();
+        public static List<Template> Templates { get; set; }
 
         public static Point CooldownTextLocation { get { return Options.CooldownTextLocation; } set { Options.CooldownTextLocation = value; } }
         public static Size CooldownTextSize { get { return Options.CooldownTextSize; } set { Options.CooldownTextSize = value; } }
@@ -38,6 +38,7 @@ namespace GenshinOverlay {
         public static string ProcessName { get { return Options.ProcessName; } set { Options.ProcessName = value; } }
         public static int PauseDelay { get { return Options.PauseDelay; } set { Options.PauseDelay = value; } }
         public static int CooldownTickRateInMs { get { return Options.CooldownTickRateInMs; } set { Options.CooldownTickRateInMs = value; } }
+        public static int CooldownOCRRateInMs { get { return Options.CooldownOCRRateInMs; } set { Options.CooldownOCRRateInMs = value; } }
         public static int CooldownMaxPossible { get { return Options.CooldownMaxPossible; } set { Options.CooldownMaxPossible = value; } }
         public static decimal CooldownOffset { get { return Options.CooldownOffset; } set { Options.CooldownOffset = value; } }
         public static decimal CooldownPauseSubtraction { get { return Options.CooldownPauseSubtraction; } set { Options.CooldownPauseSubtraction = value; } }
@@ -59,7 +60,10 @@ namespace GenshinOverlay {
                 Options = JsonConvert.DeserializeObject<Options>(File.ReadAllText(Application.StartupPath + @"\GenshinOverlay.Config.ini"));
                 File.WriteAllText(Application.StartupPath + @"\GenshinOverlay.Config.ini", JsonConvert.SerializeObject(Options, Formatting.Indented));
             }
+        }
 
+        public static void LoadTemplates() {
+            Templates = new List<Template>();
             SetupDefaultTemplates();
             if(!File.Exists(Application.StartupPath + @"\GenshinOverlay.Templates.ini")) {
                 File.WriteAllText(Application.StartupPath + @"\GenshinOverlay.Templates.ini", JsonConvert.SerializeObject(Templates, Formatting.Indented));
@@ -341,6 +345,7 @@ namespace GenshinOverlay {
         public string ProcessName { get; set; } = "GenshinImpact";
         public int PauseDelay { get; set; } = 500;
         public int CooldownTickRateInMs { get; set; } = 10;
+        public int CooldownOCRRateInMs { get; set; } = 100;
         public int CooldownMaxPossible { get; set; } = 60;
         public decimal CooldownOffset { get; set; } = 0.0M;
         public decimal CooldownPauseSubtraction { get; set; } = 1.0M;

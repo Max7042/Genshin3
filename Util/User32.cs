@@ -17,6 +17,7 @@ namespace GenshinOverlay {
         [DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
         [DllImport("user32.dll")] public static extern int GetWindowLong(IntPtr hWnd, WindowLong nIndex);
         [DllImport("user32.dll")] public static extern int SetWindowLong(IntPtr hWnd, WindowLong nIndex, int dwNewLong);
+        [DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
         [DllImport("dwmapi.dll")] public static extern int DwmGetWindowAttribute(IntPtr hwnd, int dwAttribute, out RECT pvAttribute, int cbAttribute);
         [DllImport("dwmapi.dll")] public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref int[] margins);
 

@@ -75,29 +75,30 @@ namespace GenshinOverlay {
                 Party.Characters[c].Processing = true;
 
                 new Thread(() => {
-                    Thread.Sleep(100);
+                    Thread.Sleep(Config.CooldownOCRRateInMs);
                     Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
                     Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
 
-                    decimal currentCooldown = IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize);
-                    while(c == Party.SelectedCharacter && currentCooldown == 0) {
-                        Thread.Sleep(100);
-                        currentCooldown = IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize);
+                    IMG.OCRCapture ocr = new IMG.OCRCapture();
+                    IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize, ref ocr);
+                    while(c == Party.SelectedCharacter && ocr.Cooldown == 0) {
+                        Thread.Sleep(Config.CooldownOCRRateInMs);
+                        IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize, ref ocr);
                     }
                     if(c != Party.SelectedCharacter) {
                         Party.Characters[c].Cooldown = 0;
                         Party.Characters[c].Max = 0;
                     } else {
                         if(Config.CooldownOverride[c] > 0) { 
-                            if(currentCooldown < Config.CooldownMinimumOverride) {
+                            if(ocr.Cooldown < Config.CooldownMinimumOverride) {
                                 Party.Characters[c].Cooldown = Config.CooldownOverride[c];
                                 Party.Characters[c].Max = Config.CooldownOverride[c];
                             } else {
-                                Party.Characters[c].Cooldown = currentCooldown;
-                                Party.Characters[c].Max = currentCooldown;
+                                Party.Characters[c].Cooldown = ocr.Cooldown;
+                                Party.Characters[c].Max = ocr.Cooldown;
                             }
                         } else {
-                            Party.Characters[c].Cooldown = currentCooldown + Config.CooldownOffset;
+                            Party.Characters[c].Cooldown = ocr.Cooldown + Config.CooldownOffset;
                             Party.Characters[c].Max = Party.Characters[c].Cooldown;
                         }
                     }
@@ -133,9 +134,8 @@ namespace GenshinOverlay {
                 ConfigureOverlayMessage.Visible = false;
                 ConfigureOverlayButton.Location = new Point(ConfigureOverlayButton.Location.X, ConfigureOverlayButton.Location.Y - 20);
             }
-            ConfigureOverlayButton.Visible = false;
+            MainPanel.Visible = false;
             ConfigPanel.Visible = true;
-            DebugButton.Visible = false;
 
             CooldownBarsYOffsetText.ForeColor = Color.FromArgb(255, 255, 0, 0);
 
@@ -152,13 +152,27 @@ namespace GenshinOverlay {
             CooldownBarsXPosTrack.MouseWheelBarPartitions = CooldownBarsXPosTrack.Maximum - CooldownBarsXPosTrack.Minimum;
             CooldownBarsYPosTrack.MouseWheelBarPartitions = CooldownBarsYPosTrack.Maximum - CooldownBarsYPosTrack.Minimum;
 
+            Config.LoadTemplates();
+            IMG.GetDesktopScale();
             if(Config.CooldownTextLocation == Point.Empty || Config.PartyNumLocations["4 #1"] == Point.Empty) {
-                AssumeDefaultValues(rect);
+                OverlayTemplateValues(rect.Size, (int)(IMG.DesktopScale * 100));
             }
             UpdateControlValues();
         }
 
         private void DebugButton_Click(object sender, EventArgs e) {
+            OCRDebug(false);
+        }
+
+        private void DebugMultiButton_Click(object sender, EventArgs e) {
+            OCRDebug(true);
+        }
+
+        private void OCRDebug(bool isMulti) {
+            if(OverlayWindow.IsDebug) {
+                OverlayWindow.IsDebug = false;
+                return;
+            }
             Process proc = Process.GetProcesses().Where(x => x.ProcessName == Config.ProcessName).FirstOrDefault();
             if(proc == null) {
                 MetroMessageBox.Show(this, $"\nGenshin Impact must be running first.", "Process Error", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 135);
@@ -170,54 +184,105 @@ namespace GenshinOverlay {
                 return;
             }
 
-            OverlayWindow.IsDebug = true;
+            new Thread(() => {
+                OverlayWindow.IsDebug = true;
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+                int sel = Party.GetSelectedCharacter(proc.MainWindowHandle);
+                Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
+                Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
 
-            int sel = Party.GetSelectedCharacter(proc.MainWindowHandle);
-            Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
-            Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
-            decimal currentCooldown = IMG.Capture(proc.MainWindowHandle, captureLocation, captureSize, true);
+                IMG.OCRCapture ocr = new IMG.OCRCapture();
+                IMG.Capture(proc.MainWindowHandle, captureLocation, captureSize, ref ocr, true);
+                long time = sw.ElapsedMilliseconds;
+                if(!isMulti || (isMulti && ocr.Cooldown > 0)) {
+                    this.UI(() => {
+                        DebugText.Text = $"Party Size (1 to 4): {Party.PartySize}\r\n" +
+                            $"Selected Character (1 to 4): Slot#{sel + 1}\r\n" +
+                            $"OCR Text Detected: {ocr.Text}\r\n" +
+                            $"Parsed Cooldown: {ocr.Cooldown}\r\n" +
+                            $"Confidence: {ocr.Confidence * 100}% Required: {Config.OCRMinimumConfidence * 100}%\r\n" +
+                            $"Iteration #{ocr.Iterations} ({time}ms @ {Config.CooldownOCRRateInMs}ms rate)";
+                    });
+                } else {
+                    while(ocr.Cooldown == 0 && ocr.Iterations < 1000 && OverlayWindow.IsDebug) {
+                        Thread.Sleep(Config.CooldownOCRRateInMs);
+                        IMG.Capture(proc.MainWindowHandle, captureLocation, captureSize, ref ocr, false);
 
-            string debugOut = $"\nParty Size (1 to 4): {Party.PartySize}\n" +
-                $"Selected Character (1 to 4): Slot#{sel + 1}\n" +
-                $"OCR Text Detected: {IMG.Text}\n" +
-                $"Assumed Cooldown: {currentCooldown}\n" +
-                $"Confidence: {IMG.Confidence * 100}% Required: {Config.OCRMinimumConfidence * 100}%";
-            Clipboard.SetText(debugOut);
-            MetroMessageBox.Show(this, debugOut +
-                $"\nCheck the GenshinOverlay folder for OCR input/output images.", "OCR Debug", MessageBoxButtons.OK, Theme, MessageBoxDefaultButton.Button1, 240);
+                        this.UI(() => {
+                            DebugText.Text = $"Party Size (1 to 4): {Party.PartySize}\r\n" +
+                                $"Selected Character (1 to 4): Slot#{sel + 1}\r\n" +
+                                $"OCR Text Detected: {ocr.Text}\r\n" +
+                                $"Parsed Cooldown: {ocr.Cooldown}\r\n" +
+                                $"Confidence: {ocr.Confidence * 100}% Required: {Config.OCRMinimumConfidence * 100}%\r\n" +
+                                $"Iteration #{ocr.Iterations} ({sw.ElapsedMilliseconds}ms @ {Config.CooldownOCRRateInMs}ms rate)";
+                        });
+                    }
+                }
+                sw.Stop();
 
-            OverlayWindow.IsDebug = false;
+                OverlayWindow.IsDebug = false;
+            }).Start();
         }
 
-        private void AssumeDefaultValues(User32.RECT rect) {
-            Template template = Config.Templates.Find(x => x.Resolution == rect.Size);
+        private void OverlayTemplateValues(Size resolution, int scale) {
+            Template template = Config.Templates.Find(x => x.Resolution == resolution);
+
             if(template != null) {
-                Config.CooldownTextLocation = template.Properties.CooldownTextLocation;
-                Config.CooldownTextSize = template.Properties.CooldownTextSize;
-                Config.PartyNumLocations = template.Properties.PartyNumLocations;
-                Config.PartyNumBarOffsets = template.Properties.PartyNumBarOffsets;
-                Config.CooldownBarLocation = template.Properties.CooldownBarLocation;
-                Config.CooldownBarSize = template.Properties.CooldownBarSize;
-                Config.CooldownBarXOffset = template.Properties.CooldownBarXOffset;
-                Config.CooldownBarYOffsets = template.Properties.CooldownBarYOffsets;
+                Config.CooldownTextLocation = template.Properties.CooldownTextLocation.Scaled(scale);
+                Config.CooldownTextSize = template.Properties.CooldownTextSize.Scaled(scale);
+                Config.PartyNumLocations = template.Properties.PartyNumLocations.Scaled(scale);
+                Config.PartyNumBarOffsets = template.Properties.PartyNumBarOffsets.Scaled(scale);
+                Config.CooldownBarLocation = template.Properties.CooldownBarLocation.Scaled(scale);
+                Config.CooldownBarSize = template.Properties.CooldownBarSize.Scaled(scale);
+                Config.CooldownBarXOffset = template.Properties.CooldownBarXOffset.Scaled(scale);
+                Config.CooldownBarYOffsets = template.Properties.CooldownBarYOffsets.Scaled(scale);
+            } else {
+                Config.CooldownTextLocation = Config.Templates[0].Properties.CooldownTextLocation;
+                Config.CooldownTextSize = Config.Templates[0].Properties.CooldownTextSize;
+                Config.PartyNumLocations = Config.Templates[0].Properties.PartyNumLocations;
+                Config.PartyNumBarOffsets = Config.Templates[0].Properties.PartyNumBarOffsets;
+                Config.CooldownBarLocation = Config.Templates[0].Properties.CooldownBarLocation;
+                Config.CooldownBarSize = Config.Templates[0].Properties.CooldownBarSize;
+                Config.CooldownBarXOffset = Config.Templates[0].Properties.CooldownBarXOffset;
+                Config.CooldownBarYOffsets = Config.Templates[0].Properties.CooldownBarYOffsets;
             }
         }
 
         private void UpdateControlValues() {
             CooldownTextXPosTrack.Value = Config.CooldownTextLocation.X > CooldownTextXPosTrack.Maximum ? CooldownTextXPosTrack.Maximum : Config.CooldownTextLocation.X;
             CooldownTextYPosTrack.Value = Config.CooldownTextLocation.Y > CooldownTextYPosTrack.Maximum ? CooldownTextYPosTrack.Maximum : Config.CooldownTextLocation.Y;
-            CooldownTextWidthTrack.Value = Config.CooldownTextSize.Width > CooldownTextWidthTrack.Maximum ? CooldownTextWidthTrack.Maximum : Config.CooldownTextSize.Width;
-            CooldownTextHeightTrack.Value = Config.CooldownTextSize.Height > CooldownTextHeightTrack.Maximum ? CooldownTextHeightTrack.Maximum : Config.CooldownTextSize.Height;
+            CooldownTextWidthTrack.Maximum = Config.CooldownTextSize.Width > CooldownTextWidthTrack.Maximum ? Config.CooldownTextSize.Width : CooldownTextWidthTrack.Maximum;
+            CooldownTextWidthTrack.Value = Config.CooldownTextSize.Width;
+            CooldownTextHeightTrack.Maximum = Config.CooldownTextSize.Height > CooldownTextHeightTrack.Maximum ? Config.CooldownTextSize.Height : CooldownTextHeightTrack.Maximum;
+            CooldownTextHeightTrack.Value = Config.CooldownTextSize.Height;
 
             if(PartyNumComboBox.SelectedItem == null) {
                 PartyNumComboBox.SelectedItem = "4 #1";
             }
             UpdatePartyNumTrackValues();
 
-            ConfigTabControl.SelectedIndex = 1;
+            object dpiSelected = "Manual";
+            if(DPIResolutionComboBox.SelectedItem != null) {
+                dpiSelected = DPIResolutionComboBox.SelectedItem;
+            }
+            DPIResolutionComboBox.Items.Clear();
+            DPIResolutionComboBox.Items.Add("Manual");
+            foreach(Template template in Config.Templates) {
+                DPIResolutionComboBox.Items.Add(template.Resolution);
+            }
+            if(DPIResolutionComboBox.Items.Contains(dpiSelected)) {
+                DPIResolutionComboBox.SelectedItem = dpiSelected;
+            }
+            DPIScaleTrack.Maximum = (int)(IMG.DesktopScale * 100) > DPIScaleTrack.Maximum ? (int)(IMG.DesktopScale * 100) : DPIScaleTrack.Maximum;
+            DPIScaleTrack.Value = (int)(IMG.DesktopScale * 100);
+
+            ModeTabControl.SelectedIndex = 0;
+            AppearanceTabControl.SelectedIndex = 1;
 
             CooldownBarsXPosTrack.Value = Config.CooldownBarLocation.X > CooldownBarsXPosTrack.Maximum ? CooldownBarsXPosTrack.Maximum : Config.CooldownBarLocation.X;
             CooldownBarsYPosTrack.Value = Config.CooldownBarLocation.Y > CooldownBarsYPosTrack.Maximum ? CooldownBarsYPosTrack.Maximum : Config.CooldownBarLocation.Y;
+
             CooldownBarsWidthTrack.Value = Config.CooldownBarSize.Width > CooldownBarsWidthTrack.Maximum ? CooldownBarsWidthTrack.Maximum : Config.CooldownBarSize.Width;
             CooldownBarsHeightTrack.Value = Config.CooldownBarSize.Height > CooldownBarsHeightTrack.Maximum ? CooldownBarsHeightTrack.Maximum : Config.CooldownBarSize.Height;
             CooldownBarsXOffsetTrack.Value = (int)(Config.CooldownBarXOffset * 10) > CooldownBarsXOffsetTrack.Maximum ? CooldownBarsXOffsetTrack.Maximum : (int)(Config.CooldownBarXOffset * 10);
@@ -247,6 +312,7 @@ namespace GenshinOverlay {
             CooldownPropOverrideTrack.Value = (int)(Config.CooldownMinimumOverride * 10);
             CooldownPropPauseTrack.Value = (int)(Config.CooldownPauseSubtraction * 10);
             CooldownPropTickTrack.Value = Config.CooldownTickRateInMs;
+            CooldownPropOCRRateTrack.Value = Config.CooldownOCRRateInMs;
             CooldownPropConfTrack.Value = (int)(Config.OCRMinimumConfidence * 100);
 
             FG1ColourText.Text = Config.CooldownBarFG1Color;
@@ -383,13 +449,12 @@ namespace GenshinOverlay {
         }
         private void AutoButton_Click(object sender, EventArgs e) {
             User32.GetClientRect(OverlayWindow.GenshinHandle, out User32.RECT rect);
-            AssumeDefaultValues(rect);
+            OverlayTemplateValues(rect.Size, 100);
             UpdateControlValues();
         }
         private void SaveButton_Click(object sender, EventArgs e) {
+            MainPanel.Visible = true;
             ConfigPanel.Visible = false;
-            ConfigureOverlayButton.Visible = true;
-            DebugButton.Visible = true;
             Config.Save();
             OverlayWindow.IsConfiguring = false;
         }
@@ -475,7 +540,7 @@ namespace GenshinOverlay {
                 Config.CooldownBarYOffsets[2] = (float)CooldownBarsYOffsetTrack.Value / 10;
             }
         }
-        private void CooldownBarsRadiusTrack_ValueChanged(object sender, EventArgs e) {
+        private void CooldownBarsModeTrack_ValueChanged(object sender, EventArgs e) {
             CooldownBarsModeText.Text = "Style: " + CooldownBarsModeTrack.Value.ToString();
             Config.CooldownBarMode = CooldownBarsModeTrack.Value;
         }
@@ -533,6 +598,10 @@ namespace GenshinOverlay {
         private void CooldownPropTickTrack_ValueChanged(object sender, EventArgs e) {
             CooldownPropTickText.Text = "Tick Rate: " + CooldownPropTickTrack.Value.ToString();
             Config.CooldownTickRateInMs = CooldownPropTickTrack.Value;
+        }
+        private void CooldownPropOCRRateTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownPropOCRRateText.Text = "OCR Rate: " + CooldownPropOCRRateTrack.Value.ToString();
+            Config.CooldownOCRRateInMs = CooldownPropOCRRateTrack.Value;
         }
         private void CooldownPropConfTrack_ValueChanged(object sender, EventArgs e) {
             CooldownPropConfText.Text = $"Confidence: {CooldownPropConfTrack.Value}%";
@@ -611,14 +680,25 @@ namespace GenshinOverlay {
                 Config.CooldownOverride[3] = 0;
             }
         }
+
+        private void AppearanceTabControl_Selecting(object sender, TabControlCancelEventArgs e) {
+            if(e.TabPageIndex == 0) {
+                e.Cancel = true;
+            }
+        }
         #endregion //ValueChanged/TextChanged
 
         #endregion //Config
 
-        private void ConfigTabControl_Selecting(object sender, TabControlCancelEventArgs e) {
-            if(e.TabPageIndex == 0) {
-                e.Cancel = true;
-            }
+        private void DPIResolutionComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            if(DPIResolutionComboBox.SelectedItem.ToString() == "Manual") { return; }
+            OverlayTemplateValues((Size)DPIResolutionComboBox.SelectedItem, DPIScaleTrack.Value);
+        }
+
+        private void DPIScaleTrack_ValueChanged(object sender, EventArgs e) {
+            if(DPIResolutionComboBox.SelectedItem.ToString() == "Manual") { return; }
+            DPIScaleText.Text = $"Scale: {DPIScaleTrack.Value}%";
+            OverlayTemplateValues((Size)DPIResolutionComboBox.SelectedItem, DPIScaleTrack.Value);
         }
     }
 }

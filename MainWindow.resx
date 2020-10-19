@@ -120,6 +120,9 @@
   <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>279, 18</value>
   </metadata>
+  <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>279, 18</value>
+  </metadata>
   <data name="LabelCooldownText.ToolTip" xml:space="preserve">
     <value>Define the position/size of a red rectangle region where the 
 skill cooldown timer will be captured for OCR processing.
@@ -150,6 +153,9 @@ This value is ignored if bar X Offset is not 0.
 Note: You may also need to adjust the bar Y Offset value 
 below in order to line up the other bars correctly.</value>
   </data>
+  <metadata name="AppearanceTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="CooldownBarsYOffsetTrack.ToolTip" xml:space="preserve">
     <value>The Y position offset for bars 2, 3 and 4 from bar 1.
 Set X Offset to 0 and this to any other value to list bars vertically.
@@ -157,14 +163,14 @@ Set this to 0 and X Offset to any other value to list bars horizontally.
 This value is specific to the party size, so if you change 
 the party size box, the value of this will reflect the change.</value>
   </data>
-  <metadata name="ConfigTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="SelColourText.ToolTip" xml:space="preserve">
     <value>Set the colour/opacity of the currently selected character's cooldown bar when skill is on cooldown.
 An opacity value of 00 will hide the selected character's bar while on cooldown.
 Set to the same colour as FG1 Colour for no change.</value>
   </data>
+  <metadata name="AppearanceTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="SelTColourText.ToolTip" xml:space="preserve">
     <value>Set the colour/opacity of the currently selected character's cooldown text when skill is on cooldown.
 An opacity value of 00 will hide the selected character's text while on cooldown.
@@ -178,6 +184,22 @@ Eg. "4 #1" will adjust position for the dot representing slot #1
 when there are 4 characters in the party.
 You can also adjust the Bar Offset and Y Offset values for the 
 selected party size.</value>
+  </data>
+  <data name="DPIResolutionComboBox.ToolTip" xml:space="preserve">
+    <value>You should only need to touch this if you're using 
+desktop scaling and it could not be detected automatically.
+Select the same resolution that the game is set to in 
+this box, then adjust the scaling with the slider.
+You can also use this to scale up values from a template 
+if your in-game resolution is the same aspect ratio.</value>
+  </data>
+  <data name="DPIScaleTrack.ToolTip" xml:space="preserve">
+    <value>You should only need to touch this if you're using 
+desktop scaling and it could not be detected or if 
+your in-game resolution is the same aspect ratio as one
+of the templates.
+After modifying this, save config before making 
+changes on the Manual Setup tab.</value>
   </data>
   <data name="CooldownPropConfTrack.ToolTip" xml:space="preserve">
     <value>This determines how confident the OCR engine needs to be
@@ -233,7 +255,7 @@ Default: 0</value>
     <value>Automatically set values depending on current game resolution.
 By default, only supports up to 1920x1080.
 Other resolutions can be added to GenshinOverlay.Templates.ini
-Newly added resolutions will require GenshinOverlay to be restarted.</value>
+Newly added resolutions will require you to save config then reopen.</value>
   </data>
   <data name="LabelCooldownOverrideL0.ToolTip" xml:space="preserve">
     <value>Allows you to set a specific value for skill cooldown for each character.
@@ -248,15 +270,8 @@ by the "Override" property below.</value>
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>46</value>
+    <value>35</value>
   </metadata>
-  <data name="DebugButton.ToolTip" xml:space="preserve">
-    <value>After using a skill, click this to perform a debug process of 
-the OCR engine to ensure that the rectangle region 
-and dots are set correctly.
-This will output some data to clipboard and also create a 
-debug image folder in the application directory.</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1946,4 +1961,32 @@ debug image folder in the application directory.</value>
   <metadata name="MStyleExtender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>143, 17</value>
   </metadata>
+  <data name="DebugButton.ToolTip" xml:space="preserve">
+    <value>After using a skill, click this to perform a debug process of 
+the OCR engine to ensure that the rectangle region 
+and dots are set correctly.
+The OCR engine will run once, returning a value 
+ignoring the confidence threshold.
+This will output some data to the textbox above and 
+also create a debug image folder in the application directory.</value>
+  </data>
+  <data name="CooldownPropOCRRateTrack.ToolTip" xml:space="preserve">
+    <value>The rate in ms at which OCR is performed.
+This affects how frequently the OCR engine will 
+attempt to retrieve a cooldown value when skill is used.
+A lower value will be more CPU intensive.
+A higher value will be less accurate.
+Default: 100</value>
+  </data>
+  <data name="DebugMultiButton.ToolTip" xml:space="preserve">
+    <value>After using a skill, click this to perform a multi debug process of 
+the OCR engine to ensure that the rectangle region 
+and dots are set correctly.
+The OCR engine will run until it returns a value above 
+the confidence threshold or iteration count exceeds 1000.
+You can also stop the process by clicking this button again.
+This will output some data to the textbox above and 
+also create a debug image folder in the application directory.
+Note: Only the first iteration will save images.</value>
+  </data>
 </root>

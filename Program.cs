@@ -8,6 +8,9 @@ namespace GenshinOverlay {
         [STAThread]
         static void Main() {
             try {
+                if(Environment.OSVersion.Version.Major >= 6) { 
+                    User32.SetProcessDPIAware();
+                }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 SingleInstanceController Instance = new SingleInstanceController();

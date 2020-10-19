@@ -12,6 +12,12 @@ namespace GenshinOverlay {
         [DllImport("user32.dll", SetLastError = true)] public static extern IntPtr GetWindowDC(IntPtr window);
         [DllImport("gdi32.dll", SetLastError = true)] public static extern uint GetPixel(IntPtr dc, int x, int y);
         [DllImport("user32.dll", SetLastError = true)] public static extern int ReleaseDC(IntPtr window, IntPtr dc);
+        [DllImport("gdi32.dll")] public static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
+        public enum DeviceCap {
+            VERTRES = 10,
+            DESKTOPVERTRES = 117,
+            LOGPIXELSY = 90,
+        }
 
         public enum TernaryRasterOperations : uint {
             SRCCOPY = 0x00CC0020,
