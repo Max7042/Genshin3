@@ -78,12 +78,16 @@ namespace GenshinOverlay {
                     Thread.Sleep(Config.CooldownOCRRateInMs);
                     Point captureLocation = new Point(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y);
                     Size captureSize = new Size(Config.CooldownTextSize.Width, Config.CooldownTextSize.Height);
+                    Point captureLocation2 = new Point(Config.CooldownText2LocationX, Config.CooldownTextLocation.Y);
 
                     IMG.OCRCapture ocr = new IMG.OCRCapture();
                     IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize, ref ocr);
                     while(c == Party.SelectedCharacter && ocr.Cooldown == 0) {
                         Thread.Sleep(Config.CooldownOCRRateInMs);
                         IMG.Capture(OverlayWindow.CurrentHandle, captureLocation, captureSize, ref ocr);
+                        if(ocr.Cooldown == 0 && Config.CooldownText2LocationX != 0) {
+                            IMG.Capture(OverlayWindow.CurrentHandle, captureLocation2, captureSize, ref ocr);
+                        }
                     }
                     if(c != Party.SelectedCharacter) {
                         Party.Characters[c].Cooldown = 0;
@@ -141,12 +145,14 @@ namespace GenshinOverlay {
 
             CooldownTextXPosTrack.Maximum = rect.Width;
             CooldownTextYPosTrack.Maximum = rect.Height;
+            CooldownText2XPosTrack.Maximum = rect.Width;
             PartyNumXPosTrack.Maximum = rect.Width;
             PartyNumYPosTrack.Maximum = rect.Height;
             CooldownBarsXPosTrack.Maximum = rect.Width;
             CooldownBarsYPosTrack.Maximum = rect.Height;
             CooldownTextXPosTrack.MouseWheelBarPartitions = CooldownTextXPosTrack.Maximum - CooldownTextXPosTrack.Minimum;
             CooldownTextYPosTrack.MouseWheelBarPartitions = CooldownTextYPosTrack.Maximum - CooldownTextYPosTrack.Minimum;
+            CooldownText2XPosTrack.MouseWheelBarPartitions = CooldownText2XPosTrack.Maximum - CooldownText2XPosTrack.Minimum;
             PartyNumXPosTrack.MouseWheelBarPartitions = PartyNumXPosTrack.Maximum - PartyNumXPosTrack.Minimum;
             PartyNumYPosTrack.MouseWheelBarPartitions = PartyNumYPosTrack.Maximum - PartyNumYPosTrack.Minimum;
             CooldownBarsXPosTrack.MouseWheelBarPartitions = CooldownBarsXPosTrack.Maximum - CooldownBarsXPosTrack.Minimum;
@@ -231,6 +237,7 @@ namespace GenshinOverlay {
             if(template != null) {
                 Config.CooldownTextLocation = template.Properties.CooldownTextLocation.Scaled(scale);
                 Config.CooldownTextSize = template.Properties.CooldownTextSize.Scaled(scale);
+                Config.CooldownText2LocationX = template.Properties.CooldownText2LocationX.Scaled(scale);
                 Config.PartyNumLocations = template.Properties.PartyNumLocations.Scaled(scale);
                 Config.PartyNumBarOffsets = template.Properties.PartyNumBarOffsets.Scaled(scale);
                 Config.CooldownBarLocation = template.Properties.CooldownBarLocation.Scaled(scale);
@@ -240,6 +247,7 @@ namespace GenshinOverlay {
             } else {
                 Config.CooldownTextLocation = Config.Templates[0].Properties.CooldownTextLocation;
                 Config.CooldownTextSize = Config.Templates[0].Properties.CooldownTextSize;
+                Config.CooldownText2LocationX = Config.Templates[0].Properties.CooldownText2LocationX;
                 Config.PartyNumLocations = Config.Templates[0].Properties.PartyNumLocations;
                 Config.PartyNumBarOffsets = Config.Templates[0].Properties.PartyNumBarOffsets;
                 Config.CooldownBarLocation = Config.Templates[0].Properties.CooldownBarLocation;
@@ -256,6 +264,7 @@ namespace GenshinOverlay {
             CooldownTextWidthTrack.Value = Config.CooldownTextSize.Width;
             CooldownTextHeightTrack.Maximum = Config.CooldownTextSize.Height > CooldownTextHeightTrack.Maximum ? Config.CooldownTextSize.Height : CooldownTextHeightTrack.Maximum;
             CooldownTextHeightTrack.Value = Config.CooldownTextSize.Height;
+            CooldownText2XPosTrack.Value = Config.CooldownText2LocationX > CooldownText2XPosTrack.Maximum ? CooldownText2XPosTrack.Maximum : Config.CooldownText2LocationX;
 
             if(PartyNumComboBox.SelectedItem == null) {
                 PartyNumComboBox.SelectedItem = "4 #1";
@@ -492,6 +501,10 @@ namespace GenshinOverlay {
         private void CooldownTextHeightTrack_ValueChanged(object sender, EventArgs e) {
             CooldownTextHeightText.Text = "Height: " + CooldownTextHeightTrack.Value.ToString();
             Config.CooldownTextSize = new Size(Config.CooldownTextSize.Width, CooldownTextHeightTrack.Value);
+        }
+        private void CooldownText2XPosTrack_ValueChanged(object sender, EventArgs e) {
+            CooldownText2XPosText.Text = "X Pos: " + CooldownText2XPosTrack.Value.ToString();
+            Config.CooldownText2LocationX = CooldownText2XPosTrack.Value;
         }
         private void PartyNumXPosTrack_ValueChanged(object sender, EventArgs e) {
             PartyNumXPosText.Text = "X Pos: " + PartyNumXPosTrack.Value.ToString();

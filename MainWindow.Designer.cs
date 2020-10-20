@@ -26,80 +26,54 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.ConfigureOverlayButton = new MetroFramework.Controls.MetroButton();
-            this.LabelCooldownText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownTextXPosText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownTextYPosText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownTextHeightText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownTextWidthText = new MetroFramework.Controls.MetroLabel();
-            this.PartyNumBarOffsetsText = new MetroFramework.Controls.MetroLabel();
-            this.PartyNumYPosText = new MetroFramework.Controls.MetroLabel();
-            this.PartyNumXPosText = new MetroFramework.Controls.MetroLabel();
-            this.LabelPartyNumbers = new MetroFramework.Controls.MetroLabel();
-            this.CooldownTextXPosTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownTextYPosTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownTextWidthTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownTextHeightTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.PartyNumXPosTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.PartyNumYPosTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.PartyNumBarOffsetsTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.ConfigPanel = new MetroFramework.Controls.MetroPanel();
-            this.AppearanceTabControl = new MetroFramework.Controls.MetroTabControl();
-            this.AppearanceTabBars = new MetroFramework.Controls.MetroTabPage();
-            this.CooldownBarsXPosText = new MetroFramework.Controls.MetroLabel();
+            this.MStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.MStyleExtender = new MetroFramework.Components.MetroStyleExtender(this.components);
+            this.ConfigureOverlayMessage = new MetroFramework.Controls.MetroLabel();
+            this.ConfigToolTip = new MetroFramework.Components.MetroToolTip();
+            this.DebugButton = new MetroFramework.Controls.MetroButton();
+            this.DebugMultiButton = new MetroFramework.Controls.MetroButton();
+            this.CooldownPropOCRRateTrack = new MetroFramework.Controls.MetroTrackBar();
             this.BGColourText = new MetroFramework.Controls.MetroTextBox();
             this.FG2ColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour1 = new MetroFramework.Controls.MetroLabel();
             this.FG1ColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour2 = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsYOffsetText = new MetroFramework.Controls.MetroLabel();
-            this.LabelSelectColour3 = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsXOffsetText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsHeightText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsWidthText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsYPosText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarsXPosTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarsYPosTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarsWidthTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarsHeightTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarsXOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarsYOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownBarsModeText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarsModeTrack = new MetroFramework.Controls.MetroTrackBar();
             this.SelColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour4 = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarsSelOffsetText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarsSelOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.AppearanceTab0 = new MetroFramework.Controls.MetroTabPage();
-            this.AppearanceTabText = new MetroFramework.Controls.MetroTabPage();
             this.CooldownBarTextReadyText = new MetroFramework.Controls.MetroTextBox();
             this.CooldownBarTextZeroPrefix = new MetroFramework.Controls.MetroCheckBox();
             this.CooldownBarTextFontComboBox = new MetroFramework.Controls.MetroComboBox();
             this.BGTColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour3T = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarTextDecimalText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarTextDecimalTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownBarTextYOffsetText = new MetroFramework.Controls.MetroLabel();
-            this.CooldownBarTextXOffsetText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarTextXOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownBarTextYOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownBarTextSizeText = new MetroFramework.Controls.MetroLabel();
             this.CooldownBarTextSizeTrack = new MetroFramework.Controls.MetroTrackBar();
             this.FG2TColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour1T = new MetroFramework.Controls.MetroLabel();
             this.FG1TColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour2T = new MetroFramework.Controls.MetroLabel();
             this.SelTColourText = new MetroFramework.Controls.MetroTextBox();
-            this.LabelSelectColour4T = new MetroFramework.Controls.MetroLabel();
-            this.ModeTabControl = new MetroFramework.Controls.MetroTabControl();
-            this.ModeTabManual = new MetroFramework.Controls.MetroTabPage();
+            this.LabelCooldownText2 = new MetroFramework.Controls.MetroLabel();
+            this.CooldownText2XPosTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.CooldownText2XPosText = new MetroFramework.Controls.MetroLabel();
+            this.LabelCooldownText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownTextXPosTrack = new MetroFramework.Controls.MetroTrackBar();
             this.PartyNumComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.ModeTabAuto = new MetroFramework.Controls.MetroTabPage();
+            this.CooldownTextYPosTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.CooldownTextWidthTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.CooldownTextHeightTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.PartyNumXPosTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.PartyNumYPosTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.PartyNumBarOffsetsTrack = new MetroFramework.Controls.MetroTrackBar();
+            this.LabelPartyNumbers = new MetroFramework.Controls.MetroLabel();
+            this.CooldownTextXPosText = new MetroFramework.Controls.MetroLabel();
             this.DPIResolutionComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.DPIScaleText = new MetroFramework.Controls.MetroLabel();
             this.DPIScaleTrack = new MetroFramework.Controls.MetroTrackBar();
             this.DevLink = new MetroFramework.Controls.MetroLink();
             this.CooldownPropConfTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownPropConfText = new MetroFramework.Controls.MetroLabel();
             this.CooldownPropTickTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownPropPauseTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownPropOverrideTrack = new MetroFramework.Controls.MetroTrackBar();
@@ -107,6 +81,53 @@
             this.CooldownPropOffsetTrack = new MetroFramework.Controls.MetroTrackBar();
             this.CooldownPropMaxTrack = new MetroFramework.Controls.MetroTrackBar();
             this.LabelCooldownProperties = new MetroFramework.Controls.MetroLabel();
+            this.ToggleTheme = new MetroFramework.Controls.MetroToggle();
+            this.AutoButton = new MetroFramework.Controls.MetroButton();
+            this.LabelCooldownOverrideL0 = new MetroFramework.Controls.MetroLabel();
+            this.CooldownOverride4Text = new MetroFramework.Controls.MetroTextBox();
+            this.CooldownOverride3Text = new MetroFramework.Controls.MetroTextBox();
+            this.CooldownOverride2Text = new MetroFramework.Controls.MetroTextBox();
+            this.CooldownOverride1Text = new MetroFramework.Controls.MetroTextBox();
+            this.SaveButton = new MetroFramework.Controls.MetroButton();
+            this.MainPanel = new MetroFramework.Controls.MetroPanel();
+            this.DebugText = new MetroFramework.Controls.MetroTextBox();
+            this.ConfigPanel = new MetroFramework.Controls.MetroPanel();
+            this.CooldownPropOCRRateText = new MetroFramework.Controls.MetroLabel();
+            this.AppearanceTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.AppearanceTab0 = new MetroFramework.Controls.MetroTabPage();
+            this.AppearanceTabBars = new MetroFramework.Controls.MetroTabPage();
+            this.CooldownBarsXPosText = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour1 = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour2 = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsYOffsetText = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour3 = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsXOffsetText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsHeightText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsWidthText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsYPosText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsModeText = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour4 = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarsSelOffsetText = new MetroFramework.Controls.MetroLabel();
+            this.AppearanceTabText = new MetroFramework.Controls.MetroTabPage();
+            this.LabelSelectColour3T = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarTextDecimalText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarTextYOffsetText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarTextXOffsetText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownBarTextSizeText = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour1T = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour2T = new MetroFramework.Controls.MetroLabel();
+            this.LabelSelectColour4T = new MetroFramework.Controls.MetroLabel();
+            this.ModeTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.ModeTabManual = new MetroFramework.Controls.MetroTabPage();
+            this.PartyNumBarOffsetsText = new MetroFramework.Controls.MetroLabel();
+            this.PartyNumYPosText = new MetroFramework.Controls.MetroLabel();
+            this.PartyNumXPosText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownTextHeightText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownTextWidthText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownTextYPosText = new MetroFramework.Controls.MetroLabel();
+            this.ModeTabAuto = new MetroFramework.Controls.MetroTabPage();
+            this.DPIScaleText = new MetroFramework.Controls.MetroLabel();
+            this.CooldownPropConfText = new MetroFramework.Controls.MetroLabel();
             this.CooldownPropMaxText = new MetroFramework.Controls.MetroLabel();
             this.CooldownPropOffsetText = new MetroFramework.Controls.MetroLabel();
             this.CooldownPropReapplyText = new MetroFramework.Controls.MetroLabel();
@@ -118,24 +139,9 @@
             this.LabelCooldownOverride3 = new MetroFramework.Controls.MetroLabel();
             this.LabelCooldownOverride2 = new MetroFramework.Controls.MetroLabel();
             this.LabelCooldownOverride1 = new MetroFramework.Controls.MetroLabel();
-            this.ToggleTheme = new MetroFramework.Controls.MetroToggle();
-            this.AutoButton = new MetroFramework.Controls.MetroButton();
-            this.LabelCooldownOverrideL0 = new MetroFramework.Controls.MetroLabel();
-            this.CooldownOverride4Text = new MetroFramework.Controls.MetroTextBox();
-            this.CooldownOverride3Text = new MetroFramework.Controls.MetroTextBox();
-            this.CooldownOverride2Text = new MetroFramework.Controls.MetroTextBox();
-            this.CooldownOverride1Text = new MetroFramework.Controls.MetroTextBox();
-            this.SaveButton = new MetroFramework.Controls.MetroButton();
-            this.MStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.MStyleExtender = new MetroFramework.Components.MetroStyleExtender(this.components);
-            this.ConfigureOverlayMessage = new MetroFramework.Controls.MetroLabel();
-            this.ConfigToolTip = new MetroFramework.Components.MetroToolTip();
-            this.DebugButton = new MetroFramework.Controls.MetroButton();
-            this.CooldownPropOCRRateTrack = new MetroFramework.Controls.MetroTrackBar();
-            this.CooldownPropOCRRateText = new MetroFramework.Controls.MetroLabel();
-            this.DebugMultiButton = new MetroFramework.Controls.MetroButton();
-            this.MainPanel = new MetroFramework.Controls.MetroPanel();
-            this.DebugText = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.MStyleManager)).BeginInit();
+            this.MainPanel.SuspendLayout();
             this.ConfigPanel.SuspendLayout();
             this.AppearanceTabControl.SuspendLayout();
             this.AppearanceTabBars.SuspendLayout();
@@ -143,14 +149,12 @@
             this.ModeTabControl.SuspendLayout();
             this.ModeTabManual.SuspendLayout();
             this.ModeTabAuto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MStyleManager)).BeginInit();
-            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ConfigureOverlayButton
             // 
             this.ConfigureOverlayButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ConfigureOverlayButton.Location = new System.Drawing.Point(90, 149);
+            this.ConfigureOverlayButton.Location = new System.Drawing.Point(90, 164);
             this.ConfigureOverlayButton.Name = "ConfigureOverlayButton";
             this.ConfigureOverlayButton.Size = new System.Drawing.Size(256, 47);
             this.ConfigureOverlayButton.TabIndex = 0;
@@ -160,315 +164,69 @@
             this.ConfigureOverlayButton.UseSelectable = true;
             this.ConfigureOverlayButton.Click += new System.EventHandler(this.ConfigureOverlayButton_Click);
             // 
-            // LabelCooldownText
+            // MStyleManager
             // 
-            this.LabelCooldownText.AutoSize = true;
-            this.LabelCooldownText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownText.Location = new System.Drawing.Point(1, 5);
-            this.LabelCooldownText.Name = "LabelCooldownText";
-            this.LabelCooldownText.Size = new System.Drawing.Size(80, 15);
-            this.LabelCooldownText.TabIndex = 100;
-            this.LabelCooldownText.Text = "Cooldown Text";
-            this.ConfigToolTip.SetToolTip(this.LabelCooldownText, resources.GetString("LabelCooldownText.ToolTip"));
+            this.MStyleManager.Owner = this;
             // 
-            // CooldownTextXPosText
+            // ConfigureOverlayMessage
             // 
-            this.CooldownTextXPosText.AutoSize = true;
-            this.CooldownTextXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownTextXPosText.Location = new System.Drawing.Point(87, 5);
-            this.CooldownTextXPosText.Name = "CooldownTextXPosText";
-            this.CooldownTextXPosText.Size = new System.Drawing.Size(35, 15);
-            this.CooldownTextXPosText.TabIndex = 101;
-            this.CooldownTextXPosText.Text = "X Pos";
-            this.ConfigToolTip.SetToolTip(this.CooldownTextXPosText, "The X position");
+            this.ConfigureOverlayMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ConfigureOverlayMessage.Location = new System.Drawing.Point(90, 120);
+            this.ConfigureOverlayMessage.Name = "ConfigureOverlayMessage";
+            this.ConfigureOverlayMessage.Size = new System.Drawing.Size(255, 45);
+            this.ConfigureOverlayMessage.TabIndex = 128;
+            this.ConfigureOverlayMessage.Text = "The overlay has yet to be configured.\r\nPress the button below to get started.";
+            this.ConfigureOverlayMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CooldownTextYPosText
+            // ConfigToolTip
             // 
-            this.CooldownTextYPosText.AutoSize = true;
-            this.CooldownTextYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownTextYPosText.Location = new System.Drawing.Point(174, 5);
-            this.CooldownTextYPosText.Name = "CooldownTextYPosText";
-            this.CooldownTextYPosText.Size = new System.Drawing.Size(34, 15);
-            this.CooldownTextYPosText.TabIndex = 102;
-            this.CooldownTextYPosText.Text = "Y Pos";
+            this.ConfigToolTip.AutoPopDelay = 10000;
+            this.ConfigToolTip.InitialDelay = 200;
+            this.ConfigToolTip.ReshowDelay = 50;
+            this.ConfigToolTip.StripAmpersands = true;
+            this.ConfigToolTip.Style = MetroFramework.MetroColorStyle.Purple;
+            this.ConfigToolTip.StyleManager = null;
+            this.ConfigToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // CooldownTextHeightText
+            // DebugButton
             // 
-            this.CooldownTextHeightText.AutoSize = true;
-            this.CooldownTextHeightText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownTextHeightText.Location = new System.Drawing.Point(348, 5);
-            this.CooldownTextHeightText.Name = "CooldownTextHeightText";
-            this.CooldownTextHeightText.Size = new System.Drawing.Size(40, 15);
-            this.CooldownTextHeightText.TabIndex = 104;
-            this.CooldownTextHeightText.Text = "Height";
+            this.DebugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DebugButton.Location = new System.Drawing.Point(90, 371);
+            this.DebugButton.Name = "DebugButton";
+            this.DebugButton.Size = new System.Drawing.Size(125, 27);
+            this.DebugButton.TabIndex = 145;
+            this.DebugButton.Text = "OCR Debug (Single)";
+            this.ConfigToolTip.SetToolTip(this.DebugButton, resources.GetString("DebugButton.ToolTip"));
+            this.DebugButton.UseSelectable = true;
+            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
             // 
-            // CooldownTextWidthText
+            // DebugMultiButton
             // 
-            this.CooldownTextWidthText.AutoSize = true;
-            this.CooldownTextWidthText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownTextWidthText.Location = new System.Drawing.Point(261, 5);
-            this.CooldownTextWidthText.Name = "CooldownTextWidthText";
-            this.CooldownTextWidthText.Size = new System.Drawing.Size(37, 15);
-            this.CooldownTextWidthText.TabIndex = 103;
-            this.CooldownTextWidthText.Text = "Width";
+            this.DebugMultiButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DebugMultiButton.Location = new System.Drawing.Point(221, 371);
+            this.DebugMultiButton.Name = "DebugMultiButton";
+            this.DebugMultiButton.Size = new System.Drawing.Size(125, 27);
+            this.DebugMultiButton.TabIndex = 146;
+            this.DebugMultiButton.Text = "OCR Debug (Multi)";
+            this.ConfigToolTip.SetToolTip(this.DebugMultiButton, resources.GetString("DebugMultiButton.ToolTip"));
+            this.DebugMultiButton.UseSelectable = true;
+            this.DebugMultiButton.Click += new System.EventHandler(this.DebugMultiButton_Click);
             // 
-            // PartyNumBarOffsetsText
+            // CooldownPropOCRRateTrack
             // 
-            this.PartyNumBarOffsetsText.AutoSize = true;
-            this.PartyNumBarOffsetsText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.PartyNumBarOffsetsText.Location = new System.Drawing.Point(261, 38);
-            this.PartyNumBarOffsetsText.Name = "PartyNumBarOffsetsText";
-            this.PartyNumBarOffsetsText.Size = new System.Drawing.Size(57, 15);
-            this.PartyNumBarOffsetsText.TabIndex = 108;
-            this.PartyNumBarOffsetsText.Text = "Bar Offset";
-            this.PartyNumBarOffsetsText.UseCustomForeColor = true;
-            // 
-            // PartyNumYPosText
-            // 
-            this.PartyNumYPosText.AutoSize = true;
-            this.PartyNumYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.PartyNumYPosText.Location = new System.Drawing.Point(174, 38);
-            this.PartyNumYPosText.Name = "PartyNumYPosText";
-            this.PartyNumYPosText.Size = new System.Drawing.Size(34, 15);
-            this.PartyNumYPosText.TabIndex = 107;
-            this.PartyNumYPosText.Text = "Y Pos";
-            this.PartyNumYPosText.UseCustomForeColor = true;
-            // 
-            // PartyNumXPosText
-            // 
-            this.PartyNumXPosText.AutoSize = true;
-            this.PartyNumXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.PartyNumXPosText.Location = new System.Drawing.Point(87, 38);
-            this.PartyNumXPosText.Name = "PartyNumXPosText";
-            this.PartyNumXPosText.Size = new System.Drawing.Size(35, 15);
-            this.PartyNumXPosText.TabIndex = 106;
-            this.PartyNumXPosText.Text = "X Pos";
-            this.PartyNumXPosText.UseCustomForeColor = true;
-            // 
-            // LabelPartyNumbers
-            // 
-            this.LabelPartyNumbers.AutoSize = true;
-            this.LabelPartyNumbers.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelPartyNumbers.Location = new System.Drawing.Point(-2, 38);
-            this.LabelPartyNumbers.Name = "LabelPartyNumbers";
-            this.LabelPartyNumbers.Size = new System.Drawing.Size(83, 15);
-            this.LabelPartyNumbers.TabIndex = 105;
-            this.LabelPartyNumbers.Text = "Party Numbers";
-            this.ConfigToolTip.SetToolTip(this.LabelPartyNumbers, resources.GetString("LabelPartyNumbers.ToolTip"));
-            // 
-            // CooldownTextXPosTrack
-            // 
-            this.CooldownTextXPosTrack.BackColor = System.Drawing.Color.Transparent;
-            this.CooldownTextXPosTrack.LargeChange = 1;
-            this.CooldownTextXPosTrack.Location = new System.Drawing.Point(87, 18);
-            this.CooldownTextXPosTrack.MouseWheelBarPartitions = 100;
-            this.CooldownTextXPosTrack.Name = "CooldownTextXPosTrack";
-            this.CooldownTextXPosTrack.Size = new System.Drawing.Size(82, 15);
-            this.CooldownTextXPosTrack.TabIndex = 1;
-            this.ConfigToolTip.SetToolTip(this.CooldownTextXPosTrack, "The X position of the region.");
-            this.CooldownTextXPosTrack.Value = 0;
-            this.CooldownTextXPosTrack.ValueChanged += new System.EventHandler(this.CooldownTextXPosTrack_ValueChanged);
-            // 
-            // CooldownTextYPosTrack
-            // 
-            this.CooldownTextYPosTrack.BackColor = System.Drawing.Color.Transparent;
-            this.CooldownTextYPosTrack.LargeChange = 1;
-            this.CooldownTextYPosTrack.Location = new System.Drawing.Point(174, 18);
-            this.CooldownTextYPosTrack.MouseWheelBarPartitions = 100;
-            this.CooldownTextYPosTrack.Name = "CooldownTextYPosTrack";
-            this.CooldownTextYPosTrack.Size = new System.Drawing.Size(82, 15);
-            this.CooldownTextYPosTrack.TabIndex = 2;
-            this.ConfigToolTip.SetToolTip(this.CooldownTextYPosTrack, "The Y position of the region.");
-            this.CooldownTextYPosTrack.Value = 0;
-            this.CooldownTextYPosTrack.ValueChanged += new System.EventHandler(this.CooldownTextYPosTrack_ValueChanged);
-            // 
-            // CooldownTextWidthTrack
-            // 
-            this.CooldownTextWidthTrack.BackColor = System.Drawing.Color.Transparent;
-            this.CooldownTextWidthTrack.LargeChange = 1;
-            this.CooldownTextWidthTrack.Location = new System.Drawing.Point(261, 18);
-            this.CooldownTextWidthTrack.Minimum = 10;
-            this.CooldownTextWidthTrack.MouseWheelBarPartitions = 90;
-            this.CooldownTextWidthTrack.Name = "CooldownTextWidthTrack";
-            this.CooldownTextWidthTrack.Size = new System.Drawing.Size(82, 15);
-            this.CooldownTextWidthTrack.TabIndex = 3;
-            this.ConfigToolTip.SetToolTip(this.CooldownTextWidthTrack, "The width of the region.");
-            this.CooldownTextWidthTrack.Value = 10;
-            this.CooldownTextWidthTrack.ValueChanged += new System.EventHandler(this.CooldownTextWidthTrack_ValueChanged);
-            // 
-            // CooldownTextHeightTrack
-            // 
-            this.CooldownTextHeightTrack.BackColor = System.Drawing.Color.Transparent;
-            this.CooldownTextHeightTrack.LargeChange = 1;
-            this.CooldownTextHeightTrack.Location = new System.Drawing.Point(348, 18);
-            this.CooldownTextHeightTrack.Minimum = 10;
-            this.CooldownTextHeightTrack.MouseWheelBarPartitions = 90;
-            this.CooldownTextHeightTrack.Name = "CooldownTextHeightTrack";
-            this.CooldownTextHeightTrack.Size = new System.Drawing.Size(82, 15);
-            this.CooldownTextHeightTrack.TabIndex = 4;
-            this.ConfigToolTip.SetToolTip(this.CooldownTextHeightTrack, "The height of the region.");
-            this.CooldownTextHeightTrack.Value = 10;
-            this.CooldownTextHeightTrack.ValueChanged += new System.EventHandler(this.CooldownTextHeightTrack_ValueChanged);
-            // 
-            // PartyNumXPosTrack
-            // 
-            this.PartyNumXPosTrack.BackColor = System.Drawing.Color.Transparent;
-            this.PartyNumXPosTrack.LargeChange = 1;
-            this.PartyNumXPosTrack.Location = new System.Drawing.Point(87, 51);
-            this.PartyNumXPosTrack.MouseWheelBarPartitions = 100;
-            this.PartyNumXPosTrack.Name = "PartyNumXPosTrack";
-            this.PartyNumXPosTrack.Size = new System.Drawing.Size(82, 15);
-            this.PartyNumXPosTrack.TabIndex = 5;
-            this.ConfigToolTip.SetToolTip(this.PartyNumXPosTrack, "The X position of party slot 1.");
-            this.PartyNumXPosTrack.Value = 0;
-            this.PartyNumXPosTrack.ValueChanged += new System.EventHandler(this.PartyNumXPosTrack_ValueChanged);
-            // 
-            // PartyNumYPosTrack
-            // 
-            this.PartyNumYPosTrack.BackColor = System.Drawing.Color.Transparent;
-            this.PartyNumYPosTrack.LargeChange = 1;
-            this.PartyNumYPosTrack.Location = new System.Drawing.Point(174, 51);
-            this.PartyNumYPosTrack.MouseWheelBarPartitions = 100;
-            this.PartyNumYPosTrack.Name = "PartyNumYPosTrack";
-            this.PartyNumYPosTrack.Size = new System.Drawing.Size(82, 15);
-            this.PartyNumYPosTrack.TabIndex = 6;
-            this.ConfigToolTip.SetToolTip(this.PartyNumYPosTrack, "The Y position of party slot 1.");
-            this.PartyNumYPosTrack.Value = 0;
-            this.PartyNumYPosTrack.ValueChanged += new System.EventHandler(this.PartyNumYPosTrack_ValueChanged);
-            // 
-            // PartyNumBarOffsetsTrack
-            // 
-            this.PartyNumBarOffsetsTrack.BackColor = System.Drawing.Color.Transparent;
-            this.PartyNumBarOffsetsTrack.LargeChange = 1;
-            this.PartyNumBarOffsetsTrack.Location = new System.Drawing.Point(261, 51);
-            this.PartyNumBarOffsetsTrack.Maximum = 500;
-            this.PartyNumBarOffsetsTrack.Minimum = -500;
-            this.PartyNumBarOffsetsTrack.MouseWheelBarPartitions = 1000;
-            this.PartyNumBarOffsetsTrack.Name = "PartyNumBarOffsetsTrack";
-            this.PartyNumBarOffsetsTrack.Size = new System.Drawing.Size(82, 15);
-            this.PartyNumBarOffsetsTrack.TabIndex = 7;
-            this.ConfigToolTip.SetToolTip(this.PartyNumBarOffsetsTrack, resources.GetString("PartyNumBarOffsetsTrack.ToolTip"));
-            this.PartyNumBarOffsetsTrack.Value = 0;
-            this.PartyNumBarOffsetsTrack.ValueChanged += new System.EventHandler(this.PartyNumBarOffsetsTrack_ValueChanged);
-            // 
-            // ConfigPanel
-            // 
-            this.ConfigPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ConfigPanel.Controls.Add(this.CooldownPropOCRRateTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropOCRRateText);
-            this.ConfigPanel.Controls.Add(this.AppearanceTabControl);
-            this.ConfigPanel.Controls.Add(this.ModeTabControl);
-            this.ConfigPanel.Controls.Add(this.DevLink);
-            this.ConfigPanel.Controls.Add(this.CooldownPropConfTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropConfText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropTickTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropPauseTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropOverrideTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropReapplyTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropOffsetTrack);
-            this.ConfigPanel.Controls.Add(this.CooldownPropMaxTrack);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownProperties);
-            this.ConfigPanel.Controls.Add(this.CooldownPropMaxText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropOffsetText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropReapplyText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropOverrideText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropPauseText);
-            this.ConfigPanel.Controls.Add(this.CooldownPropTickText);
-            this.ConfigPanel.Controls.Add(this.TipLabel);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride4);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride3);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride2);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride1);
-            this.ConfigPanel.Controls.Add(this.ToggleTheme);
-            this.ConfigPanel.Controls.Add(this.AutoButton);
-            this.ConfigPanel.Controls.Add(this.LabelCooldownOverrideL0);
-            this.ConfigPanel.Controls.Add(this.CooldownOverride4Text);
-            this.ConfigPanel.Controls.Add(this.CooldownOverride3Text);
-            this.ConfigPanel.Controls.Add(this.CooldownOverride2Text);
-            this.ConfigPanel.Controls.Add(this.CooldownOverride1Text);
-            this.ConfigPanel.Controls.Add(this.SaveButton);
-            this.ConfigPanel.HorizontalScrollbarBarColor = true;
-            this.ConfigPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.ConfigPanel.HorizontalScrollbarSize = 10;
-            this.ConfigPanel.Location = new System.Drawing.Point(5, 33);
-            this.ConfigPanel.Name = "ConfigPanel";
-            this.ConfigPanel.Size = new System.Drawing.Size(448, 381);
-            this.ConfigPanel.TabIndex = 128;
-            this.ConfigPanel.VerticalScrollbarBarColor = true;
-            this.ConfigPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.ConfigPanel.VerticalScrollbarSize = 10;
-            // 
-            // AppearanceTabControl
-            // 
-            this.AppearanceTabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.AppearanceTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AppearanceTabControl.Controls.Add(this.AppearanceTab0);
-            this.AppearanceTabControl.Controls.Add(this.AppearanceTabBars);
-            this.AppearanceTabControl.Controls.Add(this.AppearanceTabText);
-            this.AppearanceTabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.AppearanceTabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
-            this.AppearanceTabControl.ItemSize = new System.Drawing.Size(25, 85);
-            this.AppearanceTabControl.Location = new System.Drawing.Point(0, 117);
-            this.AppearanceTabControl.Multiline = true;
-            this.AppearanceTabControl.Name = "AppearanceTabControl";
-            this.AppearanceTabControl.SelectedIndex = 2;
-            this.AppearanceTabControl.Size = new System.Drawing.Size(442, 112);
-            this.AppearanceTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.AppearanceTabControl.TabIndex = 146;
-            this.AppearanceTabControl.TabStop = false;
-            this.AppearanceTabControl.UseSelectable = true;
-            this.AppearanceTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.AppearanceTabControl_Selecting);
-            // 
-            // AppearanceTabBars
-            // 
-            this.AppearanceTabBars.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXPosText);
-            this.AppearanceTabBars.Controls.Add(this.BGColourText);
-            this.AppearanceTabBars.Controls.Add(this.FG2ColourText);
-            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour1);
-            this.AppearanceTabBars.Controls.Add(this.FG1ColourText);
-            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour2);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYOffsetText);
-            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour3);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXOffsetText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsHeightText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsWidthText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYPosText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXPosTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYPosTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsWidthTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsHeightTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXOffsetTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYOffsetTrack);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsModeText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsModeTrack);
-            this.AppearanceTabBars.Controls.Add(this.SelColourText);
-            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour4);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsSelOffsetText);
-            this.AppearanceTabBars.Controls.Add(this.CooldownBarsSelOffsetTrack);
-            this.AppearanceTabBars.HorizontalScrollbarBarColor = true;
-            this.AppearanceTabBars.HorizontalScrollbarHighlightOnWheel = false;
-            this.AppearanceTabBars.HorizontalScrollbarSize = 10;
-            this.AppearanceTabBars.Location = new System.Drawing.Point(89, 4);
-            this.AppearanceTabBars.Name = "AppearanceTabBars";
-            this.AppearanceTabBars.Size = new System.Drawing.Size(349, 104);
-            this.AppearanceTabBars.TabIndex = 2;
-            this.AppearanceTabBars.Text = "Bar Appearance";
-            this.AppearanceTabBars.VerticalScrollbarBarColor = true;
-            this.AppearanceTabBars.VerticalScrollbarHighlightOnWheel = false;
-            this.AppearanceTabBars.VerticalScrollbarSize = 10;
-            // 
-            // CooldownBarsXPosText
-            // 
-            this.CooldownBarsXPosText.AutoSize = true;
-            this.CooldownBarsXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsXPosText.Location = new System.Drawing.Point(2, 2);
-            this.CooldownBarsXPosText.Name = "CooldownBarsXPosText";
-            this.CooldownBarsXPosText.Size = new System.Drawing.Size(35, 15);
-            this.CooldownBarsXPosText.TabIndex = 110;
-            this.CooldownBarsXPosText.Text = "X Pos";
+            this.CooldownPropOCRRateTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropOCRRateTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownPropOCRRateTrack.LargeChange = 1;
+            this.CooldownPropOCRRateTrack.Location = new System.Drawing.Point(266, 334);
+            this.CooldownPropOCRRateTrack.Maximum = 300;
+            this.CooldownPropOCRRateTrack.Minimum = 5;
+            this.CooldownPropOCRRateTrack.MouseWheelBarPartitions = 295;
+            this.CooldownPropOCRRateTrack.Name = "CooldownPropOCRRateTrack";
+            this.CooldownPropOCRRateTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownPropOCRRateTrack.TabIndex = 147;
+            this.ConfigToolTip.SetToolTip(this.CooldownPropOCRRateTrack, resources.GetString("CooldownPropOCRRateTrack.ToolTip"));
+            this.CooldownPropOCRRateTrack.Value = 100;
+            this.CooldownPropOCRRateTrack.ValueChanged += new System.EventHandler(this.CooldownPropOCRRateTrack_ValueChanged);
             // 
             // BGColourText
             // 
@@ -548,16 +306,6 @@
             this.FG2ColourText.TextChanged += new System.EventHandler(this.FG2ColourText_TextChanged);
             this.FG2ColourText.Click += new System.EventHandler(this.FG2ColourText_Click);
             // 
-            // LabelSelectColour1
-            // 
-            this.LabelSelectColour1.AutoSize = true;
-            this.LabelSelectColour1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour1.Location = new System.Drawing.Point(2, 58);
-            this.LabelSelectColour1.Name = "LabelSelectColour1";
-            this.LabelSelectColour1.Size = new System.Drawing.Size(61, 15);
-            this.LabelSelectColour1.TabIndex = 118;
-            this.LabelSelectColour1.Text = "FG1 Colour";
-            // 
             // FG1ColourText
             // 
             // 
@@ -596,78 +344,6 @@
             this.FG1ColourText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.FG1ColourText.TextChanged += new System.EventHandler(this.FG1ColourText_TextChanged);
             this.FG1ColourText.Click += new System.EventHandler(this.FG1ColourText_Click);
-            // 
-            // LabelSelectColour2
-            // 
-            this.LabelSelectColour2.AutoSize = true;
-            this.LabelSelectColour2.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour2.Location = new System.Drawing.Point(89, 58);
-            this.LabelSelectColour2.Name = "LabelSelectColour2";
-            this.LabelSelectColour2.Size = new System.Drawing.Size(63, 15);
-            this.LabelSelectColour2.TabIndex = 119;
-            this.LabelSelectColour2.Text = "FG2 Colour";
-            // 
-            // CooldownBarsYOffsetText
-            // 
-            this.CooldownBarsYOffsetText.AutoSize = true;
-            this.CooldownBarsYOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsYOffsetText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CooldownBarsYOffsetText.Location = new System.Drawing.Point(89, 27);
-            this.CooldownBarsYOffsetText.Name = "CooldownBarsYOffsetText";
-            this.CooldownBarsYOffsetText.Size = new System.Drawing.Size(46, 15);
-            this.CooldownBarsYOffsetText.TabIndex = 115;
-            this.CooldownBarsYOffsetText.Text = "Y Offset";
-            this.CooldownBarsYOffsetText.UseCustomForeColor = true;
-            // 
-            // LabelSelectColour3
-            // 
-            this.LabelSelectColour3.AutoSize = true;
-            this.LabelSelectColour3.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour3.Location = new System.Drawing.Point(176, 58);
-            this.LabelSelectColour3.Name = "LabelSelectColour3";
-            this.LabelSelectColour3.Size = new System.Drawing.Size(58, 15);
-            this.LabelSelectColour3.TabIndex = 120;
-            this.LabelSelectColour3.Text = "BG Colour";
-            // 
-            // CooldownBarsXOffsetText
-            // 
-            this.CooldownBarsXOffsetText.AutoSize = true;
-            this.CooldownBarsXOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsXOffsetText.Location = new System.Drawing.Point(2, 27);
-            this.CooldownBarsXOffsetText.Name = "CooldownBarsXOffsetText";
-            this.CooldownBarsXOffsetText.Size = new System.Drawing.Size(47, 15);
-            this.CooldownBarsXOffsetText.TabIndex = 114;
-            this.CooldownBarsXOffsetText.Text = "X Offset";
-            // 
-            // CooldownBarsHeightText
-            // 
-            this.CooldownBarsHeightText.AutoSize = true;
-            this.CooldownBarsHeightText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsHeightText.Location = new System.Drawing.Point(263, 2);
-            this.CooldownBarsHeightText.Name = "CooldownBarsHeightText";
-            this.CooldownBarsHeightText.Size = new System.Drawing.Size(40, 15);
-            this.CooldownBarsHeightText.TabIndex = 113;
-            this.CooldownBarsHeightText.Text = "Height";
-            // 
-            // CooldownBarsWidthText
-            // 
-            this.CooldownBarsWidthText.AutoSize = true;
-            this.CooldownBarsWidthText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsWidthText.Location = new System.Drawing.Point(176, 2);
-            this.CooldownBarsWidthText.Name = "CooldownBarsWidthText";
-            this.CooldownBarsWidthText.Size = new System.Drawing.Size(37, 15);
-            this.CooldownBarsWidthText.TabIndex = 112;
-            this.CooldownBarsWidthText.Text = "Width";
-            // 
-            // CooldownBarsYPosText
-            // 
-            this.CooldownBarsYPosText.AutoSize = true;
-            this.CooldownBarsYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsYPosText.Location = new System.Drawing.Point(89, 2);
-            this.CooldownBarsYPosText.Name = "CooldownBarsYPosText";
-            this.CooldownBarsYPosText.Size = new System.Drawing.Size(34, 15);
-            this.CooldownBarsYPosText.TabIndex = 111;
-            this.CooldownBarsYPosText.Text = "Y Pos";
             // 
             // CooldownBarsXPosTrack
             // 
@@ -757,16 +433,6 @@
             this.CooldownBarsYOffsetTrack.Value = 0;
             this.CooldownBarsYOffsetTrack.ValueChanged += new System.EventHandler(this.CooldownBarsYOffsetTrack_ValueChanged);
             // 
-            // CooldownBarsModeText
-            // 
-            this.CooldownBarsModeText.AutoSize = true;
-            this.CooldownBarsModeText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsModeText.Location = new System.Drawing.Point(263, 27);
-            this.CooldownBarsModeText.Name = "CooldownBarsModeText";
-            this.CooldownBarsModeText.Size = new System.Drawing.Size(30, 15);
-            this.CooldownBarsModeText.TabIndex = 116;
-            this.CooldownBarsModeText.Text = "Style";
-            // 
             // CooldownBarsModeTrack
             // 
             this.CooldownBarsModeTrack.BackColor = System.Drawing.Color.Transparent;
@@ -820,26 +486,6 @@
             this.SelColourText.TextChanged += new System.EventHandler(this.SelColourText_TextChanged);
             this.SelColourText.Click += new System.EventHandler(this.SelColourText_Click);
             // 
-            // LabelSelectColour4
-            // 
-            this.LabelSelectColour4.AutoSize = true;
-            this.LabelSelectColour4.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour4.Location = new System.Drawing.Point(264, 58);
-            this.LabelSelectColour4.Name = "LabelSelectColour4";
-            this.LabelSelectColour4.Size = new System.Drawing.Size(60, 15);
-            this.LabelSelectColour4.TabIndex = 121;
-            this.LabelSelectColour4.Text = "SEL Colour";
-            // 
-            // CooldownBarsSelOffsetText
-            // 
-            this.CooldownBarsSelOffsetText.AutoSize = true;
-            this.CooldownBarsSelOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarsSelOffsetText.Location = new System.Drawing.Point(176, 27);
-            this.CooldownBarsSelOffsetText.Name = "CooldownBarsSelOffsetText";
-            this.CooldownBarsSelOffsetText.Size = new System.Drawing.Size(57, 15);
-            this.CooldownBarsSelOffsetText.TabIndex = 117;
-            this.CooldownBarsSelOffsetText.Text = "Sel. Offset";
-            // 
             // CooldownBarsSelOffsetTrack
             // 
             this.CooldownBarsSelOffsetTrack.BackColor = System.Drawing.Color.Transparent;
@@ -853,53 +499,6 @@
             this.ConfigToolTip.SetToolTip(this.CooldownBarsSelOffsetTrack, "An optional position offset of the bar for the \r\nselected character.");
             this.CooldownBarsSelOffsetTrack.Value = 0;
             this.CooldownBarsSelOffsetTrack.ValueChanged += new System.EventHandler(this.CooldownBarsSelOffsetTrack_ValueChanged);
-            // 
-            // AppearanceTab0
-            // 
-            this.AppearanceTab0.HorizontalScrollbarBarColor = true;
-            this.AppearanceTab0.HorizontalScrollbarHighlightOnWheel = false;
-            this.AppearanceTab0.HorizontalScrollbarSize = 10;
-            this.AppearanceTab0.Location = new System.Drawing.Point(89, 4);
-            this.AppearanceTab0.Name = "AppearanceTab0";
-            this.AppearanceTab0.Size = new System.Drawing.Size(349, 104);
-            this.AppearanceTab0.TabIndex = 1;
-            this.AppearanceTab0.VerticalScrollbarBarColor = true;
-            this.AppearanceTab0.VerticalScrollbarHighlightOnWheel = false;
-            this.AppearanceTab0.VerticalScrollbarSize = 10;
-            // 
-            // AppearanceTabText
-            // 
-            this.AppearanceTabText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextReadyText);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextZeroPrefix);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextFontComboBox);
-            this.AppearanceTabText.Controls.Add(this.BGTColourText);
-            this.AppearanceTabText.Controls.Add(this.LabelSelectColour3T);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextDecimalText);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextDecimalTrack);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextYOffsetText);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextXOffsetText);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextXOffsetTrack);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextYOffsetTrack);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextSizeText);
-            this.AppearanceTabText.Controls.Add(this.CooldownBarTextSizeTrack);
-            this.AppearanceTabText.Controls.Add(this.FG2TColourText);
-            this.AppearanceTabText.Controls.Add(this.LabelSelectColour1T);
-            this.AppearanceTabText.Controls.Add(this.FG1TColourText);
-            this.AppearanceTabText.Controls.Add(this.LabelSelectColour2T);
-            this.AppearanceTabText.Controls.Add(this.SelTColourText);
-            this.AppearanceTabText.Controls.Add(this.LabelSelectColour4T);
-            this.AppearanceTabText.HorizontalScrollbarBarColor = true;
-            this.AppearanceTabText.HorizontalScrollbarHighlightOnWheel = false;
-            this.AppearanceTabText.HorizontalScrollbarSize = 10;
-            this.AppearanceTabText.Location = new System.Drawing.Point(89, 4);
-            this.AppearanceTabText.Name = "AppearanceTabText";
-            this.AppearanceTabText.Size = new System.Drawing.Size(349, 104);
-            this.AppearanceTabText.TabIndex = 3;
-            this.AppearanceTabText.Text = "Text Appearance";
-            this.AppearanceTabText.VerticalScrollbarBarColor = true;
-            this.AppearanceTabText.VerticalScrollbarHighlightOnWheel = false;
-            this.AppearanceTabText.VerticalScrollbarSize = 10;
             // 
             // CooldownBarTextReadyText
             // 
@@ -1004,26 +603,6 @@
             this.BGTColourText.TextChanged += new System.EventHandler(this.BGTColourText_TextChanged);
             this.BGTColourText.Click += new System.EventHandler(this.BGTColourText_Click);
             // 
-            // LabelSelectColour3T
-            // 
-            this.LabelSelectColour3T.AutoSize = true;
-            this.LabelSelectColour3T.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour3T.Location = new System.Drawing.Point(176, 58);
-            this.LabelSelectColour3T.Name = "LabelSelectColour3T";
-            this.LabelSelectColour3T.Size = new System.Drawing.Size(64, 15);
-            this.LabelSelectColour3T.TabIndex = 141;
-            this.LabelSelectColour3T.Text = "BGT Colour";
-            // 
-            // CooldownBarTextDecimalText
-            // 
-            this.CooldownBarTextDecimalText.AutoSize = true;
-            this.CooldownBarTextDecimalText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarTextDecimalText.Location = new System.Drawing.Point(263, 27);
-            this.CooldownBarTextDecimalText.Name = "CooldownBarTextDecimalText";
-            this.CooldownBarTextDecimalText.Size = new System.Drawing.Size(46, 15);
-            this.CooldownBarTextDecimalText.TabIndex = 139;
-            this.CooldownBarTextDecimalText.Text = "Decimal";
-            // 
             // CooldownBarTextDecimalTrack
             // 
             this.CooldownBarTextDecimalTrack.BackColor = System.Drawing.Color.Transparent;
@@ -1037,27 +616,6 @@
             this.ConfigToolTip.SetToolTip(this.CooldownBarTextDecimalTrack, "The decimal precision of the cooldown text to display.");
             this.CooldownBarTextDecimalTrack.Value = 1;
             this.CooldownBarTextDecimalTrack.ValueChanged += new System.EventHandler(this.CooldownBarTextDecimalTrack_ValueChanged);
-            // 
-            // CooldownBarTextYOffsetText
-            // 
-            this.CooldownBarTextYOffsetText.AutoSize = true;
-            this.CooldownBarTextYOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarTextYOffsetText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CooldownBarTextYOffsetText.Location = new System.Drawing.Point(89, 27);
-            this.CooldownBarTextYOffsetText.Name = "CooldownBarTextYOffsetText";
-            this.CooldownBarTextYOffsetText.Size = new System.Drawing.Size(46, 15);
-            this.CooldownBarTextYOffsetText.TabIndex = 132;
-            this.CooldownBarTextYOffsetText.Text = "Y Offset";
-            // 
-            // CooldownBarTextXOffsetText
-            // 
-            this.CooldownBarTextXOffsetText.AutoSize = true;
-            this.CooldownBarTextXOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarTextXOffsetText.Location = new System.Drawing.Point(2, 27);
-            this.CooldownBarTextXOffsetText.Name = "CooldownBarTextXOffsetText";
-            this.CooldownBarTextXOffsetText.Size = new System.Drawing.Size(47, 15);
-            this.CooldownBarTextXOffsetText.TabIndex = 131;
-            this.CooldownBarTextXOffsetText.Text = "X Offset";
             // 
             // CooldownBarTextXOffsetTrack
             // 
@@ -1088,16 +646,6 @@
             this.ConfigToolTip.SetToolTip(this.CooldownBarTextYOffsetTrack, "The Y position offset of cooldown text from bar position.");
             this.CooldownBarTextYOffsetTrack.Value = 0;
             this.CooldownBarTextYOffsetTrack.ValueChanged += new System.EventHandler(this.CooldownBarTextYOffsetTrack_ValueChanged);
-            // 
-            // CooldownBarTextSizeText
-            // 
-            this.CooldownBarTextSizeText.AutoSize = true;
-            this.CooldownBarTextSizeText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownBarTextSizeText.Location = new System.Drawing.Point(176, 27);
-            this.CooldownBarTextSizeText.Name = "CooldownBarTextSizeText";
-            this.CooldownBarTextSizeText.Size = new System.Drawing.Size(53, 15);
-            this.CooldownBarTextSizeText.TabIndex = 133;
-            this.CooldownBarTextSizeText.Text = "Font Size";
             // 
             // CooldownBarTextSizeTrack
             // 
@@ -1151,16 +699,6 @@
             this.FG2TColourText.TextChanged += new System.EventHandler(this.FG2TColourText_TextChanged);
             this.FG2TColourText.Click += new System.EventHandler(this.FG2TColourText_Click);
             // 
-            // LabelSelectColour1T
-            // 
-            this.LabelSelectColour1T.AutoSize = true;
-            this.LabelSelectColour1T.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour1T.Location = new System.Drawing.Point(2, 58);
-            this.LabelSelectColour1T.Name = "LabelSelectColour1T";
-            this.LabelSelectColour1T.Size = new System.Drawing.Size(67, 15);
-            this.LabelSelectColour1T.TabIndex = 125;
-            this.LabelSelectColour1T.Text = "FG1T Colour";
-            // 
             // FG1TColourText
             // 
             // 
@@ -1200,16 +738,6 @@
             this.FG1TColourText.TextChanged += new System.EventHandler(this.FG1TColourText_TextChanged);
             this.FG1TColourText.Click += new System.EventHandler(this.FG1TColourText_Click);
             // 
-            // LabelSelectColour2T
-            // 
-            this.LabelSelectColour2T.AutoSize = true;
-            this.LabelSelectColour2T.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour2T.Location = new System.Drawing.Point(89, 58);
-            this.LabelSelectColour2T.Name = "LabelSelectColour2T";
-            this.LabelSelectColour2T.Size = new System.Drawing.Size(69, 15);
-            this.LabelSelectColour2T.TabIndex = 126;
-            this.LabelSelectColour2T.Text = "FG2T Colour";
-            // 
             // SelTColourText
             // 
             // 
@@ -1248,66 +776,68 @@
             this.SelTColourText.TextChanged += new System.EventHandler(this.SelTColourText_TextChanged);
             this.SelTColourText.Click += new System.EventHandler(this.SelTColourText_Click);
             // 
-            // LabelSelectColour4T
+            // LabelCooldownText2
             // 
-            this.LabelSelectColour4T.AutoSize = true;
-            this.LabelSelectColour4T.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelSelectColour4T.Location = new System.Drawing.Point(264, 58);
-            this.LabelSelectColour4T.Name = "LabelSelectColour4T";
-            this.LabelSelectColour4T.Size = new System.Drawing.Size(65, 15);
-            this.LabelSelectColour4T.TabIndex = 127;
-            this.LabelSelectColour4T.Text = "SELT Colour";
+            this.LabelCooldownText2.AutoSize = true;
+            this.LabelCooldownText2.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownText2.Location = new System.Drawing.Point(1, 34);
+            this.LabelCooldownText2.Name = "LabelCooldownText2";
+            this.LabelCooldownText2.Size = new System.Drawing.Size(89, 15);
+            this.LabelCooldownText2.TabIndex = 113;
+            this.LabelCooldownText2.Text = "Cooldown Text 2";
+            this.ConfigToolTip.SetToolTip(this.LabelCooldownText2, resources.GetString("LabelCooldownText2.ToolTip"));
             // 
-            // ModeTabControl
+            // CooldownText2XPosTrack
             // 
-            this.ModeTabControl.Controls.Add(this.ModeTabManual);
-            this.ModeTabControl.Controls.Add(this.ModeTabAuto);
-            this.ModeTabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
-            this.ModeTabControl.ItemSize = new System.Drawing.Size(217, 25);
-            this.ModeTabControl.Location = new System.Drawing.Point(0, 17);
-            this.ModeTabControl.Name = "ModeTabControl";
-            this.ModeTabControl.SelectedIndex = 0;
-            this.ModeTabControl.Size = new System.Drawing.Size(442, 99);
-            this.ModeTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.ModeTabControl.TabIndex = 145;
-            this.ModeTabControl.TabStop = false;
-            this.ModeTabControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ModeTabControl.UseSelectable = true;
+            this.CooldownText2XPosTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownText2XPosTrack.LargeChange = 1;
+            this.CooldownText2XPosTrack.Location = new System.Drawing.Point(87, 47);
+            this.CooldownText2XPosTrack.MouseWheelBarPartitions = 100;
+            this.CooldownText2XPosTrack.Name = "CooldownText2XPosTrack";
+            this.CooldownText2XPosTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownText2XPosTrack.TabIndex = 109;
+            this.ConfigToolTip.SetToolTip(this.CooldownText2XPosTrack, "The X position of the region.");
+            this.CooldownText2XPosTrack.Value = 0;
+            this.CooldownText2XPosTrack.ValueChanged += new System.EventHandler(this.CooldownText2XPosTrack_ValueChanged);
             // 
-            // ModeTabManual
+            // CooldownText2XPosText
             // 
-            this.ModeTabManual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ModeTabManual.Controls.Add(this.LabelCooldownText);
-            this.ModeTabManual.Controls.Add(this.CooldownTextXPosTrack);
-            this.ModeTabManual.Controls.Add(this.PartyNumComboBox);
-            this.ModeTabManual.Controls.Add(this.CooldownTextYPosTrack);
-            this.ModeTabManual.Controls.Add(this.CooldownTextWidthTrack);
-            this.ModeTabManual.Controls.Add(this.CooldownTextHeightTrack);
-            this.ModeTabManual.Controls.Add(this.PartyNumXPosTrack);
-            this.ModeTabManual.Controls.Add(this.PartyNumYPosTrack);
-            this.ModeTabManual.Controls.Add(this.PartyNumBarOffsetsText);
-            this.ModeTabManual.Controls.Add(this.PartyNumBarOffsetsTrack);
-            this.ModeTabManual.Controls.Add(this.PartyNumYPosText);
-            this.ModeTabManual.Controls.Add(this.PartyNumXPosText);
-            this.ModeTabManual.Controls.Add(this.LabelPartyNumbers);
-            this.ModeTabManual.Controls.Add(this.CooldownTextHeightText);
-            this.ModeTabManual.Controls.Add(this.CooldownTextWidthText);
-            this.ModeTabManual.Controls.Add(this.CooldownTextYPosText);
-            this.ModeTabManual.Controls.Add(this.CooldownTextXPosText);
-            this.ModeTabManual.HorizontalScrollbarBarColor = true;
-            this.ModeTabManual.HorizontalScrollbarHighlightOnWheel = false;
-            this.ModeTabManual.HorizontalScrollbarSize = 10;
-            this.ModeTabManual.Location = new System.Drawing.Point(4, 29);
-            this.ModeTabManual.Name = "ModeTabManual";
-            this.ModeTabManual.Size = new System.Drawing.Size(434, 66);
-            this.ModeTabManual.TabIndex = 2;
-            this.ModeTabManual.Text = "Manual Setup";
-            this.ModeTabManual.VerticalScrollbarBarColor = true;
-            this.ModeTabManual.VerticalScrollbarHighlightOnWheel = false;
-            this.ModeTabManual.VerticalScrollbarSize = 10;
+            this.CooldownText2XPosText.AutoSize = true;
+            this.CooldownText2XPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownText2XPosText.Location = new System.Drawing.Point(87, 34);
+            this.CooldownText2XPosText.Name = "CooldownText2XPosText";
+            this.CooldownText2XPosText.Size = new System.Drawing.Size(35, 15);
+            this.CooldownText2XPosText.TabIndex = 114;
+            this.CooldownText2XPosText.Text = "X Pos";
+            this.ConfigToolTip.SetToolTip(this.CooldownText2XPosText, "The X position");
+            // 
+            // LabelCooldownText
+            // 
+            this.LabelCooldownText.AutoSize = true;
+            this.LabelCooldownText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownText.Location = new System.Drawing.Point(1, 5);
+            this.LabelCooldownText.Name = "LabelCooldownText";
+            this.LabelCooldownText.Size = new System.Drawing.Size(87, 15);
+            this.LabelCooldownText.TabIndex = 100;
+            this.LabelCooldownText.Text = "Cooldown Text 1";
+            this.ConfigToolTip.SetToolTip(this.LabelCooldownText, resources.GetString("LabelCooldownText.ToolTip"));
+            // 
+            // CooldownTextXPosTrack
+            // 
+            this.CooldownTextXPosTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownTextXPosTrack.LargeChange = 1;
+            this.CooldownTextXPosTrack.Location = new System.Drawing.Point(87, 18);
+            this.CooldownTextXPosTrack.MouseWheelBarPartitions = 100;
+            this.CooldownTextXPosTrack.Name = "CooldownTextXPosTrack";
+            this.CooldownTextXPosTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownTextXPosTrack.TabIndex = 1;
+            this.ConfigToolTip.SetToolTip(this.CooldownTextXPosTrack, "The X position of the region.");
+            this.CooldownTextXPosTrack.Value = 0;
+            this.CooldownTextXPosTrack.ValueChanged += new System.EventHandler(this.CooldownTextXPosTrack_ValueChanged);
             // 
             // PartyNumComboBox
             // 
+            this.PartyNumComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PartyNumComboBox.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.PartyNumComboBox.FormattingEnabled = true;
             this.PartyNumComboBox.ItemHeight = 19;
@@ -1321,7 +851,7 @@
             "3 #3",
             "2 #1",
             "2 #2"});
-            this.PartyNumComboBox.Location = new System.Drawing.Point(348, 36);
+            this.PartyNumComboBox.Location = new System.Drawing.Point(348, 65);
             this.PartyNumComboBox.Name = "PartyNumComboBox";
             this.PartyNumComboBox.Size = new System.Drawing.Size(82, 25);
             this.PartyNumComboBox.TabIndex = 8;
@@ -1329,23 +859,113 @@
             this.PartyNumComboBox.UseSelectable = true;
             this.PartyNumComboBox.SelectedIndexChanged += new System.EventHandler(this.PartyNumComboBox_SelectedIndexChanged);
             // 
-            // ModeTabAuto
+            // CooldownTextYPosTrack
             // 
-            this.ModeTabAuto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ModeTabAuto.Controls.Add(this.DPIResolutionComboBox);
-            this.ModeTabAuto.Controls.Add(this.DPIScaleText);
-            this.ModeTabAuto.Controls.Add(this.DPIScaleTrack);
-            this.ModeTabAuto.HorizontalScrollbarBarColor = true;
-            this.ModeTabAuto.HorizontalScrollbarHighlightOnWheel = false;
-            this.ModeTabAuto.HorizontalScrollbarSize = 10;
-            this.ModeTabAuto.Location = new System.Drawing.Point(4, 29);
-            this.ModeTabAuto.Name = "ModeTabAuto";
-            this.ModeTabAuto.Size = new System.Drawing.Size(434, 66);
-            this.ModeTabAuto.TabIndex = 3;
-            this.ModeTabAuto.Text = "DPI Scaling Setup";
-            this.ModeTabAuto.VerticalScrollbarBarColor = true;
-            this.ModeTabAuto.VerticalScrollbarHighlightOnWheel = false;
-            this.ModeTabAuto.VerticalScrollbarSize = 10;
+            this.CooldownTextYPosTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownTextYPosTrack.LargeChange = 1;
+            this.CooldownTextYPosTrack.Location = new System.Drawing.Point(174, 18);
+            this.CooldownTextYPosTrack.MouseWheelBarPartitions = 100;
+            this.CooldownTextYPosTrack.Name = "CooldownTextYPosTrack";
+            this.CooldownTextYPosTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownTextYPosTrack.TabIndex = 2;
+            this.ConfigToolTip.SetToolTip(this.CooldownTextYPosTrack, "The Y position of the region.");
+            this.CooldownTextYPosTrack.Value = 0;
+            this.CooldownTextYPosTrack.ValueChanged += new System.EventHandler(this.CooldownTextYPosTrack_ValueChanged);
+            // 
+            // CooldownTextWidthTrack
+            // 
+            this.CooldownTextWidthTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownTextWidthTrack.LargeChange = 1;
+            this.CooldownTextWidthTrack.Location = new System.Drawing.Point(261, 18);
+            this.CooldownTextWidthTrack.Minimum = 10;
+            this.CooldownTextWidthTrack.MouseWheelBarPartitions = 90;
+            this.CooldownTextWidthTrack.Name = "CooldownTextWidthTrack";
+            this.CooldownTextWidthTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownTextWidthTrack.TabIndex = 3;
+            this.ConfigToolTip.SetToolTip(this.CooldownTextWidthTrack, "The width of the region.");
+            this.CooldownTextWidthTrack.Value = 10;
+            this.CooldownTextWidthTrack.ValueChanged += new System.EventHandler(this.CooldownTextWidthTrack_ValueChanged);
+            // 
+            // CooldownTextHeightTrack
+            // 
+            this.CooldownTextHeightTrack.BackColor = System.Drawing.Color.Transparent;
+            this.CooldownTextHeightTrack.LargeChange = 1;
+            this.CooldownTextHeightTrack.Location = new System.Drawing.Point(348, 18);
+            this.CooldownTextHeightTrack.Minimum = 10;
+            this.CooldownTextHeightTrack.MouseWheelBarPartitions = 90;
+            this.CooldownTextHeightTrack.Name = "CooldownTextHeightTrack";
+            this.CooldownTextHeightTrack.Size = new System.Drawing.Size(82, 15);
+            this.CooldownTextHeightTrack.TabIndex = 4;
+            this.ConfigToolTip.SetToolTip(this.CooldownTextHeightTrack, "The height of the region.");
+            this.CooldownTextHeightTrack.Value = 10;
+            this.CooldownTextHeightTrack.ValueChanged += new System.EventHandler(this.CooldownTextHeightTrack_ValueChanged);
+            // 
+            // PartyNumXPosTrack
+            // 
+            this.PartyNumXPosTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumXPosTrack.BackColor = System.Drawing.Color.Transparent;
+            this.PartyNumXPosTrack.LargeChange = 1;
+            this.PartyNumXPosTrack.Location = new System.Drawing.Point(87, 80);
+            this.PartyNumXPosTrack.MouseWheelBarPartitions = 100;
+            this.PartyNumXPosTrack.Name = "PartyNumXPosTrack";
+            this.PartyNumXPosTrack.Size = new System.Drawing.Size(82, 15);
+            this.PartyNumXPosTrack.TabIndex = 5;
+            this.ConfigToolTip.SetToolTip(this.PartyNumXPosTrack, "The X position of party slot 1.");
+            this.PartyNumXPosTrack.Value = 0;
+            this.PartyNumXPosTrack.ValueChanged += new System.EventHandler(this.PartyNumXPosTrack_ValueChanged);
+            // 
+            // PartyNumYPosTrack
+            // 
+            this.PartyNumYPosTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumYPosTrack.BackColor = System.Drawing.Color.Transparent;
+            this.PartyNumYPosTrack.LargeChange = 1;
+            this.PartyNumYPosTrack.Location = new System.Drawing.Point(174, 80);
+            this.PartyNumYPosTrack.MouseWheelBarPartitions = 100;
+            this.PartyNumYPosTrack.Name = "PartyNumYPosTrack";
+            this.PartyNumYPosTrack.Size = new System.Drawing.Size(82, 15);
+            this.PartyNumYPosTrack.TabIndex = 6;
+            this.ConfigToolTip.SetToolTip(this.PartyNumYPosTrack, "The Y position of party slot 1.");
+            this.PartyNumYPosTrack.Value = 0;
+            this.PartyNumYPosTrack.ValueChanged += new System.EventHandler(this.PartyNumYPosTrack_ValueChanged);
+            // 
+            // PartyNumBarOffsetsTrack
+            // 
+            this.PartyNumBarOffsetsTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumBarOffsetsTrack.BackColor = System.Drawing.Color.Transparent;
+            this.PartyNumBarOffsetsTrack.LargeChange = 1;
+            this.PartyNumBarOffsetsTrack.Location = new System.Drawing.Point(261, 80);
+            this.PartyNumBarOffsetsTrack.Maximum = 500;
+            this.PartyNumBarOffsetsTrack.Minimum = -500;
+            this.PartyNumBarOffsetsTrack.MouseWheelBarPartitions = 1000;
+            this.PartyNumBarOffsetsTrack.Name = "PartyNumBarOffsetsTrack";
+            this.PartyNumBarOffsetsTrack.Size = new System.Drawing.Size(82, 15);
+            this.PartyNumBarOffsetsTrack.TabIndex = 7;
+            this.ConfigToolTip.SetToolTip(this.PartyNumBarOffsetsTrack, resources.GetString("PartyNumBarOffsetsTrack.ToolTip"));
+            this.PartyNumBarOffsetsTrack.Value = 0;
+            this.PartyNumBarOffsetsTrack.ValueChanged += new System.EventHandler(this.PartyNumBarOffsetsTrack_ValueChanged);
+            // 
+            // LabelPartyNumbers
+            // 
+            this.LabelPartyNumbers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelPartyNumbers.AutoSize = true;
+            this.LabelPartyNumbers.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelPartyNumbers.Location = new System.Drawing.Point(-2, 67);
+            this.LabelPartyNumbers.Name = "LabelPartyNumbers";
+            this.LabelPartyNumbers.Size = new System.Drawing.Size(83, 15);
+            this.LabelPartyNumbers.TabIndex = 105;
+            this.LabelPartyNumbers.Text = "Party Numbers";
+            this.ConfigToolTip.SetToolTip(this.LabelPartyNumbers, resources.GetString("LabelPartyNumbers.ToolTip"));
+            // 
+            // CooldownTextXPosText
+            // 
+            this.CooldownTextXPosText.AutoSize = true;
+            this.CooldownTextXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownTextXPosText.Location = new System.Drawing.Point(87, 5);
+            this.CooldownTextXPosText.Name = "CooldownTextXPosText";
+            this.CooldownTextXPosText.Size = new System.Drawing.Size(35, 15);
+            this.CooldownTextXPosText.TabIndex = 101;
+            this.CooldownTextXPosText.Text = "X Pos";
+            this.ConfigToolTip.SetToolTip(this.CooldownTextXPosText, "The X position");
             // 
             // DPIResolutionComboBox
             // 
@@ -1360,16 +980,6 @@
             this.ConfigToolTip.SetToolTip(this.DPIResolutionComboBox, resources.GetString("DPIResolutionComboBox.ToolTip"));
             this.DPIResolutionComboBox.UseSelectable = true;
             this.DPIResolutionComboBox.SelectedIndexChanged += new System.EventHandler(this.DPIResolutionComboBox_SelectedIndexChanged);
-            // 
-            // DPIScaleText
-            // 
-            this.DPIScaleText.AutoSize = true;
-            this.DPIScaleText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.DPIScaleText.Location = new System.Drawing.Point(261, 15);
-            this.DPIScaleText.Name = "DPIScaleText";
-            this.DPIScaleText.Size = new System.Drawing.Size(32, 15);
-            this.DPIScaleText.TabIndex = 148;
-            this.DPIScaleText.Text = "Scale";
             // 
             // DPIScaleTrack
             // 
@@ -1389,7 +999,7 @@
             // DevLink
             // 
             this.DevLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DevLink.Location = new System.Drawing.Point(8, 346);
+            this.DevLink.Location = new System.Drawing.Point(8, 375);
             this.DevLink.Name = "DevLink";
             this.DevLink.Size = new System.Drawing.Size(75, 31);
             this.DevLink.TabIndex = 33;
@@ -1403,7 +1013,7 @@
             this.CooldownPropConfTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropConfTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropConfTrack.LargeChange = 1;
-            this.CooldownPropConfTrack.Location = new System.Drawing.Point(353, 305);
+            this.CooldownPropConfTrack.Location = new System.Drawing.Point(353, 334);
             this.CooldownPropConfTrack.Maximum = 95;
             this.CooldownPropConfTrack.Minimum = 10;
             this.CooldownPropConfTrack.MouseWheelBarPartitions = 85;
@@ -1414,23 +1024,12 @@
             this.CooldownPropConfTrack.Value = 80;
             this.CooldownPropConfTrack.ValueChanged += new System.EventHandler(this.CooldownPropConfTrack_ValueChanged);
             // 
-            // CooldownPropConfText
-            // 
-            this.CooldownPropConfText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropConfText.AutoSize = true;
-            this.CooldownPropConfText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropConfText.Location = new System.Drawing.Point(353, 292);
-            this.CooldownPropConfText.Name = "CooldownPropConfText";
-            this.CooldownPropConfText.Size = new System.Drawing.Size(62, 15);
-            this.CooldownPropConfText.TabIndex = 143;
-            this.CooldownPropConfText.Text = "Confidence";
-            // 
             // CooldownPropTickTrack
             // 
             this.CooldownPropTickTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropTickTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropTickTrack.LargeChange = 1;
-            this.CooldownPropTickTrack.Location = new System.Drawing.Point(179, 305);
+            this.CooldownPropTickTrack.Location = new System.Drawing.Point(179, 334);
             this.CooldownPropTickTrack.Maximum = 1000;
             this.CooldownPropTickTrack.Minimum = 1;
             this.CooldownPropTickTrack.MouseWheelBarPartitions = 999;
@@ -1446,7 +1045,7 @@
             this.CooldownPropPauseTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropPauseTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropPauseTrack.LargeChange = 1;
-            this.CooldownPropPauseTrack.Location = new System.Drawing.Point(92, 305);
+            this.CooldownPropPauseTrack.Location = new System.Drawing.Point(92, 334);
             this.CooldownPropPauseTrack.Maximum = 50;
             this.CooldownPropPauseTrack.MouseWheelBarPartitions = 50;
             this.CooldownPropPauseTrack.Name = "CooldownPropPauseTrack";
@@ -1461,7 +1060,7 @@
             this.CooldownPropOverrideTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropOverrideTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropOverrideTrack.LargeChange = 1;
-            this.CooldownPropOverrideTrack.Location = new System.Drawing.Point(353, 280);
+            this.CooldownPropOverrideTrack.Location = new System.Drawing.Point(353, 309);
             this.CooldownPropOverrideTrack.Maximum = 50;
             this.CooldownPropOverrideTrack.MouseWheelBarPartitions = 50;
             this.CooldownPropOverrideTrack.Name = "CooldownPropOverrideTrack";
@@ -1476,7 +1075,7 @@
             this.CooldownPropReapplyTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropReapplyTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropReapplyTrack.LargeChange = 1;
-            this.CooldownPropReapplyTrack.Location = new System.Drawing.Point(266, 280);
+            this.CooldownPropReapplyTrack.Location = new System.Drawing.Point(266, 309);
             this.CooldownPropReapplyTrack.Maximum = 50;
             this.CooldownPropReapplyTrack.MouseWheelBarPartitions = 50;
             this.CooldownPropReapplyTrack.Name = "CooldownPropReapplyTrack";
@@ -1491,7 +1090,7 @@
             this.CooldownPropOffsetTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropOffsetTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropOffsetTrack.LargeChange = 1;
-            this.CooldownPropOffsetTrack.Location = new System.Drawing.Point(179, 280);
+            this.CooldownPropOffsetTrack.Location = new System.Drawing.Point(179, 309);
             this.CooldownPropOffsetTrack.Maximum = 50;
             this.CooldownPropOffsetTrack.Minimum = -50;
             this.CooldownPropOffsetTrack.MouseWheelBarPartitions = 100;
@@ -1507,7 +1106,7 @@
             this.CooldownPropMaxTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CooldownPropMaxTrack.BackColor = System.Drawing.Color.Transparent;
             this.CooldownPropMaxTrack.LargeChange = 1;
-            this.CooldownPropMaxTrack.Location = new System.Drawing.Point(92, 280);
+            this.CooldownPropMaxTrack.Location = new System.Drawing.Point(92, 309);
             this.CooldownPropMaxTrack.Maximum = 300;
             this.CooldownPropMaxTrack.Minimum = 20;
             this.CooldownPropMaxTrack.MouseWheelBarPartitions = 280;
@@ -1516,7 +1115,7 @@
             this.CooldownPropMaxTrack.TabIndex = 25;
             this.ConfigToolTip.SetToolTip(this.CooldownPropMaxTrack, "The max possible cooldown in seconds.\r\nThis ensures that if the OCR mistakenly pr" +
         "oduces a\r\nvalue which is higher than this, it will be ignored.\r\nDefault: 60");
-            this.CooldownPropMaxTrack.Value = 60;
+            this.CooldownPropMaxTrack.Value = 90;
             this.CooldownPropMaxTrack.ValueChanged += new System.EventHandler(this.CooldownPropMaxTrack_ValueChanged);
             // 
             // LabelCooldownProperties
@@ -1524,138 +1123,18 @@
             this.LabelCooldownProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelCooldownProperties.AutoSize = true;
             this.LabelCooldownProperties.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownProperties.Location = new System.Drawing.Point(23, 275);
+            this.LabelCooldownProperties.Location = new System.Drawing.Point(23, 304);
             this.LabelCooldownProperties.Name = "LabelCooldownProperties";
             this.LabelCooldownProperties.Size = new System.Drawing.Size(60, 30);
             this.LabelCooldownProperties.TabIndex = 136;
             this.LabelCooldownProperties.Text = "Cooldown\r\nProperties";
             this.ConfigToolTip.SetToolTip(this.LabelCooldownProperties, "Define properties related to the display of cooldown bars.");
             // 
-            // CooldownPropMaxText
-            // 
-            this.CooldownPropMaxText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropMaxText.AutoSize = true;
-            this.CooldownPropMaxText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropMaxText.Location = new System.Drawing.Point(92, 267);
-            this.CooldownPropMaxText.Name = "CooldownPropMaxText";
-            this.CooldownPropMaxText.Size = new System.Drawing.Size(28, 15);
-            this.CooldownPropMaxText.TabIndex = 137;
-            this.CooldownPropMaxText.Text = "Max";
-            // 
-            // CooldownPropOffsetText
-            // 
-            this.CooldownPropOffsetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropOffsetText.AutoSize = true;
-            this.CooldownPropOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropOffsetText.Location = new System.Drawing.Point(179, 267);
-            this.CooldownPropOffsetText.Name = "CooldownPropOffsetText";
-            this.CooldownPropOffsetText.Size = new System.Drawing.Size(37, 15);
-            this.CooldownPropOffsetText.TabIndex = 138;
-            this.CooldownPropOffsetText.Text = "Offset";
-            // 
-            // CooldownPropReapplyText
-            // 
-            this.CooldownPropReapplyText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropReapplyText.AutoSize = true;
-            this.CooldownPropReapplyText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropReapplyText.Location = new System.Drawing.Point(266, 267);
-            this.CooldownPropReapplyText.Name = "CooldownPropReapplyText";
-            this.CooldownPropReapplyText.Size = new System.Drawing.Size(47, 15);
-            this.CooldownPropReapplyText.TabIndex = 139;
-            this.CooldownPropReapplyText.Text = "Reapply";
-            // 
-            // CooldownPropOverrideText
-            // 
-            this.CooldownPropOverrideText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropOverrideText.AutoSize = true;
-            this.CooldownPropOverrideText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropOverrideText.Location = new System.Drawing.Point(353, 267);
-            this.CooldownPropOverrideText.Name = "CooldownPropOverrideText";
-            this.CooldownPropOverrideText.Size = new System.Drawing.Size(50, 15);
-            this.CooldownPropOverrideText.TabIndex = 140;
-            this.CooldownPropOverrideText.Text = "Override";
-            // 
-            // CooldownPropPauseText
-            // 
-            this.CooldownPropPauseText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropPauseText.AutoSize = true;
-            this.CooldownPropPauseText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropPauseText.Location = new System.Drawing.Point(92, 292);
-            this.CooldownPropPauseText.Name = "CooldownPropPauseText";
-            this.CooldownPropPauseText.Size = new System.Drawing.Size(58, 15);
-            this.CooldownPropPauseText.TabIndex = 141;
-            this.CooldownPropPauseText.Text = "Pause Sub";
-            // 
-            // CooldownPropTickText
-            // 
-            this.CooldownPropTickText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropTickText.AutoSize = true;
-            this.CooldownPropTickText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropTickText.Location = new System.Drawing.Point(179, 292);
-            this.CooldownPropTickText.Name = "CooldownPropTickText";
-            this.CooldownPropTickText.Size = new System.Drawing.Size(51, 15);
-            this.CooldownPropTickText.TabIndex = 142;
-            this.CooldownPropTickText.Text = "Tick Rate";
-            // 
-            // TipLabel
-            // 
-            this.TipLabel.AutoSize = true;
-            this.TipLabel.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.TipLabel.Location = new System.Drawing.Point(187, 3);
-            this.TipLabel.Name = "TipLabel";
-            this.TipLabel.Size = new System.Drawing.Size(261, 15);
-            this.TipLabel.TabIndex = 128;
-            this.TipLabel.Text = "Tip: Use the scroll wheel to set more precise values.";
-            // 
-            // LabelCooldownOverride4
-            // 
-            this.LabelCooldownOverride4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelCooldownOverride4.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownOverride4.Location = new System.Drawing.Point(350, 234);
-            this.LabelCooldownOverride4.Name = "LabelCooldownOverride4";
-            this.LabelCooldownOverride4.Size = new System.Drawing.Size(26, 23);
-            this.LabelCooldownOverride4.TabIndex = 127;
-            this.LabelCooldownOverride4.Text = "#4";
-            this.LabelCooldownOverride4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelCooldownOverride3
-            // 
-            this.LabelCooldownOverride3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelCooldownOverride3.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownOverride3.Location = new System.Drawing.Point(263, 234);
-            this.LabelCooldownOverride3.Name = "LabelCooldownOverride3";
-            this.LabelCooldownOverride3.Size = new System.Drawing.Size(26, 23);
-            this.LabelCooldownOverride3.TabIndex = 126;
-            this.LabelCooldownOverride3.Text = "#3";
-            this.LabelCooldownOverride3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelCooldownOverride2
-            // 
-            this.LabelCooldownOverride2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelCooldownOverride2.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownOverride2.Location = new System.Drawing.Point(176, 234);
-            this.LabelCooldownOverride2.Name = "LabelCooldownOverride2";
-            this.LabelCooldownOverride2.Size = new System.Drawing.Size(26, 23);
-            this.LabelCooldownOverride2.TabIndex = 125;
-            this.LabelCooldownOverride2.Text = "#2";
-            this.LabelCooldownOverride2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelCooldownOverride1
-            // 
-            this.LabelCooldownOverride1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelCooldownOverride1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownOverride1.Location = new System.Drawing.Point(89, 234);
-            this.LabelCooldownOverride1.Name = "LabelCooldownOverride1";
-            this.LabelCooldownOverride1.Size = new System.Drawing.Size(26, 23);
-            this.LabelCooldownOverride1.TabIndex = 124;
-            this.LabelCooldownOverride1.Text = "#1";
-            this.LabelCooldownOverride1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ToggleTheme
             // 
             this.ToggleTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ToggleTheme.DisplayStatus = false;
-            this.ToggleTheme.Location = new System.Drawing.Point(25, 326);
+            this.ToggleTheme.Location = new System.Drawing.Point(25, 355);
             this.ToggleTheme.Name = "ToggleTheme";
             this.ToggleTheme.Size = new System.Drawing.Size(38, 18);
             this.ToggleTheme.TabIndex = 32;
@@ -1667,7 +1146,7 @@
             // AutoButton
             // 
             this.AutoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AutoButton.Location = new System.Drawing.Point(89, 326);
+            this.AutoButton.Location = new System.Drawing.Point(89, 355);
             this.AutoButton.Name = "AutoButton";
             this.AutoButton.Size = new System.Drawing.Size(169, 47);
             this.AutoButton.TabIndex = 34;
@@ -1681,7 +1160,7 @@
             this.LabelCooldownOverrideL0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelCooldownOverrideL0.AutoSize = true;
             this.LabelCooldownOverrideL0.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.LabelCooldownOverrideL0.Location = new System.Drawing.Point(25, 229);
+            this.LabelCooldownOverrideL0.Location = new System.Drawing.Point(25, 258);
             this.LabelCooldownOverrideL0.Name = "LabelCooldownOverrideL0";
             this.LabelCooldownOverrideL0.Size = new System.Drawing.Size(58, 30);
             this.LabelCooldownOverrideL0.TabIndex = 122;
@@ -1705,7 +1184,7 @@
             this.CooldownOverride4Text.CustomButton.Visible = false;
             this.CooldownOverride4Text.Lines = new string[] {
         "0"};
-            this.CooldownOverride4Text.Location = new System.Drawing.Point(382, 234);
+            this.CooldownOverride4Text.Location = new System.Drawing.Point(382, 263);
             this.CooldownOverride4Text.MaxLength = 32767;
             this.CooldownOverride4Text.Name = "CooldownOverride4Text";
             this.CooldownOverride4Text.PasswordChar = '\0';
@@ -1743,7 +1222,7 @@
             this.CooldownOverride3Text.CustomButton.Visible = false;
             this.CooldownOverride3Text.Lines = new string[] {
         "0"};
-            this.CooldownOverride3Text.Location = new System.Drawing.Point(295, 234);
+            this.CooldownOverride3Text.Location = new System.Drawing.Point(295, 263);
             this.CooldownOverride3Text.MaxLength = 32767;
             this.CooldownOverride3Text.Name = "CooldownOverride3Text";
             this.CooldownOverride3Text.PasswordChar = '\0';
@@ -1781,7 +1260,7 @@
             this.CooldownOverride2Text.CustomButton.Visible = false;
             this.CooldownOverride2Text.Lines = new string[] {
         "0"};
-            this.CooldownOverride2Text.Location = new System.Drawing.Point(208, 234);
+            this.CooldownOverride2Text.Location = new System.Drawing.Point(208, 263);
             this.CooldownOverride2Text.MaxLength = 32767;
             this.CooldownOverride2Text.Name = "CooldownOverride2Text";
             this.CooldownOverride2Text.PasswordChar = '\0';
@@ -1819,7 +1298,7 @@
             this.CooldownOverride1Text.CustomButton.Visible = false;
             this.CooldownOverride1Text.Lines = new string[] {
         "0"};
-            this.CooldownOverride1Text.Location = new System.Drawing.Point(121, 234);
+            this.CooldownOverride1Text.Location = new System.Drawing.Point(121, 263);
             this.CooldownOverride1Text.MaxLength = 32767;
             this.CooldownOverride1Text.Name = "CooldownOverride1Text";
             this.CooldownOverride1Text.PasswordChar = '\0';
@@ -1843,7 +1322,7 @@
             // SaveButton
             // 
             this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SaveButton.Location = new System.Drawing.Point(263, 326);
+            this.SaveButton.Location = new System.Drawing.Point(263, 355);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(169, 47);
             this.SaveButton.TabIndex = 35;
@@ -1853,81 +1332,6 @@
         "d see the cooldown bars.");
             this.SaveButton.UseSelectable = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // MStyleManager
-            // 
-            this.MStyleManager.Owner = this;
-            // 
-            // ConfigureOverlayMessage
-            // 
-            this.ConfigureOverlayMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ConfigureOverlayMessage.Location = new System.Drawing.Point(90, 105);
-            this.ConfigureOverlayMessage.Name = "ConfigureOverlayMessage";
-            this.ConfigureOverlayMessage.Size = new System.Drawing.Size(255, 45);
-            this.ConfigureOverlayMessage.TabIndex = 128;
-            this.ConfigureOverlayMessage.Text = "The overlay has yet to be configured.\r\nPress the button below to get started.";
-            this.ConfigureOverlayMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ConfigToolTip
-            // 
-            this.ConfigToolTip.AutoPopDelay = 10000;
-            this.ConfigToolTip.InitialDelay = 200;
-            this.ConfigToolTip.ReshowDelay = 50;
-            this.ConfigToolTip.StripAmpersands = true;
-            this.ConfigToolTip.Style = MetroFramework.MetroColorStyle.Purple;
-            this.ConfigToolTip.StyleManager = null;
-            this.ConfigToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // DebugButton
-            // 
-            this.DebugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DebugButton.Location = new System.Drawing.Point(90, 342);
-            this.DebugButton.Name = "DebugButton";
-            this.DebugButton.Size = new System.Drawing.Size(125, 27);
-            this.DebugButton.TabIndex = 145;
-            this.DebugButton.Text = "OCR Debug (Single)";
-            this.ConfigToolTip.SetToolTip(this.DebugButton, resources.GetString("DebugButton.ToolTip"));
-            this.DebugButton.UseSelectable = true;
-            this.DebugButton.Click += new System.EventHandler(this.DebugButton_Click);
-            // 
-            // CooldownPropOCRRateTrack
-            // 
-            this.CooldownPropOCRRateTrack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropOCRRateTrack.BackColor = System.Drawing.Color.Transparent;
-            this.CooldownPropOCRRateTrack.LargeChange = 1;
-            this.CooldownPropOCRRateTrack.Location = new System.Drawing.Point(266, 305);
-            this.CooldownPropOCRRateTrack.Maximum = 300;
-            this.CooldownPropOCRRateTrack.Minimum = 5;
-            this.CooldownPropOCRRateTrack.MouseWheelBarPartitions = 295;
-            this.CooldownPropOCRRateTrack.Name = "CooldownPropOCRRateTrack";
-            this.CooldownPropOCRRateTrack.Size = new System.Drawing.Size(82, 15);
-            this.CooldownPropOCRRateTrack.TabIndex = 147;
-            this.ConfigToolTip.SetToolTip(this.CooldownPropOCRRateTrack, resources.GetString("CooldownPropOCRRateTrack.ToolTip"));
-            this.CooldownPropOCRRateTrack.Value = 100;
-            this.CooldownPropOCRRateTrack.ValueChanged += new System.EventHandler(this.CooldownPropOCRRateTrack_ValueChanged);
-            // 
-            // CooldownPropOCRRateText
-            // 
-            this.CooldownPropOCRRateText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CooldownPropOCRRateText.AutoSize = true;
-            this.CooldownPropOCRRateText.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.CooldownPropOCRRateText.Location = new System.Drawing.Point(266, 292);
-            this.CooldownPropOCRRateText.Name = "CooldownPropOCRRateText";
-            this.CooldownPropOCRRateText.Size = new System.Drawing.Size(56, 15);
-            this.CooldownPropOCRRateText.TabIndex = 148;
-            this.CooldownPropOCRRateText.Text = "OCR Rate";
-            // 
-            // DebugMultiButton
-            // 
-            this.DebugMultiButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DebugMultiButton.Location = new System.Drawing.Point(221, 342);
-            this.DebugMultiButton.Name = "DebugMultiButton";
-            this.DebugMultiButton.Size = new System.Drawing.Size(125, 27);
-            this.DebugMultiButton.TabIndex = 146;
-            this.DebugMultiButton.Text = "OCR Debug (Multi)";
-            this.ConfigToolTip.SetToolTip(this.DebugMultiButton, resources.GetString("DebugMultiButton.ToolTip"));
-            this.DebugMultiButton.UseSelectable = true;
-            this.DebugMultiButton.Click += new System.EventHandler(this.DebugMultiButton_Click);
             // 
             // MainPanel
             // 
@@ -1944,7 +1348,7 @@
             this.MainPanel.HorizontalScrollbarSize = 10;
             this.MainPanel.Location = new System.Drawing.Point(5, 33);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(448, 381);
+            this.MainPanel.Size = new System.Drawing.Size(448, 410);
             this.MainPanel.TabIndex = 147;
             this.MainPanel.VerticalScrollbarBarColor = true;
             this.MainPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -1956,16 +1360,16 @@
             // 
             // 
             this.DebugText.CustomButton.Image = null;
-            this.DebugText.CustomButton.Location = new System.Drawing.Point(182, 2);
+            this.DebugText.CustomButton.Location = new System.Drawing.Point(156, 1);
             this.DebugText.CustomButton.Name = "";
-            this.DebugText.CustomButton.Size = new System.Drawing.Size(71, 71);
+            this.DebugText.CustomButton.Size = new System.Drawing.Size(99, 99);
             this.DebugText.CustomButton.Style = MetroFramework.MetroColorStyle.Purple;
             this.DebugText.CustomButton.TabIndex = 4;
             this.DebugText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.DebugText.CustomButton.UseSelectable = true;
             this.DebugText.CustomButton.Visible = false;
             this.DebugText.Lines = new string[0];
-            this.DebugText.Location = new System.Drawing.Point(90, 235);
+            this.DebugText.Location = new System.Drawing.Point(90, 263);
             this.DebugText.MaxLength = 32767;
             this.DebugText.Multiline = true;
             this.DebugText.Name = "DebugText";
@@ -1981,13 +1385,670 @@
             this.DebugText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.DebugText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // ConfigPanel
+            // 
+            this.ConfigPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConfigPanel.Controls.Add(this.CooldownPropOCRRateTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropOCRRateText);
+            this.ConfigPanel.Controls.Add(this.AppearanceTabControl);
+            this.ConfigPanel.Controls.Add(this.ModeTabControl);
+            this.ConfigPanel.Controls.Add(this.DevLink);
+            this.ConfigPanel.Controls.Add(this.CooldownPropConfTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropConfText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropTickTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropPauseTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropOverrideTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropReapplyTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropOffsetTrack);
+            this.ConfigPanel.Controls.Add(this.CooldownPropMaxTrack);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownProperties);
+            this.ConfigPanel.Controls.Add(this.CooldownPropMaxText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropOffsetText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropReapplyText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropOverrideText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropPauseText);
+            this.ConfigPanel.Controls.Add(this.CooldownPropTickText);
+            this.ConfigPanel.Controls.Add(this.TipLabel);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride4);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride3);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride2);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownOverride1);
+            this.ConfigPanel.Controls.Add(this.ToggleTheme);
+            this.ConfigPanel.Controls.Add(this.AutoButton);
+            this.ConfigPanel.Controls.Add(this.LabelCooldownOverrideL0);
+            this.ConfigPanel.Controls.Add(this.CooldownOverride4Text);
+            this.ConfigPanel.Controls.Add(this.CooldownOverride3Text);
+            this.ConfigPanel.Controls.Add(this.CooldownOverride2Text);
+            this.ConfigPanel.Controls.Add(this.CooldownOverride1Text);
+            this.ConfigPanel.Controls.Add(this.SaveButton);
+            this.ConfigPanel.HorizontalScrollbarBarColor = true;
+            this.ConfigPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.ConfigPanel.HorizontalScrollbarSize = 10;
+            this.ConfigPanel.Location = new System.Drawing.Point(5, 33);
+            this.ConfigPanel.Name = "ConfigPanel";
+            this.ConfigPanel.Size = new System.Drawing.Size(448, 410);
+            this.ConfigPanel.TabIndex = 148;
+            this.ConfigPanel.VerticalScrollbarBarColor = true;
+            this.ConfigPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.ConfigPanel.VerticalScrollbarSize = 10;
+            // 
+            // CooldownPropOCRRateText
+            // 
+            this.CooldownPropOCRRateText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropOCRRateText.AutoSize = true;
+            this.CooldownPropOCRRateText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropOCRRateText.Location = new System.Drawing.Point(266, 321);
+            this.CooldownPropOCRRateText.Name = "CooldownPropOCRRateText";
+            this.CooldownPropOCRRateText.Size = new System.Drawing.Size(56, 15);
+            this.CooldownPropOCRRateText.TabIndex = 148;
+            this.CooldownPropOCRRateText.Text = "OCR Rate";
+            // 
+            // AppearanceTabControl
+            // 
+            this.AppearanceTabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.AppearanceTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AppearanceTabControl.Controls.Add(this.AppearanceTab0);
+            this.AppearanceTabControl.Controls.Add(this.AppearanceTabBars);
+            this.AppearanceTabControl.Controls.Add(this.AppearanceTabText);
+            this.AppearanceTabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
+            this.AppearanceTabControl.ItemSize = new System.Drawing.Size(25, 85);
+            this.AppearanceTabControl.Location = new System.Drawing.Point(0, 146);
+            this.AppearanceTabControl.Multiline = true;
+            this.AppearanceTabControl.Name = "AppearanceTabControl";
+            this.AppearanceTabControl.SelectedIndex = 1;
+            this.AppearanceTabControl.Size = new System.Drawing.Size(442, 112);
+            this.AppearanceTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.AppearanceTabControl.TabIndex = 146;
+            this.AppearanceTabControl.TabStop = false;
+            this.AppearanceTabControl.UseSelectable = true;
+            this.AppearanceTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.AppearanceTabControl_Selecting);
+            // 
+            // AppearanceTab0
+            // 
+            this.AppearanceTab0.HorizontalScrollbarBarColor = true;
+            this.AppearanceTab0.HorizontalScrollbarHighlightOnWheel = false;
+            this.AppearanceTab0.HorizontalScrollbarSize = 10;
+            this.AppearanceTab0.Location = new System.Drawing.Point(89, 4);
+            this.AppearanceTab0.Name = "AppearanceTab0";
+            this.AppearanceTab0.Size = new System.Drawing.Size(349, 104);
+            this.AppearanceTab0.TabIndex = 1;
+            this.AppearanceTab0.VerticalScrollbarBarColor = true;
+            this.AppearanceTab0.VerticalScrollbarHighlightOnWheel = false;
+            this.AppearanceTab0.VerticalScrollbarSize = 10;
+            // 
+            // AppearanceTabBars
+            // 
+            this.AppearanceTabBars.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXPosText);
+            this.AppearanceTabBars.Controls.Add(this.BGColourText);
+            this.AppearanceTabBars.Controls.Add(this.FG2ColourText);
+            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour1);
+            this.AppearanceTabBars.Controls.Add(this.FG1ColourText);
+            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour2);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYOffsetText);
+            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour3);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXOffsetText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsHeightText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsWidthText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYPosText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXPosTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYPosTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsWidthTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsHeightTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsXOffsetTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsYOffsetTrack);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsModeText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsModeTrack);
+            this.AppearanceTabBars.Controls.Add(this.SelColourText);
+            this.AppearanceTabBars.Controls.Add(this.LabelSelectColour4);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsSelOffsetText);
+            this.AppearanceTabBars.Controls.Add(this.CooldownBarsSelOffsetTrack);
+            this.AppearanceTabBars.HorizontalScrollbarBarColor = true;
+            this.AppearanceTabBars.HorizontalScrollbarHighlightOnWheel = false;
+            this.AppearanceTabBars.HorizontalScrollbarSize = 10;
+            this.AppearanceTabBars.Location = new System.Drawing.Point(89, 4);
+            this.AppearanceTabBars.Name = "AppearanceTabBars";
+            this.AppearanceTabBars.Size = new System.Drawing.Size(349, 104);
+            this.AppearanceTabBars.TabIndex = 2;
+            this.AppearanceTabBars.Text = "Bar Appearance";
+            this.AppearanceTabBars.VerticalScrollbarBarColor = true;
+            this.AppearanceTabBars.VerticalScrollbarHighlightOnWheel = false;
+            this.AppearanceTabBars.VerticalScrollbarSize = 10;
+            // 
+            // CooldownBarsXPosText
+            // 
+            this.CooldownBarsXPosText.AutoSize = true;
+            this.CooldownBarsXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsXPosText.Location = new System.Drawing.Point(2, 2);
+            this.CooldownBarsXPosText.Name = "CooldownBarsXPosText";
+            this.CooldownBarsXPosText.Size = new System.Drawing.Size(35, 15);
+            this.CooldownBarsXPosText.TabIndex = 110;
+            this.CooldownBarsXPosText.Text = "X Pos";
+            // 
+            // LabelSelectColour1
+            // 
+            this.LabelSelectColour1.AutoSize = true;
+            this.LabelSelectColour1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour1.Location = new System.Drawing.Point(2, 58);
+            this.LabelSelectColour1.Name = "LabelSelectColour1";
+            this.LabelSelectColour1.Size = new System.Drawing.Size(61, 15);
+            this.LabelSelectColour1.TabIndex = 118;
+            this.LabelSelectColour1.Text = "FG1 Colour";
+            // 
+            // LabelSelectColour2
+            // 
+            this.LabelSelectColour2.AutoSize = true;
+            this.LabelSelectColour2.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour2.Location = new System.Drawing.Point(89, 58);
+            this.LabelSelectColour2.Name = "LabelSelectColour2";
+            this.LabelSelectColour2.Size = new System.Drawing.Size(63, 15);
+            this.LabelSelectColour2.TabIndex = 119;
+            this.LabelSelectColour2.Text = "FG2 Colour";
+            // 
+            // CooldownBarsYOffsetText
+            // 
+            this.CooldownBarsYOffsetText.AutoSize = true;
+            this.CooldownBarsYOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsYOffsetText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CooldownBarsYOffsetText.Location = new System.Drawing.Point(89, 27);
+            this.CooldownBarsYOffsetText.Name = "CooldownBarsYOffsetText";
+            this.CooldownBarsYOffsetText.Size = new System.Drawing.Size(46, 15);
+            this.CooldownBarsYOffsetText.TabIndex = 115;
+            this.CooldownBarsYOffsetText.Text = "Y Offset";
+            this.CooldownBarsYOffsetText.UseCustomForeColor = true;
+            // 
+            // LabelSelectColour3
+            // 
+            this.LabelSelectColour3.AutoSize = true;
+            this.LabelSelectColour3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour3.Location = new System.Drawing.Point(176, 58);
+            this.LabelSelectColour3.Name = "LabelSelectColour3";
+            this.LabelSelectColour3.Size = new System.Drawing.Size(58, 15);
+            this.LabelSelectColour3.TabIndex = 120;
+            this.LabelSelectColour3.Text = "BG Colour";
+            // 
+            // CooldownBarsXOffsetText
+            // 
+            this.CooldownBarsXOffsetText.AutoSize = true;
+            this.CooldownBarsXOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsXOffsetText.Location = new System.Drawing.Point(2, 27);
+            this.CooldownBarsXOffsetText.Name = "CooldownBarsXOffsetText";
+            this.CooldownBarsXOffsetText.Size = new System.Drawing.Size(47, 15);
+            this.CooldownBarsXOffsetText.TabIndex = 114;
+            this.CooldownBarsXOffsetText.Text = "X Offset";
+            // 
+            // CooldownBarsHeightText
+            // 
+            this.CooldownBarsHeightText.AutoSize = true;
+            this.CooldownBarsHeightText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsHeightText.Location = new System.Drawing.Point(263, 2);
+            this.CooldownBarsHeightText.Name = "CooldownBarsHeightText";
+            this.CooldownBarsHeightText.Size = new System.Drawing.Size(40, 15);
+            this.CooldownBarsHeightText.TabIndex = 113;
+            this.CooldownBarsHeightText.Text = "Height";
+            // 
+            // CooldownBarsWidthText
+            // 
+            this.CooldownBarsWidthText.AutoSize = true;
+            this.CooldownBarsWidthText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsWidthText.Location = new System.Drawing.Point(176, 2);
+            this.CooldownBarsWidthText.Name = "CooldownBarsWidthText";
+            this.CooldownBarsWidthText.Size = new System.Drawing.Size(37, 15);
+            this.CooldownBarsWidthText.TabIndex = 112;
+            this.CooldownBarsWidthText.Text = "Width";
+            // 
+            // CooldownBarsYPosText
+            // 
+            this.CooldownBarsYPosText.AutoSize = true;
+            this.CooldownBarsYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsYPosText.Location = new System.Drawing.Point(89, 2);
+            this.CooldownBarsYPosText.Name = "CooldownBarsYPosText";
+            this.CooldownBarsYPosText.Size = new System.Drawing.Size(34, 15);
+            this.CooldownBarsYPosText.TabIndex = 111;
+            this.CooldownBarsYPosText.Text = "Y Pos";
+            // 
+            // CooldownBarsModeText
+            // 
+            this.CooldownBarsModeText.AutoSize = true;
+            this.CooldownBarsModeText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsModeText.Location = new System.Drawing.Point(263, 27);
+            this.CooldownBarsModeText.Name = "CooldownBarsModeText";
+            this.CooldownBarsModeText.Size = new System.Drawing.Size(30, 15);
+            this.CooldownBarsModeText.TabIndex = 116;
+            this.CooldownBarsModeText.Text = "Style";
+            // 
+            // LabelSelectColour4
+            // 
+            this.LabelSelectColour4.AutoSize = true;
+            this.LabelSelectColour4.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour4.Location = new System.Drawing.Point(264, 58);
+            this.LabelSelectColour4.Name = "LabelSelectColour4";
+            this.LabelSelectColour4.Size = new System.Drawing.Size(60, 15);
+            this.LabelSelectColour4.TabIndex = 121;
+            this.LabelSelectColour4.Text = "SEL Colour";
+            // 
+            // CooldownBarsSelOffsetText
+            // 
+            this.CooldownBarsSelOffsetText.AutoSize = true;
+            this.CooldownBarsSelOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarsSelOffsetText.Location = new System.Drawing.Point(176, 27);
+            this.CooldownBarsSelOffsetText.Name = "CooldownBarsSelOffsetText";
+            this.CooldownBarsSelOffsetText.Size = new System.Drawing.Size(57, 15);
+            this.CooldownBarsSelOffsetText.TabIndex = 117;
+            this.CooldownBarsSelOffsetText.Text = "Sel. Offset";
+            // 
+            // AppearanceTabText
+            // 
+            this.AppearanceTabText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextReadyText);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextZeroPrefix);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextFontComboBox);
+            this.AppearanceTabText.Controls.Add(this.BGTColourText);
+            this.AppearanceTabText.Controls.Add(this.LabelSelectColour3T);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextDecimalText);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextDecimalTrack);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextYOffsetText);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextXOffsetText);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextXOffsetTrack);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextYOffsetTrack);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextSizeText);
+            this.AppearanceTabText.Controls.Add(this.CooldownBarTextSizeTrack);
+            this.AppearanceTabText.Controls.Add(this.FG2TColourText);
+            this.AppearanceTabText.Controls.Add(this.LabelSelectColour1T);
+            this.AppearanceTabText.Controls.Add(this.FG1TColourText);
+            this.AppearanceTabText.Controls.Add(this.LabelSelectColour2T);
+            this.AppearanceTabText.Controls.Add(this.SelTColourText);
+            this.AppearanceTabText.Controls.Add(this.LabelSelectColour4T);
+            this.AppearanceTabText.HorizontalScrollbarBarColor = true;
+            this.AppearanceTabText.HorizontalScrollbarHighlightOnWheel = false;
+            this.AppearanceTabText.HorizontalScrollbarSize = 10;
+            this.AppearanceTabText.Location = new System.Drawing.Point(89, 4);
+            this.AppearanceTabText.Name = "AppearanceTabText";
+            this.AppearanceTabText.Size = new System.Drawing.Size(349, 104);
+            this.AppearanceTabText.TabIndex = 3;
+            this.AppearanceTabText.Text = "Text Appearance";
+            this.AppearanceTabText.VerticalScrollbarBarColor = true;
+            this.AppearanceTabText.VerticalScrollbarHighlightOnWheel = false;
+            this.AppearanceTabText.VerticalScrollbarSize = 10;
+            // 
+            // LabelSelectColour3T
+            // 
+            this.LabelSelectColour3T.AutoSize = true;
+            this.LabelSelectColour3T.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour3T.Location = new System.Drawing.Point(176, 58);
+            this.LabelSelectColour3T.Name = "LabelSelectColour3T";
+            this.LabelSelectColour3T.Size = new System.Drawing.Size(64, 15);
+            this.LabelSelectColour3T.TabIndex = 141;
+            this.LabelSelectColour3T.Text = "BGT Colour";
+            // 
+            // CooldownBarTextDecimalText
+            // 
+            this.CooldownBarTextDecimalText.AutoSize = true;
+            this.CooldownBarTextDecimalText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarTextDecimalText.Location = new System.Drawing.Point(263, 27);
+            this.CooldownBarTextDecimalText.Name = "CooldownBarTextDecimalText";
+            this.CooldownBarTextDecimalText.Size = new System.Drawing.Size(46, 15);
+            this.CooldownBarTextDecimalText.TabIndex = 139;
+            this.CooldownBarTextDecimalText.Text = "Decimal";
+            // 
+            // CooldownBarTextYOffsetText
+            // 
+            this.CooldownBarTextYOffsetText.AutoSize = true;
+            this.CooldownBarTextYOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarTextYOffsetText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CooldownBarTextYOffsetText.Location = new System.Drawing.Point(89, 27);
+            this.CooldownBarTextYOffsetText.Name = "CooldownBarTextYOffsetText";
+            this.CooldownBarTextYOffsetText.Size = new System.Drawing.Size(46, 15);
+            this.CooldownBarTextYOffsetText.TabIndex = 132;
+            this.CooldownBarTextYOffsetText.Text = "Y Offset";
+            // 
+            // CooldownBarTextXOffsetText
+            // 
+            this.CooldownBarTextXOffsetText.AutoSize = true;
+            this.CooldownBarTextXOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarTextXOffsetText.Location = new System.Drawing.Point(2, 27);
+            this.CooldownBarTextXOffsetText.Name = "CooldownBarTextXOffsetText";
+            this.CooldownBarTextXOffsetText.Size = new System.Drawing.Size(47, 15);
+            this.CooldownBarTextXOffsetText.TabIndex = 131;
+            this.CooldownBarTextXOffsetText.Text = "X Offset";
+            // 
+            // CooldownBarTextSizeText
+            // 
+            this.CooldownBarTextSizeText.AutoSize = true;
+            this.CooldownBarTextSizeText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownBarTextSizeText.Location = new System.Drawing.Point(176, 27);
+            this.CooldownBarTextSizeText.Name = "CooldownBarTextSizeText";
+            this.CooldownBarTextSizeText.Size = new System.Drawing.Size(53, 15);
+            this.CooldownBarTextSizeText.TabIndex = 133;
+            this.CooldownBarTextSizeText.Text = "Font Size";
+            // 
+            // LabelSelectColour1T
+            // 
+            this.LabelSelectColour1T.AutoSize = true;
+            this.LabelSelectColour1T.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour1T.Location = new System.Drawing.Point(2, 58);
+            this.LabelSelectColour1T.Name = "LabelSelectColour1T";
+            this.LabelSelectColour1T.Size = new System.Drawing.Size(67, 15);
+            this.LabelSelectColour1T.TabIndex = 125;
+            this.LabelSelectColour1T.Text = "FG1T Colour";
+            // 
+            // LabelSelectColour2T
+            // 
+            this.LabelSelectColour2T.AutoSize = true;
+            this.LabelSelectColour2T.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour2T.Location = new System.Drawing.Point(89, 58);
+            this.LabelSelectColour2T.Name = "LabelSelectColour2T";
+            this.LabelSelectColour2T.Size = new System.Drawing.Size(69, 15);
+            this.LabelSelectColour2T.TabIndex = 126;
+            this.LabelSelectColour2T.Text = "FG2T Colour";
+            // 
+            // LabelSelectColour4T
+            // 
+            this.LabelSelectColour4T.AutoSize = true;
+            this.LabelSelectColour4T.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelSelectColour4T.Location = new System.Drawing.Point(264, 58);
+            this.LabelSelectColour4T.Name = "LabelSelectColour4T";
+            this.LabelSelectColour4T.Size = new System.Drawing.Size(65, 15);
+            this.LabelSelectColour4T.TabIndex = 127;
+            this.LabelSelectColour4T.Text = "SELT Colour";
+            // 
+            // ModeTabControl
+            // 
+            this.ModeTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ModeTabControl.Controls.Add(this.ModeTabManual);
+            this.ModeTabControl.Controls.Add(this.ModeTabAuto);
+            this.ModeTabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
+            this.ModeTabControl.ItemSize = new System.Drawing.Size(217, 25);
+            this.ModeTabControl.Location = new System.Drawing.Point(0, 17);
+            this.ModeTabControl.Name = "ModeTabControl";
+            this.ModeTabControl.SelectedIndex = 1;
+            this.ModeTabControl.Size = new System.Drawing.Size(442, 128);
+            this.ModeTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.ModeTabControl.TabIndex = 145;
+            this.ModeTabControl.TabStop = false;
+            this.ModeTabControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ModeTabControl.UseSelectable = true;
+            // 
+            // ModeTabManual
+            // 
+            this.ModeTabManual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ModeTabManual.Controls.Add(this.LabelCooldownText2);
+            this.ModeTabManual.Controls.Add(this.CooldownText2XPosTrack);
+            this.ModeTabManual.Controls.Add(this.CooldownText2XPosText);
+            this.ModeTabManual.Controls.Add(this.LabelCooldownText);
+            this.ModeTabManual.Controls.Add(this.CooldownTextXPosTrack);
+            this.ModeTabManual.Controls.Add(this.PartyNumComboBox);
+            this.ModeTabManual.Controls.Add(this.CooldownTextYPosTrack);
+            this.ModeTabManual.Controls.Add(this.CooldownTextWidthTrack);
+            this.ModeTabManual.Controls.Add(this.CooldownTextHeightTrack);
+            this.ModeTabManual.Controls.Add(this.PartyNumXPosTrack);
+            this.ModeTabManual.Controls.Add(this.PartyNumYPosTrack);
+            this.ModeTabManual.Controls.Add(this.PartyNumBarOffsetsText);
+            this.ModeTabManual.Controls.Add(this.PartyNumBarOffsetsTrack);
+            this.ModeTabManual.Controls.Add(this.PartyNumYPosText);
+            this.ModeTabManual.Controls.Add(this.PartyNumXPosText);
+            this.ModeTabManual.Controls.Add(this.LabelPartyNumbers);
+            this.ModeTabManual.Controls.Add(this.CooldownTextHeightText);
+            this.ModeTabManual.Controls.Add(this.CooldownTextWidthText);
+            this.ModeTabManual.Controls.Add(this.CooldownTextYPosText);
+            this.ModeTabManual.Controls.Add(this.CooldownTextXPosText);
+            this.ModeTabManual.HorizontalScrollbarBarColor = true;
+            this.ModeTabManual.HorizontalScrollbarHighlightOnWheel = false;
+            this.ModeTabManual.HorizontalScrollbarSize = 10;
+            this.ModeTabManual.Location = new System.Drawing.Point(4, 29);
+            this.ModeTabManual.Name = "ModeTabManual";
+            this.ModeTabManual.Size = new System.Drawing.Size(434, 95);
+            this.ModeTabManual.TabIndex = 2;
+            this.ModeTabManual.Text = "Manual Setup";
+            this.ModeTabManual.VerticalScrollbarBarColor = true;
+            this.ModeTabManual.VerticalScrollbarHighlightOnWheel = false;
+            this.ModeTabManual.VerticalScrollbarSize = 10;
+            // 
+            // PartyNumBarOffsetsText
+            // 
+            this.PartyNumBarOffsetsText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumBarOffsetsText.AutoSize = true;
+            this.PartyNumBarOffsetsText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.PartyNumBarOffsetsText.Location = new System.Drawing.Point(261, 67);
+            this.PartyNumBarOffsetsText.Name = "PartyNumBarOffsetsText";
+            this.PartyNumBarOffsetsText.Size = new System.Drawing.Size(57, 15);
+            this.PartyNumBarOffsetsText.TabIndex = 108;
+            this.PartyNumBarOffsetsText.Text = "Bar Offset";
+            this.PartyNumBarOffsetsText.UseCustomForeColor = true;
+            // 
+            // PartyNumYPosText
+            // 
+            this.PartyNumYPosText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumYPosText.AutoSize = true;
+            this.PartyNumYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.PartyNumYPosText.Location = new System.Drawing.Point(174, 67);
+            this.PartyNumYPosText.Name = "PartyNumYPosText";
+            this.PartyNumYPosText.Size = new System.Drawing.Size(34, 15);
+            this.PartyNumYPosText.TabIndex = 107;
+            this.PartyNumYPosText.Text = "Y Pos";
+            this.PartyNumYPosText.UseCustomForeColor = true;
+            // 
+            // PartyNumXPosText
+            // 
+            this.PartyNumXPosText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PartyNumXPosText.AutoSize = true;
+            this.PartyNumXPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.PartyNumXPosText.Location = new System.Drawing.Point(87, 67);
+            this.PartyNumXPosText.Name = "PartyNumXPosText";
+            this.PartyNumXPosText.Size = new System.Drawing.Size(35, 15);
+            this.PartyNumXPosText.TabIndex = 106;
+            this.PartyNumXPosText.Text = "X Pos";
+            this.PartyNumXPosText.UseCustomForeColor = true;
+            // 
+            // CooldownTextHeightText
+            // 
+            this.CooldownTextHeightText.AutoSize = true;
+            this.CooldownTextHeightText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownTextHeightText.Location = new System.Drawing.Point(348, 5);
+            this.CooldownTextHeightText.Name = "CooldownTextHeightText";
+            this.CooldownTextHeightText.Size = new System.Drawing.Size(40, 15);
+            this.CooldownTextHeightText.TabIndex = 104;
+            this.CooldownTextHeightText.Text = "Height";
+            // 
+            // CooldownTextWidthText
+            // 
+            this.CooldownTextWidthText.AutoSize = true;
+            this.CooldownTextWidthText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownTextWidthText.Location = new System.Drawing.Point(261, 5);
+            this.CooldownTextWidthText.Name = "CooldownTextWidthText";
+            this.CooldownTextWidthText.Size = new System.Drawing.Size(37, 15);
+            this.CooldownTextWidthText.TabIndex = 103;
+            this.CooldownTextWidthText.Text = "Width";
+            // 
+            // CooldownTextYPosText
+            // 
+            this.CooldownTextYPosText.AutoSize = true;
+            this.CooldownTextYPosText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownTextYPosText.Location = new System.Drawing.Point(174, 5);
+            this.CooldownTextYPosText.Name = "CooldownTextYPosText";
+            this.CooldownTextYPosText.Size = new System.Drawing.Size(34, 15);
+            this.CooldownTextYPosText.TabIndex = 102;
+            this.CooldownTextYPosText.Text = "Y Pos";
+            // 
+            // ModeTabAuto
+            // 
+            this.ModeTabAuto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ModeTabAuto.Controls.Add(this.metroLabel1);
+            this.ModeTabAuto.Controls.Add(this.DPIResolutionComboBox);
+            this.ModeTabAuto.Controls.Add(this.DPIScaleText);
+            this.ModeTabAuto.Controls.Add(this.DPIScaleTrack);
+            this.ModeTabAuto.HorizontalScrollbarBarColor = true;
+            this.ModeTabAuto.HorizontalScrollbarHighlightOnWheel = false;
+            this.ModeTabAuto.HorizontalScrollbarSize = 10;
+            this.ModeTabAuto.Location = new System.Drawing.Point(4, 29);
+            this.ModeTabAuto.Name = "ModeTabAuto";
+            this.ModeTabAuto.Size = new System.Drawing.Size(434, 95);
+            this.ModeTabAuto.TabIndex = 3;
+            this.ModeTabAuto.Text = "DPI Scaling Setup";
+            this.ModeTabAuto.VerticalScrollbarBarColor = true;
+            this.ModeTabAuto.VerticalScrollbarHighlightOnWheel = false;
+            this.ModeTabAuto.VerticalScrollbarSize = 10;
+            // 
+            // DPIScaleText
+            // 
+            this.DPIScaleText.AutoSize = true;
+            this.DPIScaleText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.DPIScaleText.Location = new System.Drawing.Point(261, 15);
+            this.DPIScaleText.Name = "DPIScaleText";
+            this.DPIScaleText.Size = new System.Drawing.Size(32, 15);
+            this.DPIScaleText.TabIndex = 148;
+            this.DPIScaleText.Text = "Scale";
+            // 
+            // CooldownPropConfText
+            // 
+            this.CooldownPropConfText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropConfText.AutoSize = true;
+            this.CooldownPropConfText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropConfText.Location = new System.Drawing.Point(353, 321);
+            this.CooldownPropConfText.Name = "CooldownPropConfText";
+            this.CooldownPropConfText.Size = new System.Drawing.Size(62, 15);
+            this.CooldownPropConfText.TabIndex = 143;
+            this.CooldownPropConfText.Text = "Confidence";
+            // 
+            // CooldownPropMaxText
+            // 
+            this.CooldownPropMaxText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropMaxText.AutoSize = true;
+            this.CooldownPropMaxText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropMaxText.Location = new System.Drawing.Point(92, 296);
+            this.CooldownPropMaxText.Name = "CooldownPropMaxText";
+            this.CooldownPropMaxText.Size = new System.Drawing.Size(28, 15);
+            this.CooldownPropMaxText.TabIndex = 137;
+            this.CooldownPropMaxText.Text = "Max";
+            // 
+            // CooldownPropOffsetText
+            // 
+            this.CooldownPropOffsetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropOffsetText.AutoSize = true;
+            this.CooldownPropOffsetText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropOffsetText.Location = new System.Drawing.Point(179, 296);
+            this.CooldownPropOffsetText.Name = "CooldownPropOffsetText";
+            this.CooldownPropOffsetText.Size = new System.Drawing.Size(37, 15);
+            this.CooldownPropOffsetText.TabIndex = 138;
+            this.CooldownPropOffsetText.Text = "Offset";
+            // 
+            // CooldownPropReapplyText
+            // 
+            this.CooldownPropReapplyText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropReapplyText.AutoSize = true;
+            this.CooldownPropReapplyText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropReapplyText.Location = new System.Drawing.Point(266, 296);
+            this.CooldownPropReapplyText.Name = "CooldownPropReapplyText";
+            this.CooldownPropReapplyText.Size = new System.Drawing.Size(47, 15);
+            this.CooldownPropReapplyText.TabIndex = 139;
+            this.CooldownPropReapplyText.Text = "Reapply";
+            // 
+            // CooldownPropOverrideText
+            // 
+            this.CooldownPropOverrideText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropOverrideText.AutoSize = true;
+            this.CooldownPropOverrideText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropOverrideText.Location = new System.Drawing.Point(353, 296);
+            this.CooldownPropOverrideText.Name = "CooldownPropOverrideText";
+            this.CooldownPropOverrideText.Size = new System.Drawing.Size(50, 15);
+            this.CooldownPropOverrideText.TabIndex = 140;
+            this.CooldownPropOverrideText.Text = "Override";
+            // 
+            // CooldownPropPauseText
+            // 
+            this.CooldownPropPauseText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropPauseText.AutoSize = true;
+            this.CooldownPropPauseText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropPauseText.Location = new System.Drawing.Point(92, 321);
+            this.CooldownPropPauseText.Name = "CooldownPropPauseText";
+            this.CooldownPropPauseText.Size = new System.Drawing.Size(58, 15);
+            this.CooldownPropPauseText.TabIndex = 141;
+            this.CooldownPropPauseText.Text = "Pause Sub";
+            // 
+            // CooldownPropTickText
+            // 
+            this.CooldownPropTickText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CooldownPropTickText.AutoSize = true;
+            this.CooldownPropTickText.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.CooldownPropTickText.Location = new System.Drawing.Point(179, 321);
+            this.CooldownPropTickText.Name = "CooldownPropTickText";
+            this.CooldownPropTickText.Size = new System.Drawing.Size(51, 15);
+            this.CooldownPropTickText.TabIndex = 142;
+            this.CooldownPropTickText.Text = "Tick Rate";
+            // 
+            // TipLabel
+            // 
+            this.TipLabel.AutoSize = true;
+            this.TipLabel.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.TipLabel.Location = new System.Drawing.Point(187, 3);
+            this.TipLabel.Name = "TipLabel";
+            this.TipLabel.Size = new System.Drawing.Size(261, 15);
+            this.TipLabel.TabIndex = 128;
+            this.TipLabel.Text = "Tip: Use the scroll wheel to set more precise values.";
+            // 
+            // LabelCooldownOverride4
+            // 
+            this.LabelCooldownOverride4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelCooldownOverride4.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownOverride4.Location = new System.Drawing.Point(350, 263);
+            this.LabelCooldownOverride4.Name = "LabelCooldownOverride4";
+            this.LabelCooldownOverride4.Size = new System.Drawing.Size(26, 23);
+            this.LabelCooldownOverride4.TabIndex = 127;
+            this.LabelCooldownOverride4.Text = "#4";
+            this.LabelCooldownOverride4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelCooldownOverride3
+            // 
+            this.LabelCooldownOverride3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelCooldownOverride3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownOverride3.Location = new System.Drawing.Point(263, 263);
+            this.LabelCooldownOverride3.Name = "LabelCooldownOverride3";
+            this.LabelCooldownOverride3.Size = new System.Drawing.Size(26, 23);
+            this.LabelCooldownOverride3.TabIndex = 126;
+            this.LabelCooldownOverride3.Text = "#3";
+            this.LabelCooldownOverride3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelCooldownOverride2
+            // 
+            this.LabelCooldownOverride2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelCooldownOverride2.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownOverride2.Location = new System.Drawing.Point(176, 263);
+            this.LabelCooldownOverride2.Name = "LabelCooldownOverride2";
+            this.LabelCooldownOverride2.Size = new System.Drawing.Size(26, 23);
+            this.LabelCooldownOverride2.TabIndex = 125;
+            this.LabelCooldownOverride2.Text = "#2";
+            this.LabelCooldownOverride2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelCooldownOverride1
+            // 
+            this.LabelCooldownOverride1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelCooldownOverride1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.LabelCooldownOverride1.Location = new System.Drawing.Point(89, 263);
+            this.LabelCooldownOverride1.Name = "LabelCooldownOverride1";
+            this.LabelCooldownOverride1.Size = new System.Drawing.Size(26, 23);
+            this.LabelCooldownOverride1.TabIndex = 124;
+            this.LabelCooldownOverride1.Text = "#1";
+            this.LabelCooldownOverride1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(84, 54);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(323, 19);
+            this.metroLabel1.TabIndex = 150;
+            this.metroLabel1.Text = "This section is still in development, ignore it for now :3";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 419);
-            this.Controls.Add(this.MainPanel);
+            this.ClientSize = new System.Drawing.Size(458, 448);
             this.Controls.Add(this.ConfigPanel);
+            this.Controls.Add(this.MainPanel);
             this.DisplayHeader = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1998,6 +2059,8 @@
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.Load += new System.EventHandler(this.MainWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.MStyleManager)).EndInit();
+            this.MainPanel.ResumeLayout(false);
             this.ConfigPanel.ResumeLayout(false);
             this.ConfigPanel.PerformLayout();
             this.AppearanceTabControl.ResumeLayout(false);
@@ -2010,72 +2073,23 @@
             this.ModeTabManual.PerformLayout();
             this.ModeTabAuto.ResumeLayout(false);
             this.ModeTabAuto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MStyleManager)).EndInit();
-            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private MetroFramework.Controls.MetroButton ConfigureOverlayButton;
-        private MetroFramework.Controls.MetroLabel LabelCooldownText;
-        private MetroFramework.Controls.MetroLabel CooldownTextXPosText;
-        private MetroFramework.Controls.MetroLabel CooldownTextYPosText;
-        private MetroFramework.Controls.MetroLabel CooldownTextHeightText;
-        private MetroFramework.Controls.MetroLabel CooldownTextWidthText;
-        private MetroFramework.Controls.MetroLabel PartyNumBarOffsetsText;
-        private MetroFramework.Controls.MetroLabel PartyNumYPosText;
-        private MetroFramework.Controls.MetroLabel PartyNumXPosText;
-        private MetroFramework.Controls.MetroLabel LabelPartyNumbers;
-        private MetroFramework.Controls.MetroTrackBar CooldownTextXPosTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownTextYPosTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownTextWidthTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownTextHeightTrack;
-        private MetroFramework.Controls.MetroTrackBar PartyNumXPosTrack;
-        private MetroFramework.Controls.MetroTrackBar PartyNumYPosTrack;
-        private MetroFramework.Controls.MetroTrackBar PartyNumBarOffsetsTrack;
-        private MetroFramework.Controls.MetroPanel ConfigPanel;
-        private MetroFramework.Controls.MetroLabel LabelCooldownOverrideL0;
-        private MetroFramework.Controls.MetroTextBox CooldownOverride4Text;
-        private MetroFramework.Controls.MetroTextBox CooldownOverride3Text;
-        private MetroFramework.Controls.MetroTextBox CooldownOverride2Text;
-        private MetroFramework.Controls.MetroTextBox CooldownOverride1Text;
-        private MetroFramework.Controls.MetroButton SaveButton;
-        private MetroFramework.Controls.MetroButton AutoButton;
         private MetroFramework.Components.MetroStyleManager MStyleManager;
         private MetroFramework.Components.MetroStyleExtender MStyleExtender;
-        private MetroFramework.Controls.MetroToggle ToggleTheme;
-        private MetroFramework.Controls.MetroLabel LabelCooldownOverride4;
-        private MetroFramework.Controls.MetroLabel LabelCooldownOverride3;
-        private MetroFramework.Controls.MetroLabel LabelCooldownOverride2;
-        private MetroFramework.Controls.MetroLabel LabelCooldownOverride1;
         private MetroFramework.Controls.MetroLabel ConfigureOverlayMessage;
         private MetroFramework.Components.MetroToolTip ConfigToolTip;
-        private MetroFramework.Controls.MetroLabel TipLabel;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropConfTrack;
-        private MetroFramework.Controls.MetroLabel CooldownPropConfText;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropTickTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropPauseTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropOverrideTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropReapplyTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropOffsetTrack;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropMaxTrack;
-        private MetroFramework.Controls.MetroLabel LabelCooldownProperties;
-        private MetroFramework.Controls.MetroLabel CooldownPropMaxText;
-        private MetroFramework.Controls.MetroLabel CooldownPropOffsetText;
-        private MetroFramework.Controls.MetroLabel CooldownPropReapplyText;
-        private MetroFramework.Controls.MetroLabel CooldownPropOverrideText;
-        private MetroFramework.Controls.MetroLabel CooldownPropPauseText;
-        private MetroFramework.Controls.MetroLabel CooldownPropTickText;
-        private MetroFramework.Controls.MetroLink DevLink;
-        private MetroFramework.Controls.MetroComboBox PartyNumComboBox;
         private MetroFramework.Controls.MetroButton DebugButton;
-        private MetroFramework.Controls.MetroTabControl ModeTabControl;
-        private MetroFramework.Controls.MetroTabPage ModeTabManual;
-        private MetroFramework.Controls.MetroTabPage ModeTabAuto;
-        private MetroFramework.Controls.MetroLabel DPIScaleText;
-        private MetroFramework.Controls.MetroTrackBar DPIScaleTrack;
-        private MetroFramework.Controls.MetroComboBox DPIResolutionComboBox;
+        private MetroFramework.Controls.MetroButton DebugMultiButton;
+        private MetroFramework.Controls.MetroPanel MainPanel;
+        private MetroFramework.Controls.MetroTextBox DebugText;
+        private MetroFramework.Controls.MetroPanel ConfigPanel;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropOCRRateTrack;
+        private MetroFramework.Controls.MetroLabel CooldownPropOCRRateText;
         private MetroFramework.Controls.MetroTabControl AppearanceTabControl;
         private MetroFramework.Controls.MetroTabPage AppearanceTab0;
         private MetroFramework.Controls.MetroTabPage AppearanceTabBars;
@@ -2123,11 +2137,62 @@
         private MetroFramework.Controls.MetroLabel LabelSelectColour2T;
         private MetroFramework.Controls.MetroTextBox SelTColourText;
         private MetroFramework.Controls.MetroLabel LabelSelectColour4T;
-        private MetroFramework.Controls.MetroTrackBar CooldownPropOCRRateTrack;
-        private MetroFramework.Controls.MetroLabel CooldownPropOCRRateText;
-        private MetroFramework.Controls.MetroButton DebugMultiButton;
-        private MetroFramework.Controls.MetroPanel MainPanel;
-        private MetroFramework.Controls.MetroTextBox DebugText;
+        private MetroFramework.Controls.MetroTabControl ModeTabControl;
+        private MetroFramework.Controls.MetroTabPage ModeTabManual;
+        private MetroFramework.Controls.MetroLabel LabelCooldownText2;
+        private MetroFramework.Controls.MetroTrackBar CooldownText2XPosTrack;
+        private MetroFramework.Controls.MetroLabel CooldownText2XPosText;
+        private MetroFramework.Controls.MetroLabel LabelCooldownText;
+        private MetroFramework.Controls.MetroTrackBar CooldownTextXPosTrack;
+        private MetroFramework.Controls.MetroComboBox PartyNumComboBox;
+        private MetroFramework.Controls.MetroTrackBar CooldownTextYPosTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownTextWidthTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownTextHeightTrack;
+        private MetroFramework.Controls.MetroTrackBar PartyNumXPosTrack;
+        private MetroFramework.Controls.MetroTrackBar PartyNumYPosTrack;
+        private MetroFramework.Controls.MetroLabel PartyNumBarOffsetsText;
+        private MetroFramework.Controls.MetroTrackBar PartyNumBarOffsetsTrack;
+        private MetroFramework.Controls.MetroLabel PartyNumYPosText;
+        private MetroFramework.Controls.MetroLabel PartyNumXPosText;
+        private MetroFramework.Controls.MetroLabel LabelPartyNumbers;
+        private MetroFramework.Controls.MetroLabel CooldownTextHeightText;
+        private MetroFramework.Controls.MetroLabel CooldownTextWidthText;
+        private MetroFramework.Controls.MetroLabel CooldownTextYPosText;
+        private MetroFramework.Controls.MetroLabel CooldownTextXPosText;
+        private MetroFramework.Controls.MetroTabPage ModeTabAuto;
+        private MetroFramework.Controls.MetroComboBox DPIResolutionComboBox;
+        private MetroFramework.Controls.MetroLabel DPIScaleText;
+        private MetroFramework.Controls.MetroTrackBar DPIScaleTrack;
+        private MetroFramework.Controls.MetroLink DevLink;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropConfTrack;
+        private MetroFramework.Controls.MetroLabel CooldownPropConfText;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropTickTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropPauseTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropOverrideTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropReapplyTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropOffsetTrack;
+        private MetroFramework.Controls.MetroTrackBar CooldownPropMaxTrack;
+        private MetroFramework.Controls.MetroLabel LabelCooldownProperties;
+        private MetroFramework.Controls.MetroLabel CooldownPropMaxText;
+        private MetroFramework.Controls.MetroLabel CooldownPropOffsetText;
+        private MetroFramework.Controls.MetroLabel CooldownPropReapplyText;
+        private MetroFramework.Controls.MetroLabel CooldownPropOverrideText;
+        private MetroFramework.Controls.MetroLabel CooldownPropPauseText;
+        private MetroFramework.Controls.MetroLabel CooldownPropTickText;
+        private MetroFramework.Controls.MetroLabel TipLabel;
+        private MetroFramework.Controls.MetroLabel LabelCooldownOverride4;
+        private MetroFramework.Controls.MetroLabel LabelCooldownOverride3;
+        private MetroFramework.Controls.MetroLabel LabelCooldownOverride2;
+        private MetroFramework.Controls.MetroLabel LabelCooldownOverride1;
+        private MetroFramework.Controls.MetroToggle ToggleTheme;
+        private MetroFramework.Controls.MetroButton AutoButton;
+        private MetroFramework.Controls.MetroLabel LabelCooldownOverrideL0;
+        private MetroFramework.Controls.MetroTextBox CooldownOverride4Text;
+        private MetroFramework.Controls.MetroTextBox CooldownOverride3Text;
+        private MetroFramework.Controls.MetroTextBox CooldownOverride2Text;
+        private MetroFramework.Controls.MetroTextBox CooldownOverride1Text;
+        private MetroFramework.Controls.MetroButton SaveButton;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
 

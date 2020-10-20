@@ -11,6 +11,7 @@ namespace GenshinOverlay {
 
         public static Point CooldownTextLocation { get { return Options.CooldownTextLocation; } set { Options.CooldownTextLocation = value; } }
         public static Size CooldownTextSize { get { return Options.CooldownTextSize; } set { Options.CooldownTextSize = value; } }
+        public static int CooldownText2LocationX { get { return Options.CooldownText2LocationX; } set { Options.CooldownText2LocationX = value; } }
         public static Dictionary<string, Point> PartyNumLocations { get { return Options.PartyNumLocations; } set { Options.PartyNumLocations = value; } }
         public static int[] PartyNumBarOffsets { get { return Options.PartyNumBarOffsets; } set { Options.PartyNumBarOffsets = value; } }
         public static int CooldownBarMode { get { return Options.CooldownBarMode; } set { Options.CooldownBarMode = value; } }
@@ -100,6 +101,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1123, 678),
                     CooldownTextSize = new Size(35, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1244, 260) }, { "4 #2", new Point(1244, 320) }, { "4 #3", new Point(1244, 381) }, { "4 #4", new Point(1244, 442) },
                         { "3 #1", new Point(1244, 287) }, { "3 #2", new Point(1244, 350) }, { "3 #3", new Point(1244, 415) },
@@ -118,6 +120,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1123, 726),
                     CooldownTextSize = new Size(35, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1244, 308) }, { "4 #2", new Point(1244, 368) }, { "4 #3", new Point(1244, 429) }, { "4 #4", new Point(1244, 490) },
                         { "3 #1", new Point(1244, 335) }, { "3 #2", new Point(1244, 399) }, { "3 #3", new Point(1244, 463) },
@@ -136,6 +139,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1123, 758),
                     CooldownTextSize = new Size(35, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1244, 340) }, { "4 #2", new Point(1244, 400) }, { "4 #3", new Point(1244, 461) }, { "4 #4", new Point(1244, 522) },
                         { "3 #1", new Point(1244, 366) }, { "3 #2", new Point(1244, 431) }, { "3 #3", new Point(1244, 494) },
@@ -154,6 +158,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1123, 918),
                     CooldownTextSize = new Size(35, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1244, 500) }, { "4 #2", new Point(1244, 560) }, { "4 #3", new Point(1244, 622) }, { "4 #4", new Point(1244, 682) },
                         { "3 #1", new Point(1244, 527) }, { "3 #2", new Point(1244, 590) }, { "3 #3", new Point(1244, 654) },
@@ -172,6 +177,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1123, 982),
                     CooldownTextSize = new Size(35, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1244, 564) }, { "4 #2", new Point(1244, 624) }, { "4 #3", new Point(1244, 685) }, { "4 #4", new Point(1244, 747) },
                         { "3 #1", new Point(1244, 591) }, { "3 #2", new Point(1244, 655) }, { "3 #3", new Point(1244, 719) },
@@ -190,6 +196,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1193, 722),
                     CooldownTextSize = new Size(36, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1321, 276) }, { "4 #2", new Point(1321, 343) }, { "4 #3", new Point(1321, 406) }, { "4 #4", new Point(1321, 471) },
                         { "3 #1", new Point(1321, 306) }, { "3 #2", new Point(1321, 374) }, { "3 #3", new Point(1321, 442) },
@@ -208,6 +215,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1198, 723),
                     CooldownTextSize = new Size(37, 18),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1327, 276) }, { "4 #2", new Point(1327, 340) }, { "4 #3", new Point(1327, 405) }, { "4 #4", new Point(1327, 470) },
                         { "3 #1", new Point(1327, 304) }, { "3 #2", new Point(1327, 373) }, { "3 #3", new Point(1327, 441) },
@@ -226,6 +234,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1404, 841),
                     CooldownTextSize = new Size(42, 22),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1554, 318) }, { "4 #2", new Point(1554, 394) }, { "4 #3", new Point(1554, 470) }, { "4 #4", new Point(1554, 546) },
                         { "3 #1", new Point(1554, 352) }, { "3 #2", new Point(1554, 432) }, { "3 #3", new Point(1554, 512) },
@@ -244,6 +253,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1404, 965),
                     CooldownTextSize = new Size(42, 22),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1554, 443) }, { "4 #2", new Point(1554, 519) }, { "4 #3", new Point(1554, 594) }, { "4 #4", new Point(1554, 671) },
                         { "3 #1", new Point(1554, 477) }, { "3 #2", new Point(1554, 557) }, { "3 #3", new Point(1554, 636) },
@@ -262,6 +272,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1474, 988),
                     CooldownTextSize = new Size(44, 22),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1632, 438) }, { "4 #2", new Point(1632, 517) }, { "4 #3", new Point(1632, 597) }, { "4 #4", new Point(1632, 677) },
                         { "3 #1", new Point(1632, 474) }, { "3 #2", new Point(1632, 558) }, { "3 #3", new Point(1632, 642) },
@@ -280,6 +291,7 @@ namespace GenshinOverlay {
                 Properties = new Props() {
                     CooldownTextLocation = new Point(1685, 978),
                     CooldownTextSize = new Size(49, 27),
+                    CooldownText2LocationX = 0,
                     PartyNumLocations = new Dictionary<string, Point>() {
                         { "4 #1", new Point(1863, 351) }, { "4 #2", new Point(1863, 440) }, { "4 #3", new Point(1863, 531) }, { "4 #4", new Point(1863, 624) },
                         { "3 #1", new Point(1863, 392) }, { "3 #2", new Point(1863, 488) }, { "3 #3", new Point(1863, 582) },
@@ -303,6 +315,7 @@ namespace GenshinOverlay {
     public class Props {
         public Point CooldownTextLocation { get; set; }
         public Size CooldownTextSize { get; set; }
+        public int CooldownText2LocationX { get; set; }
         public Dictionary<string, Point> PartyNumLocations { get; set; }
         public int[] PartyNumBarOffsets { get; set; }
         public Point CooldownBarLocation { get; set; }
@@ -314,6 +327,7 @@ namespace GenshinOverlay {
     public class Options {
         public Point CooldownTextLocation { get; set; } = Point.Empty;
         public Size CooldownTextSize { get; set; } = new Size(35, 18);
+        public int CooldownText2LocationX { get; set; } = 0;
         public Dictionary<string, Point> PartyNumLocations { get; set; } = new Dictionary<string, Point>() {
             { "4 #1", Point.Empty }, { "4 #2", Point.Empty }, { "4 #3", Point.Empty }, { "4 #4", Point.Empty },
             { "3 #1", Point.Empty }, { "3 #2", Point.Empty }, { "3 #3", Point.Empty },
@@ -346,7 +360,7 @@ namespace GenshinOverlay {
         public int PauseDelay { get; set; } = 500;
         public int CooldownTickRateInMs { get; set; } = 10;
         public int CooldownOCRRateInMs { get; set; } = 100;
-        public int CooldownMaxPossible { get; set; } = 60;
+        public int CooldownMaxPossible { get; set; } = 90;
         public decimal CooldownOffset { get; set; } = 0.0M;
         public decimal CooldownPauseSubtraction { get; set; } = 1.0M;
         public decimal CooldownMinimumReapply { get; set; } = 1.0M;

@@ -120,71 +120,26 @@
   <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>279, 18</value>
   </metadata>
+  <metadata name="MStyleManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>35</value>
+  </metadata>
   <metadata name="ConfigToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>279, 18</value>
   </metadata>
-  <data name="LabelCooldownText.ToolTip" xml:space="preserve">
-    <value>Define the position/size of a red rectangle region where the 
-skill cooldown timer will be captured for OCR processing.
-You should ensure that the full cooldown timer is within the bounds 
-of this region and not too close to the edges of the region.
-
-If you have finished setting this up and correctly setup party numbers 
-but you don't see any change to the bars when you use a skill:
-Switch character to stop the OCR attempt and reconfigure this region.</value>
-  </data>
-  <data name="LabelPartyNumbers.ToolTip" xml:space="preserve">
-    <value>Define the position of party slot numbers denoted as small dots.
-You need to line these dots up to be in position of the white background
-of party slot numbers on the very right side of the game window.
-
-To make sure you have set this up correctly, set "Sel. Offset" to 
-something different and save configuration, and then try switching character.
-You should see the position of the bar for the selected character move.</value>
-  </data>
-  <data name="PartyNumBarOffsetsTrack.ToolTip" xml:space="preserve">
-    <value>A Y position offset of bar #1 from party numbers.
-This is necessary if you want bars to line up correctly with 
-characters when there are fewer than 4 party members.
-This value is specific to the party size, so if you change 
-the box on the right to a different party size, the value of
-this will reflect the change.
-This value is ignored if bar X Offset is not 0.
-Note: You may also need to adjust the bar Y Offset value 
-below in order to line up the other bars correctly.</value>
+  <data name="CooldownPropOCRRateTrack.ToolTip" xml:space="preserve">
+    <value>The rate in ms at which OCR is performed.
+This affects how frequently the OCR engine will 
+attempt to retrieve a cooldown value when skill is used.
+A lower value will be more CPU intensive.
+A higher value will be less accurate.
+Default: 100</value>
   </data>
   <metadata name="AppearanceTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="CooldownBarsYOffsetTrack.ToolTip" xml:space="preserve">
-    <value>The Y position offset for bars 2, 3 and 4 from bar 1.
-Set X Offset to 0 and this to any other value to list bars vertically.
-Set this to 0 and X Offset to any other value to list bars horizontally.
-This value is specific to the party size, so if you change 
-the party size box, the value of this will reflect the change.</value>
-  </data>
-  <data name="SelColourText.ToolTip" xml:space="preserve">
-    <value>Set the colour/opacity of the currently selected character's cooldown bar when skill is on cooldown.
-An opacity value of 00 will hide the selected character's bar while on cooldown.
-Set to the same colour as FG1 Colour for no change.</value>
-  </data>
-  <metadata name="AppearanceTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="SelTColourText.ToolTip" xml:space="preserve">
-    <value>Set the colour/opacity of the currently selected character's cooldown text when skill is on cooldown.
-An opacity value of 00 will hide the selected character's text while on cooldown.
-Set to the same colour as FG1T Colour for no change.</value>
-  </data>
-  <data name="PartyNumComboBox.ToolTip" xml:space="preserve">
-    <value>Select which party number dot to adjust the X/Y Pos of individually.
-This is necessary because the position of party numbers 
-is different for different party sizes.
-Eg. "4 #1" will adjust position for the dot representing slot #1 
-when there are 4 characters in the party.
-You can also adjust the Bar Offset and Y Offset values for the 
-selected party size.</value>
-  </data>
   <data name="DPIResolutionComboBox.ToolTip" xml:space="preserve">
     <value>You should only need to touch this if you're using 
 desktop scaling and it could not be detected automatically.
@@ -266,12 +221,6 @@ A value of 0 will disable override.
 An override value should be no less than the minimum defined
 by the "Override" property below.</value>
   </data>
-  <metadata name="MStyleManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>35</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1970,14 +1919,6 @@ ignoring the confidence threshold.
 This will output some data to the textbox above and 
 also create a debug image folder in the application directory.</value>
   </data>
-  <data name="CooldownPropOCRRateTrack.ToolTip" xml:space="preserve">
-    <value>The rate in ms at which OCR is performed.
-This affects how frequently the OCR engine will 
-attempt to retrieve a cooldown value when skill is used.
-A lower value will be more CPU intensive.
-A higher value will be less accurate.
-Default: 100</value>
-  </data>
   <data name="DebugMultiButton.ToolTip" xml:space="preserve">
     <value>After using a skill, click this to perform a multi debug process of 
 the OCR engine to ensure that the rectangle region 
@@ -1989,4 +1930,72 @@ This will output some data to the textbox above and
 also create a debug image folder in the application directory.
 Note: Only the first iteration will save images.</value>
   </data>
+  <data name="CooldownBarsYOffsetTrack.ToolTip" xml:space="preserve">
+    <value>The Y position offset for bars 2, 3 and 4 from bar 1.
+Set X Offset to 0 and this to any other value to list bars vertically.
+Set this to 0 and X Offset to any other value to list bars horizontally.
+This value is specific to the party size, so if you change 
+the party size box, the value of this will reflect the change.</value>
+  </data>
+  <data name="SelColourText.ToolTip" xml:space="preserve">
+    <value>Set the colour/opacity of the currently selected character's cooldown bar when skill is on cooldown.
+An opacity value of 00 will hide the selected character's bar while on cooldown.
+Set to the same colour as FG1 Colour for no change.</value>
+  </data>
+  <data name="SelTColourText.ToolTip" xml:space="preserve">
+    <value>Set the colour/opacity of the currently selected character's cooldown text when skill is on cooldown.
+An opacity value of 00 will hide the selected character's text while on cooldown.
+Set to the same colour as FG1T Colour for no change.</value>
+  </data>
+  <data name="LabelCooldownText2.ToolTip" xml:space="preserve">
+    <value>This is a secondary orange rectangle region similar to the above 
+but for characters like Mona where the original skill is replaced 
+by her dash skill and the E skill is offset to the left.
+This region only gets checked if the 1st region does not 
+return a valid cooldown time.
+If you are not using characters like Mona, just set this 
+value to 0 to ignore the 2nd region entirely.</value>
+  </data>
+  <data name="LabelCooldownText.ToolTip" xml:space="preserve">
+    <value>Define the position/size of a red rectangle region where the 
+skill cooldown timer will be captured for OCR processing.
+You should ensure that the full cooldown timer is within the bounds 
+of this region and not too close to the edges of the region.
+
+If you have finished setting this up and correctly setup party numbers 
+but you don't see any change to the bars when you use a skill:
+Switch character to stop the OCR attempt and reconfigure this region.</value>
+  </data>
+  <data name="PartyNumComboBox.ToolTip" xml:space="preserve">
+    <value>Select which party number dot to adjust the X/Y Pos of individually.
+This is necessary because the position of party numbers 
+is different for different party sizes.
+Eg. "4 #1" will adjust position for the dot representing slot #1 
+when there are 4 characters in the party.
+You can also adjust the Bar Offset and Y Offset values for the 
+selected party size.</value>
+  </data>
+  <data name="PartyNumBarOffsetsTrack.ToolTip" xml:space="preserve">
+    <value>A Y position offset of bar #1 from party numbers.
+This is necessary if you want bars to line up correctly with 
+characters when there are fewer than 4 party members.
+This value is specific to the party size, so if you change 
+the box on the right to a different party size, the value of
+this will reflect the change.
+This value is ignored if bar X Offset is not 0.
+Note: You may also need to adjust the bar Y Offset value 
+below in order to line up the other bars correctly.</value>
+  </data>
+  <data name="LabelPartyNumbers.ToolTip" xml:space="preserve">
+    <value>Define the position of party slot numbers denoted as small dots.
+You need to line these dots up to be in position of the white background
+of party slot numbers on the very right side of the game window.
+
+To make sure you have set this up correctly, set "Sel. Offset" to 
+something different and save configuration, and then try switching character.
+You should see the position of the bar for the selected character move.</value>
+  </data>
+  <metadata name="AppearanceTab0.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

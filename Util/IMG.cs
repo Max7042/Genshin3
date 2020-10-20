@@ -135,6 +135,10 @@ namespace GenshinOverlay {
             return new Point((int)(pos.X * ((float)factor / 100)), (int)(pos.Y * ((float)factor / 100)));
         }
 
+        public static int Scaled(this int val, int factor) {
+            return (int)(val * ((float)factor / 100));
+        }
+
         public static int[] Scaled(this int[] values, int factor) {
             return values.Select(x => (int)(x * ((float)factor / 100))).ToArray();
         }

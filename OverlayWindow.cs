@@ -133,6 +133,9 @@ namespace GenshinOverlay {
                             }
 
                             Render.DrawRectangle(new SharpDX.RectangleF(Config.CooldownTextLocation.X, Config.CooldownTextLocation.Y, Config.CooldownTextSize.Width, Config.CooldownTextSize.Height), ConfigColorBrush1, 1f);
+                            if(Config.CooldownText2LocationX != 0) {
+                                Render.DrawRectangle(new SharpDX.RectangleF(Config.CooldownText2LocationX, Config.CooldownTextLocation.Y, Config.CooldownTextSize.Width, Config.CooldownTextSize.Height), ConfigColorBrush2, 1f);
+                            }
 
                             DrawDot("4#1", Config.PartyNumLocations["4 #1"].X, Config.PartyNumLocations["4 #1"].Y, ConfigColorBrush1);
                             DrawDot("4#2", Config.PartyNumLocations["4 #2"].X, Config.PartyNumLocations["4 #2"].Y, ConfigColorBrush1);
